@@ -1,0 +1,53 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    color: white; 
+    padding: 10px 20px;
+  }
+  
+img{
+    margin-top:-0.5em;
+    width: 6vw;
+    border-radius: 50%;
+}
+
+  div {
+    display: flex;
+  }
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin: 0 20px;
+    position: relative;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative; /* Agregamos position: relative aquí */
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px; /* Ajusta la posición vertical de la línea según tus preferencias */
+    height: 3px; /* Grosor de la línea */
+    background-color: #007bff; /* Color de la línea */
+    transform: scaleX(0); /* Escalamos la línea horizontalmente a 0 */
+    transform-origin: center; /* Punto de origen de la transformación en el centro */
+    transition: transform 0.2s ease-in-out; /* Animación de transformación */
+  }
+  
+  nav a:hover::after {
+    transform: scaleX(1); /* Escalamos la línea horizontalmente a 1 al pasar el cursor */
+  }
+  
