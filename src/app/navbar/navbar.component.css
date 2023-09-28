@@ -2,11 +2,27 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center; 
-  background-color: antiquewhite;
+  background-color:  #0db68f95;;
   color: white;
+  height: 11vh;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000; 
   padding: 10px 20px;
 }
-  
+.navbar-content {
+  padding: 10px; 
+}
+
+.scroll-bar {
+  height: 5px; 
+  background-color: #0DB68F;
+  width: 0; 
+  transition: width 0.3s ease; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}  
+
 img{
     margin-top:-0.5em;
     width: 5vw;
@@ -45,7 +61,7 @@ nav ul {
     right: 0;
     bottom: -3px; 
     height: 3px;
-    background-color: #007bff; 
+    background-color: #7FFF7F; 
     transform: scaleX(0); 
     transform-origin: center; 
     transition: transform 0.2s ease-in-out;
