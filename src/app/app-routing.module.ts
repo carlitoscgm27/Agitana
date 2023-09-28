@@ -4,8 +4,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { DonarComponent } from './donar/donar.component';
 
  const routes: Routes = [
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-  { path: 'inicio', component: InicioComponent },
+  { path: '', redirectTo: '/Inicio', pathMatch: 'full' },
+  { path: 'Inicio', component: InicioComponent },
   { path: 'Donar', component: DonarComponent },
 //   { path: 'contacto', component:  },
  ];
