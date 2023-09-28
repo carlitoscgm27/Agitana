@@ -3,11 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<< HEAD
-    "ProyectoDAW": {
-=======
     "proyectoDaw": {
->>>>>>> 835298326f378c35bed4c1b717a1640d062e4fa5
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -29,9 +25,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -64,17 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-<<<<<<< HEAD
-              "browserTarget": "ProyectoDAW:build:production"
-            },
-            "development": {
-              "browserTarget": "ProyectoDAW:build:development"
-=======
               "browserTarget": "proyectoDaw:build:production"
             },
             "development": {
               "browserTarget": "proyectoDaw:build:development"
->>>>>>> 835298326f378c35bed4c1b717a1640d062e4fa5
             }
           },
           "defaultConfiguration": "development"
@@ -82,11 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-<<<<<<< HEAD
-            "browserTarget": "ProyectoDAW:build"
-=======
             "browserTarget": "proyectoDaw:build"
->>>>>>> 835298326f378c35bed4c1b717a1640d062e4fa5
           }
         },
         "test": {
@@ -110,4 +100,5 @@
       }
     }
   }
-}
+ }
+ 
