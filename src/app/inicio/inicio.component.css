@@ -1,0 +1,18 @@
+h1{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  filter: drop-shadow(10px 8px 8px black);
+}
+div{
+  margin-top: 1.5em;
+}
+a{
+  font-size: 20px;
+}
+.pregunta{
+  font-size: 25px;
+}
+#col1{
+  margin-top: 4%;
+}
