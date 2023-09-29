@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { DonarComponent } from './donar/donar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     InicioComponent,
     DonarComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorPageComponent
 
   ],
   imports: [
