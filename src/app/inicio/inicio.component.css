@@ -12,10 +12,11 @@ a{
 }
 .pregunta{
   font-size: 25px;
+  text-decoration: underline;
 }
-#col1{
+/* #col1{
   margin-top: 4%;
-}
+} */
 .foto3{
   width: 70%;
   margin-left: 18%;
@@ -71,4 +72,30 @@ a{
  .botones{
   color: black;
  }
- 
+ .container{
+  
+  background-color: #7FFFD4;
+  margin-top: -1em;
+ }
+ .toy{
+  margin-left: 18%; 
+  width: 30vw; 
+  margin-top: 2%
+ }
+ .col{
+  margin-top: 1em;
+ }
+ .left-line{
+  border-left: 2px solid #006343;
+ }
+ .with-line {
+  border-bottom: 2px solid #006343;
+  border-top: 2px solid #006343;
+  box-shadow: 1px 2px 2px 3px #2F4858;
+}
+.grande{
+  background-color: #54d9c9b0;
+  width: 95vw;
+  margin-left: 2em;
+  box-shadow: 4px 8px 8px 8px #2F4858;
+}
