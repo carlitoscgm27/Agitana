@@ -1,5 +1,6 @@
 <nav [ngClass]="{'scrolled': isScrolled}">
   <div class="left-section">
+    <!-- <div *ngIf="user === no tiene"> -->
     <img src="assets/imagenes/logo.png">
     <ul>
       <li><a routerLink="/">Inicio</a></li>
@@ -9,10 +10,55 @@
   </div>
   <div class="right-section">
     <ul>
-      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/Login">Login</a></li>
+      <li><a routerLink="/Register">Register</a></li>
     </ul>
-    <div class="scroll-bar"></div>
+  <!-- </div> -->
+    <!-- <div *ngIf="user === Donante">-->
+      <!-- <img src="assets/imagenes/logo.png">
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/Donar">Donar</a></li>
+      </ul>
+    </div>
+    <div class="right-section">
+      <ul>
+        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
+      </ul> -->
+    <!-- </div> -->
+
+    <!-- ------------------------------- -->
+
+
+    <!-- <div *ngIf="user === Donante">-->
+      <!-- <img src="assets/imagenes/logo.png">
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/Recibir">Recibir</a></li>
+      </ul>
+    </div>
+    <div class="right-section">
+      <ul>
+        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
+      </ul> -->
+    <!-- </div> -->
+
+    <!-- <div *ngIf="user === Admin">-->
+      <!-- <img src="assets/imagenes/logo.png">
+      <ul>
+        <li><a routerLink="/Alta">Dar de Alta</a></li>
+        <li><a routerLink="/Control">Control de Inventario</a></li>
+        <li><a routerLink="/Donaciones">Llegada de Donaciones</a></li>
+        <li><a routerLink="/Solicitudes">Solicitudes</a></li>
+      </ul>
+    </div>
+    <div class="right-section">
+      <ul>
+        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
+      </ul> -->
+    <!-- </div> -->
   </div>
+  <div class="scroll-bar"></div>
 </nav>
 
   

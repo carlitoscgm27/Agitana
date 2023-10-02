@@ -6,13 +6,31 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0db68f95;
-  color: white;
+  background-color: #28C199;
   height: 11vh;
-  transition: background-color 0.3s ease, padding 0.3s ease;
   z-index: 1000;
   padding: 10px 20px;
 }
+nav.scrolled {
+  animation: adjust-nav 0.5s ease forwards;
+}
+
+@keyframes adjust-nav {
+  from {
+    background: #28C199;
+    backdrop-filter: none;
+    font-size: 16px;
+    height: 11vh;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    font-size: 12px;
+    height: 10vh;
+  }
+}
+
+
 .navbar-content {
   padding: 10px;
 }
@@ -31,7 +49,7 @@ img {
   margin-top: -0.5em;
   width: 5vw;
   border-radius: 50%;
-  filter: drop-shadow(8px 5px 5px grey);
+  filter: drop-shadow(8px 5px 5px #008A8F);
 }
 
 div {
@@ -86,4 +104,7 @@ nav a:hover::after {
 
 .active {
   font-weight: bold;
+}
+.login{
+  width: 3vw;
 }
