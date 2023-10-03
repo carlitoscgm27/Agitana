@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { DonarComponent } from './donar/donar.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { UserService } from './service/user.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Inicio', pathMatch: 'full' },
@@ -22,47 +23,45 @@ const routesAdmin: Routes = [
   //{ path: 'Control', component:  },
   //{ path: 'Donaciones', component:  },
   //{ path: 'Solicitud', component:  },
-  //{ path: 'Perfil', component:  },
+  //{ path: 'Perfil/?id', component:  },
 
   { path: '**', component: ErrorPageComponent },
 ];
-const routesDonante: Routes = [
+const routesDonanteRecibidor: Routes = [
   // { path: '', redirectTo: '/InicioDonante', pathMatch: 'full' },
 
   // { path: 'InicioDonante', component:  },
   // { path: 'Donar', component: DonarComponent },
-  //{ path: 'Perfil', component:  },
+  //{ path: 'Perfil/?id', component:  },
 
   { path: '**', component: ErrorPageComponent },
 ];
-const routesRecibidor: Routes = [
-  // { path: '', redirectTo: '/InicioRecibidor', pathMatch: 'full' },
 
-  // { path: 'InicioDonante', component:  },
-  // { path: 'Recibir', component:  },
-  //{ path: 'Perfil', component:  },
-
-  { path: '**', component: ErrorPageComponent },
-];
-const user = '';
+const user = 'admin';
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
-  comprobarUser(user: string) {
-    if (user == 'admin') {
-      routesAdmin;
-    } else if (user == 'Donante') {
-      routesDonante;
-    } else if (user == 'Recibidor') {
-      routesRecibidor;
+  router: any;
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    const user = this.userService.user;
+
+    
+    let selectedRoutes: Routes;
+
+    if (user === 'admin') {
+      selectedRoutes = routesAdmin;
+    } else if (user === 'Donante') {
+      selectedRoutes = routesDonanteRecibidor;
     } else {
-      routes;
+      selectedRoutes = routes;
     }
+
+    
+    this.router.resetConfig(selectedRoutes);
   }
-}
-function comprobarUser(user: any): Routes {
-  throw new Error('Function not implemented.');
 }

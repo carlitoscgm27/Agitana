@@ -9,6 +9,8 @@ import { DonarComponent } from './donar/donar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
+import { UserService } from './service/user.service';
+import { PersonaTipoService } from './service/persona-tipo.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    PersonaTipoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
