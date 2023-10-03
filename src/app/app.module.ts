@@ -8,6 +8,8 @@ import { InicioComponent } from './inicios/inicio/inicio.component';
 import { DonarComponent } from './donar/donar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 import { UserService } from './service/user.service';
 import { PersonaTipoService } from './service/persona-tipo.service';
@@ -22,8 +24,10 @@ import { InicioRecibidorComponent } from './inicios/inicio-recibidor/inicio-reci
     DonarComponent,
     FooterComponent,
     ErrorPageComponent,
+
     InicioDonanteComponent,
     InicioRecibidorComponent
+
 
   ],
   imports: [
