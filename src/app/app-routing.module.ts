@@ -5,6 +5,8 @@ import { DonarComponent } from './donar/donar.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { UserService } from './service/user.service';
 import { PersonaTipoService } from './service/persona-tipo.service';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   { path: 'OngSafa', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -12,8 +14,8 @@ const routes: Routes = [
   { path: 'OngSafa/Inicio', component: InicioComponent },
   { path: 'OngSafa/Donar', component: DonarComponent },
   //{ path: 'contacto', component:  },
-  //{ path: 'OngSafa/Login', component:  },
-  //{ path: 'OngSafa/Register', component:  },
+  { path: 'OngSafa/Login', component: LoginComponent },
+  { path: 'OngSafa/Register', component: RegistroComponent },
 
   { path: '**', component: ErrorPageComponent },
 ];
