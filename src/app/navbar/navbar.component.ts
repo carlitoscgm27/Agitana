@@ -1,4 +1,6 @@
+import { UserService } from './../service/user.service';
 import { Component, HostListener } from '@angular/core';
+import { PersonaTipoService } from '../service/persona-tipo.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +10,8 @@ import { Component, HostListener } from '@angular/core';
 export class NavbarComponent {
 
   isScrolled = false;
+  constructor(public userService: UserService,public personaTipo: PersonaTipoService) {}
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

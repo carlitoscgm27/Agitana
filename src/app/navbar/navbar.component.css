@@ -52,9 +52,6 @@ img {
   filter: drop-shadow(8px 5px 5px #008A8F);
 }
 
-div {
-  display: flex;
-}
 
 nav ul {
   list-style-type: none;
@@ -107,4 +104,10 @@ nav a:hover::after {
 }
 .login{
   width: 3vw;
+}
+.divController{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

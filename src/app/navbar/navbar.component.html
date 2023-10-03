@@ -1,63 +1,59 @@
 <nav [ngClass]="{'scrolled': isScrolled}">
-  <div class="left-section">
-    <!-- <div *ngIf="user === no tiene"> -->
+  <div class="divController" *ngIf="userService.user === '' && personaTipo.persona === ''">
+     <div class="left-section"> 
     <img src="assets/imagenes/logo.png">
     <ul>
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/Donar">Donar</a></li>
-      <li><a routerLink="/contacto">Contacto</a></li>
+      <li><a routerLink="OngSafa/">Inicio</a></li>
+      <li><a routerLink="OngSafa/Donar">Donar</a></li>
+      <li><a routerLink="OngSafa/contacto">Contacto</a></li>
     </ul>
   </div>
   <div class="right-section">
     <ul>
-      <li><a routerLink="/Login">Login</a></li>
-      <li><a routerLink="/Register">Register</a></li>
+      <li class="right-link"><a routerLink="OngSafa/Login">Login</a></li>
+      <li class="right-link"><a routerLink="OngSafa/Register">Register</a></li>
     </ul>
-  <!-- </div> -->
-    <!-- <div *ngIf="user === Donante">-->
-      <!-- <img src="assets/imagenes/logo.png">
-      <ul>
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/Donar">Donar</a></li>
-      </ul>
-    </div>
-    <div class="right-section">
-      <ul>
-        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
-      </ul> -->
-    <!-- </div> -->
-
+  </div> 
+  </div>
     <!-- ------------------------------- -->
 
 
-    <!-- <div *ngIf="user === Donante">-->
-      <!-- <img src="assets/imagenes/logo.png">
+    <div class="divController" *ngIf="userService.user === 'Admin'">
+      <div class="left-section">
+      <img src="assets/imagenes/logo.png">
       <ul>
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/Recibir">Recibir</a></li>
+        <li><a routerLink="OngSafa/">Inicio</a></li>
+        <li><a routerLink="OngSafa/Alta">Alta</a></li>
       </ul>
     </div>
-    <div class="right-section">
+      <div class="right-section">
       <ul>
-        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
-      </ul> -->
-    <!-- </div> -->
-
-    <!-- <div *ngIf="user === Admin">-->
-      <!-- <img src="assets/imagenes/logo.png">
-      <ul>
-        <li><a routerLink="/Alta">Dar de Alta</a></li>
-        <li><a routerLink="/Control">Control de Inventario</a></li>
-        <li><a routerLink="/Donaciones">Llegada de Donaciones</a></li>
-        <li><a routerLink="/Solicitudes">Solicitudes</a></li>
+         <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
       </ul>
     </div>
-    <div class="right-section">
-      <ul>
-        <li><a routerLink="/Perfil"><img class="login" src="assets/imagenes/persona.png"></a></li>
-      </ul> -->
-    <!-- </div> -->
   </div>
+  <div class="divController" *ngIf="personaTipo.persona">
+    <div class="left-section" *ngIf=" personaTipo.persona === 'Donante'">
+    <img src="assets/imagenes/logo.png">
+    <ul>
+      <li><a routerLink="OngSafa/">Inicio</a></li>
+      <li><a routerLink="OngSafa/Donante">Donar</a></li>
+    </ul>
+    </div>
+    <div class="left-section" *ngIf="personaTipo.persona === 'Recibir'">
+      <img src="assets/imagenes/logo.png">
+      <ul>
+        <li><a routerLink="OngSafa/">Inicio</a></li>
+        <li><a routerLink="OngSafa/Recibir">Recibir</a></li>
+      </ul>
+  </div>
+    <div class="right-section" *ngIf="personaTipo.persona">
+    <ul>
+       <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+    </ul>
+  </div>
+</div>
+   
   <div class="scroll-bar"></div>
 </nav>
 
