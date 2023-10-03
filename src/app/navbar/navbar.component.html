@@ -3,15 +3,15 @@
      <div class="left-section"> 
     <img src="assets/imagenes/logo.png">
     <ul>
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/Donar">Donar</a></li>
-      <li><a routerLink="/contacto">Contacto</a></li>
+      <li><a routerLink="OngSafa/">Inicio</a></li>
+      <li><a routerLink="OngSafa/Donar">Donar</a></li>
+      <li><a routerLink="OngSafa/contacto">Contacto</a></li>
     </ul>
   </div>
   <div class="right-section">
     <ul>
-      <li class="right-link"><a routerLink="/Login">Login</a></li>
-      <li class="right-link"><a routerLink="/Register">Register</a></li>
+      <li class="right-link"><a routerLink="OngSafa/Login">Login</a></li>
+      <li class="right-link"><a routerLink="OngSafa/Register">Register</a></li>
     </ul>
   </div> 
   </div>
@@ -22,13 +22,13 @@
       <div class="left-section">
       <img src="assets/imagenes/logo.png">
       <ul>
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/Alta">Alta</a></li>
+        <li><a routerLink="OngSafa/">Inicio</a></li>
+        <li><a routerLink="OngSafa/Alta">Alta</a></li>
       </ul>
     </div>
       <div class="right-section">
       <ul>
-         <li><a routerLink="/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+         <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
       </ul>
     </div>
   </div>
@@ -36,20 +36,20 @@
     <div class="left-section" *ngIf=" personaTipo.persona === 'Donante'">
     <img src="assets/imagenes/logo.png">
     <ul>
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/Donante">Donar</a></li>
+      <li><a routerLink="OngSafa/">Inicio</a></li>
+      <li><a routerLink="OngSafa/Donante">Donar</a></li>
     </ul>
     </div>
     <div class="left-section" *ngIf="personaTipo.persona === 'Recibir'">
       <img src="assets/imagenes/logo.png">
       <ul>
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/Recibir">Recibir</a></li>
+        <li><a routerLink="OngSafa/">Inicio</a></li>
+        <li><a routerLink="OngSafa/Recibir">Recibir</a></li>
       </ul>
   </div>
     <div class="right-section" *ngIf="personaTipo.persona">
     <ul>
-       <li><a routerLink="/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+       <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
     </ul>
   </div>
 </div>
