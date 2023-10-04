@@ -15,6 +15,7 @@ import { UserService } from './service/user.service';
 import { PersonaTipoService } from './service/persona-tipo.service';
 import { InicioDonanteComponent } from './inicios/inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './inicios/inicio-recibidor/inicio-recibidor.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ import { InicioRecibidorComponent } from './inicios/inicio-recibidor/inicio-reci
     DonarComponent,
     FooterComponent,
     ErrorPageComponent,
-
+    LoginComponent,
+    RegistroComponent,
     InicioDonanteComponent,
-    InicioRecibidorComponent
+    InicioRecibidorComponent,
+    PruebaComponent
 
 
   ],
