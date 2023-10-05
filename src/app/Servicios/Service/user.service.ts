@@ -1,4 +1,4 @@
-import { PersonaTipoService } from './persona-tipo.service';
+import { PersonaTipoService } from "./persona-tipo.service";
 import { Injectable } from '@angular/core';
 
 @Injectable({
