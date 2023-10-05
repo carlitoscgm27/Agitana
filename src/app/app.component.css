@@ -1,3 +1,8 @@
 div{
     background-color: aquamarine;
 }
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
