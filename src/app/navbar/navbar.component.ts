@@ -1,6 +1,6 @@
-import { UserService } from './../service/user.service';
+import { UserService } from '../Servicios/Service/user.service';
 import { Component, HostListener } from '@angular/core';
-import { PersonaTipoService } from '../service/persona-tipo.service';
+import { PersonaTipoService } from '../Servicios/Service/persona-tipo.service';
 
 @Component({
   selector: 'app-navbar',
