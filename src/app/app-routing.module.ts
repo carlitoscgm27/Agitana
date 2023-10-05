@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { roleGuardGuard } from './guard/role-guard.guard';
 import { PruebaComponent } from './prueba/prueba.component';
+import { InicioDonanteComponent } from './inicios/inicio-donante/inicio-donante.component';
+import { InicioRecibidorComponent } from './inicios/inicio-recibidor/inicio-recibidor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -52,7 +54,7 @@ const routes: Routes = [
     path: 'User/InicioDonante',
     data: { rol: 'User', tipo: 'Donante' },
     canActivate: [roleGuardGuard],
-    component: PruebaComponent,
+    component: InicioDonanteComponent,
   },
   // { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
   // { path: 'User/Recibir',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
@@ -71,7 +73,7 @@ const routes: Routes = [
     path: 'User/InicioRecibidor',
     data: { rol: 'User', tipo: 'Recibidor' },
     canActivate: [roleGuardGuard],
-    component: PruebaComponent,
+    component: InicioRecibidorComponent,
   },
   // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: DonarComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
