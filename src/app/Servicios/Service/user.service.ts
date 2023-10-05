@@ -1,4 +1,4 @@
-import { PersonaTipoService } from './persona-tipo.service';
+import { PersonaTipoService } from "./persona-tipo.service";
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  user: string = '';
+  user: string = 'User';
 
   constructor(private personaTipoService:PersonaTipoService) { }
   tipo = this.personaTipoService.persona;

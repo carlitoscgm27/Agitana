@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { InicioComponent } from './inicios/inicio/inicio.component';
-import { DonarComponent } from './donar/donar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { LoginComponent } from './login/login.component';
-import { RegistroComponent } from './registro/registro.component';
+import { NavbarComponent } from './Navbar/navbar.component';
+import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
+import { DonarComponent } from './Componentes/Funciones/Donar/donar.component';
+import { FooterComponent } from './Footer/footer.component';
+import { ErrorPageComponent } from './Error-page/error-page.component';
+import { LoginComponent } from './Usuario/Login/login.component';
+import { RegistroComponent } from './Usuario/Registro/registro.component';
 
-import { UserService } from './service/user.service';
-import { PersonaTipoService } from './service/persona-tipo.service';
-import { InicioDonanteComponent } from './inicios/inicio-donante/inicio-donante.component';
-import { InicioRecibidorComponent } from './inicios/inicio-recibidor/inicio-recibidor.component';
+import { UserService } from './Servicios/Service/user.service';
+import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
+import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
+import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
 import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
