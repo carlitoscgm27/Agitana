@@ -79,7 +79,7 @@ h1{
    }
    .toy{
     margin-left: 18%; 
-    width: 30vw; 
+    width: 70%; 
     margin-top: 2%
    }
    .col{
@@ -102,5 +102,16 @@ h1{
   }
   .fotos{
     width: 65%;
+  }
+  .texto{
+    margin-top: 10%;
+  }
+  .foto_donador_1{
+    width: 70%;
+    margin-left: 10%;
+  }
+  .foto_donador_3{
+    width: 70%;
+    margin-left: 10%;
   }
   
