@@ -3,7 +3,7 @@
      <div class="left-section"> 
     <img src="assets/imagenes/logo.png">
     <ul>
-      <li><a routerLink="OngSafa/">Inicio</a></li>
+      <li><a routerLink="OngSafa/Inicio">Inicio</a></li>
       <li><a routerLink="OngSafa/Donar">Donar</a></li>
       <li><a routerLink="OngSafa/contacto">Contacto</a></li>
     </ul>
@@ -22,13 +22,13 @@
       <div class="left-section">
       <img src="assets/imagenes/logo.png">
       <ul>
-        <li><a routerLink="OngSafa/">Inicio</a></li>
-        <li><a routerLink="OngSafa/Alta">Alta</a></li>
+        <li><a routerLink="Admin/persona">Inicio</a></li>
+        <li><a routerLink="Admin/Alta">Alta</a></li>
       </ul>
     </div>
       <div class="right-section">
       <ul>
-         <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+         <li><a routerLink="Admin/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
       </ul>
     </div>
   </div>
@@ -36,20 +36,20 @@
     <div class="left-section" *ngIf=" personaTipo.persona === 'Donante'">
     <img src="assets/imagenes/logo.png">
     <ul>
-      <li><a routerLink="OngSafa/">Inicio</a></li>
-      <li><a routerLink="OngSafa/Donante">Donar</a></li>
+      <li><a routerLink="User/InicioDonante">Inicio</a></li>
+      <li><a routerLink="User/Donante">Donar</a></li>
     </ul>
     </div>
-    <div class="left-section" *ngIf="personaTipo.persona === 'Recibir'">
+    <div class="left-section" *ngIf="personaTipo.persona === 'Recibidor'">
       <img src="assets/imagenes/logo.png">
       <ul>
-        <li><a routerLink="OngSafa/">Inicio</a></li>
-        <li><a routerLink="OngSafa/Recibir">Recibir</a></li>
+        <li><a routerLink="User/InicioRecibidor">Inicio</a></li>
+        <li><a routerLink="User/Recibir">Recibir</a></li>
       </ul>
   </div>
     <div class="right-section" *ngIf="personaTipo.persona">
     <ul>
-       <li><a routerLink="OngSafa/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+       <li><a routerLink="User/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
     </ul>
   </div>
 </div>

@@ -1,0 +1,112 @@
+h1{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    filter: drop-shadow(10px 8px 8px black);
+  }
+  div{
+    margin-top: 1.5em;
+  }
+  a{
+    font-size: 20px;
+  }
+  .pregunta{
+    font-size: 25px;
+    text-decoration: underline;
+  }
+  /* #col1{
+    margin-top: 4%;
+  } */
+  .foto3{
+    width: 70%;
+    margin-left: 18%;
+    margin-bottom: 5%;
+  }
+  .mapa{
+    width: 70%;
+    height: 120%;
+    margin-left: 20%;
+    border: 0.5px solid aquamarine;
+    border-radius: 15px;
+    margin-top: -5%;
+  }
+  
+  .boton {
+    padding: 0.8em 1.8em;
+    border: 2px solid green;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: green;
+    margin-left: 43%;
+    margin-bottom: 5%;
+   }
+   
+   .boton::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: green;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .boton:hover::before {
+    width: 105%;
+   }
+   
+   .boton:hover {
+    color: #111;
+   }
+   .botones{
+    color: black;
+   }
+   .container{
+    
+    background-color: #7FFFD4;
+    margin-top: -1em;
+   }
+   .toy{
+    margin-left: 18%; 
+    width: 30vw; 
+    margin-top: 2%
+   }
+   .col{
+    margin-top: 1em;
+   }
+   .left-line{
+    border-left: 2px solid #006343;
+   }
+   .with-line {
+    border-bottom: 2px solid #006343;
+    border-top: 2px solid #006343;
+    box-shadow: 1px 2px 2px 3px #2F4858;
+    margin-top: 5%;
+  }
+  .grande{
+    background-color: #54d9c9b0;
+    width: 95vw;
+    margin-left: 2em;
+    box-shadow: 4px 8px 8px 8px #2F4858;
+  }
+  .fotos{
+    width: 60%;
+  }
+  .texto{
+    margin-top: 10%;
+  }
+  .foto_recibirdor_1{
+    width: 70%;
+    margin-left: 10%;
+  }
