@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class PersonaTipoService {
 
-  persona: string = '';
+  persona: string = 'Donante';
   nombrePersona:string ='Pepito';
 }
