@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './Navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
 import { DonarComponent } from './Componentes/Funciones/Donar/donar.component';
-import { FooterComponent } from './Footer/footer.component';
-import { ErrorPageComponent } from './Error-page/error-page.component';
-import { LoginComponent } from './Usuario/Login/login.component';
-import { RegistroComponent } from './Usuario/Registro/registro.component';
+import { FooterComponent } from './footer/footer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoginComponent } from './Usuario/login/login.component';
+import { RegistroComponent } from './Usuario/registro/registro.component';
 
 import { UserService } from './Servicios/Service/user.service';
 import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
