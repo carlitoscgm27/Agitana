@@ -11,6 +11,7 @@ import { roleGuardGuard } from './Servicios/Guard/role-guard.guard';
 import { PruebaComponent } from './prueba/prueba.component';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
+import { RecibirComponent } from './Componentes/Funciones/Recibir/recibir.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -75,7 +76,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: InicioRecibidorComponent,
   },
-  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: DonarComponent },
+  { path: 'User/Recibir',data:{rol:'User', tipo:'Recibidor'},canActivate:[roleGuardGuard], component: RecibirComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
 
   { path: '**', component: ErrorPageComponent },

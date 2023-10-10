@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { RecibirComponent } from './recibir.component';
+
+describe('RecibirComponent', () => {
+  let component: RecibirComponent;
+  let fixture: ComponentFixture<RecibirComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [RecibirComponent]
+    });
+    fixture = TestBed.createComponent(RecibirComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
