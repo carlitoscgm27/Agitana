@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,11 +12,20 @@ import { ErrorPageComponent } from './Error-page/error-page.component';
 import { LoginComponent } from './Usuario/Login/login.component';
 import { RegistroComponent } from './Usuario/Registro/registro.component';
 
+import { AuthService } from './Servicios/auth.service';
 import { UserService } from './Servicios/Service/user.service';
 import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
+import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.component';
+import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitudes.component';
+import { ControlComponent } from './Componentes/Admin/Control/control.component';
+import { ProductosComponent } from './Componentes/Admin/Dar-alta/Productos/productos.component';
+import { CategoriaComponent } from './Componentes/Admin/Dar-alta/Categoria/categoria.component';
+import { TipoComponent } from './Componentes/Admin/Dar-alta/Tipo/tipo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,17 +39,27 @@ import { PruebaComponent } from './prueba/prueba.component';
     RegistroComponent,
     InicioDonanteComponent,
     InicioRecibidorComponent,
-    PruebaComponent
+    PruebaComponent,
+    DarAltaComponent,
+    DonacionesComponent,
+    SolicitudesComponent,
+    ControlComponent,
+    ProductosComponent,
+    CategoriaComponent,
+    TipoComponent
 
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     UserService,
-    PersonaTipoService
+    PersonaTipoService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

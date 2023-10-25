@@ -1,60 +1,77 @@
-<nav [ngClass]="{'scrolled': isScrolled}">
-  <div class="divController" *ngIf="userService.user === '' && personaTipo.persona === ''">
-     <div class="left-section"> 
-    <img src="assets/imagenes/logo.png">
-    <ul>
-      <li><a routerLink="OngSafa/Inicio">Inicio</a></li>
-      <li><a routerLink="OngSafa/Donar">Donar</a></li>
-      <li><a routerLink="OngSafa/contacto">Contacto</a></li>
-    </ul>
-  </div>
-  <div class="right-section">
-    <ul>
-      <li class="right-link"><a routerLink="OngSafa/Login">Login</a></li>
-      <li class="right-link"><a routerLink="OngSafa/Register">Register</a></li>
-    </ul>
-  </div> 
-  </div>
-    <!-- ------------------------------- -->
-
-
-    <div class="divController" *ngIf="userService.user === 'Admin'">
-      <div class="left-section">
-      <img src="assets/imagenes/logo.png">
+<nav [ngClass]="{ scrolled: isScrolled }">
+  <div
+    class="divController"
+    *ngIf="this.rol === null"
+  >
+    <div class="left-section">
+      <img src="assets/imagenes/logo.png" />
       <ul>
-        <li><a routerLink="Admin/persona">Inicio</a></li>
+        <li><a routerLink="OngSafa/Inicio">Inicio</a></li>
+        <li><a routerLink="OngSafa/Donar">Donar</a></li>
+        <li><a routerLink="OngSafa/contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="right-section">
+      <ul>
+        <li class="right-link"><a routerLink="OngSafa/Login">Login</a></li>
+        <li class="right-link">
+          <a routerLink="OngSafa/Register">Register</a>
+        </li>
+        <li><a (click)="logout()">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- ------------------------------- -->
+
+  <div class="divController" *ngIf="this.rol === 'Admin'">
+    <div class="left-section">
+      <img src="assets/imagenes/logo.png" />
+      <ul>
         <li><a routerLink="Admin/Alta">Alta</a></li>
+        <li><a routerLink="Admin/Control">Control</a></li>
+        <li><a routerLink="Admin/Donaciones">Donaciones</a></li>
+        <li><a routerLink="Admin/Solicitudes">Solicitudes</a></li>
       </ul>
     </div>
-      <div class="right-section">
+    <div class="right-section">
       <ul>
-         <li><a routerLink="Admin/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
+        <li>
+          <a routerLink="Admin/Perfil"
+            >{{ personaTipo.nombrePersona
+            }}<img class="login" src="assets/imagenes/persona.png"
+          /></a>
+        </li>
+        <li><a (click)="logout()">Cerrar Sesión</a></li>
       </ul>
     </div>
   </div>
-  <div class="divController" *ngIf="personaTipo.persona">
-    <div class="left-section" *ngIf=" personaTipo.persona === 'Donante'">
-    <img src="assets/imagenes/logo.png">
-    <ul>
-      <li><a routerLink="User/InicioDonante">Inicio</a></li>
-      <li><a routerLink="User/Donar">Donar</a></li>
-    </ul>
+  <div class="divController" *ngIf="this.rol === 'User'">
+    <div class="left-section" *ngIf="personaTipo.persona === 'Donante'">
+      <img src="assets/imagenes/logo.png" />
+      <ul>
+        <li><a routerLink="User/InicioDonante">Inicio</a></li>
+        <li><a routerLink="User/Donar">Donar</a></li>
+      </ul>
     </div>
     <div class="left-section" *ngIf="personaTipo.persona === 'Recibidor'">
-      <img src="assets/imagenes/logo.png">
+      <img src="assets/imagenes/logo.png" />
       <ul>
         <li><a routerLink="User/InicioRecibidor">Inicio</a></li>
         <li><a routerLink="User/Recibir">Recibir</a></li>
       </ul>
-  </div>
+    </div>
     <div class="right-section" *ngIf="personaTipo.persona">
-    <ul>
-       <li><a routerLink="User/Perfil">{{personaTipo.nombrePersona}}<img class="login" src="assets/imagenes/persona.png"></a></li>
-    </ul>
+      <ul>
+        <li>
+          <a routerLink="User/Perfil"
+            >{{ personaTipo.nombrePersona
+            }}<img class="login" src="assets/imagenes/persona.png"
+          /></a>
+        </li>
+        <li><a (click)="logout()">Cerrar Sesión</a></li>
+      </ul>
+    </div>
   </div>
-</div>
-   
+  
   <div class="scroll-bar"></div>
 </nav>
-
-  
