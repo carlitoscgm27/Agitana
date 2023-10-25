@@ -1,0 +1,82 @@
+.Div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #54d9c9b0;
+  
+    margin-left: 2em;
+    box-shadow: 4px 8px 8px 8px #2f4858;
+    width: 90vw;
+    height: 80vh;
+  }
+  .DivRegister {
+    width: 80vw;
+    height: 70vh;
+    background-color: #7FFFD4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+  }
+  h1{
+    text-decoration: underline;
+  }
+  .Table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .Table th, .Table td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+  }
+  
+  .Table th {
+    background-color: #7FFFD4;
+  }
+  
+  .Table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .Table td .button {
+    display: none; 
+  }
+  
+  .Table tr:hover td  .button {
+    display: block; }
+
+
+
+
+    .button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(20, 20, 20);
+      border: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+      cursor: pointer;
+      transition-duration: .3s;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .svgIcon {
+      width: 12px;
+      transition-duration: .3s;
+    }
+    
+    .svgIcon path {
+      fill: white;
+    }
+    
+   

@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
 import { DonarComponent } from './Componentes/Funciones/Donar/donar.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
+import { ErrorPageComponent } from './Error-page/error-page.component';
 import { UserService } from './Servicios/Service/user.service';
 import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
-import { LoginComponent } from './Usuario/login/login.component';
-import { RegistroComponent } from './Usuario/registro/registro.component';
+import { LoginComponent } from './Usuario/Login/login.component';
+import { RegistroComponent } from './Usuario/Registro/registro.component';
 import { roleGuardGuard } from './Servicios/Guard/role-guard.guard';
 import { PruebaComponent } from './prueba/prueba.component';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
+import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.component';
+import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitudes.component';
+import { ControlComponent } from './Componentes/Admin/Control/control.component';
+import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -33,12 +37,26 @@ const routes: Routes = [
     path: 'Admin/Alta',
     data: { rol: 'Admin' },
     canActivate: [roleGuardGuard],
-    component: PruebaComponent,
+    component: DarAltaComponent,
   },
-  // { path: 'User', redirectTo: 'User/InicioDonante', pathMatch: 'full',data:{rol:'Admin'},canActivate:[roleGuardGuard], component:  PruebaComponent },
-  //{ path: 'Admin/Control',data:{rol:'Admin'},canActivate:[roleGuardGuard], component:  },
-  //{ path: 'Admin/Donaciones,data:{rol:'Admin'},canActivate:[roleGuardGuard]', component:  },
-  //{ path: 'Admin/Solicitud',data:{rol:'Admin'},canActivate:[roleGuardGuard], component:  },
+  {
+    path: 'Admin/Control',
+    data: { rol: 'Admin' },
+    canActivate: [roleGuardGuard],
+    component: ControlComponent,
+  },
+  {
+    path: 'Admin/Donaciones',
+    data: { rol: 'Admin' },
+    canActivate: [roleGuardGuard],
+    component: DonacionesComponent,
+  },
+  {
+    path: 'Admin/Solicitudes',
+    data: { rol: 'Admin' },
+    canActivate: [roleGuardGuard],
+    component: SolicitudesComponent,
+  },
   //{ path: 'Admin/Perfil/?id',data:{rol:'Admin'},canActivate:[roleGuardGuard], component:  },
 
   //Doanante

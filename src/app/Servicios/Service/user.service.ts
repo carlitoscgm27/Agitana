@@ -1,28 +1,19 @@
-import { PersonaTipoService } from "./persona-tipo.service";
+import { AuthService } from 'src/app/Servicios/auth.service';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  
+  private apiUrl = 'Admin/Stock/listar';
 
-  user: string = 'User';
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
-  constructor(private personaTipoService:PersonaTipoService) { }
-  tipo = this.personaTipoService.persona;
+  //getData(): Observable<any> {
+  // return this.authService.getWithBearerToken(this.apiUrl) 
+ // }
 
-  getCurrentUser(): boolean {
-    
-    if(this.user=='Admin'){
-      console.log("entro en getCurrentUser")
-      return true;
-    }else if(this.user=='User' && this.tipo== 'Recibidor'){
-      console.log("entro en getCurrentUser")
-      return true;
-    }else if(this.user=='User' && this.tipo== 'Donante'){
-      console.log("entro en getCurrentUser")
-      return true;
-    }else
-    return false;
-  }
 }

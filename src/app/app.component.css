@@ -1,8 +1,16 @@
-div{
-    background-color: aquamarine;
+div {
+  background: linear-gradient(
+    135deg,
+    rgba(127, 255, 212, 1) 15%,
+    rgba(84, 217, 201, 1) 30%,
+    rgba(59, 179, 183, 1) 45%,
+    rgba(52, 141, 157, 1) 60%,
+    rgba(51, 106, 124, 1) 75%,
+    rgba(47, 72, 88, 1) 90%
+  );
 }
-.Container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
