@@ -13,7 +13,7 @@
       <div class="Divs">
         <label for="username">Nombre de usuario</label>
         <div>
-          <input type="text" class="form-control" name="username" value="" />
+          <input type="text" class="form-control" name="username" [(ngModel)]="username" />
         </div>
       </div>
 
@@ -24,14 +24,14 @@
             type="password"
             class="form-control"
             name="password"
-            value=""
+            [(ngModel)]="password"
           />
         </div>
       </div>
     </div>
     <br />
     <div>
-      <button class="btn btn-block" id="btn-login">
+      <button class="btn btn-block" id="btn-login" (click)="onSubmit()">
         <span>Iniciar Sesión</span>
       </button>
     </div>
