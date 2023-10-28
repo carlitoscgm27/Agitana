@@ -25,7 +25,8 @@ import { ControlComponent } from './Componentes/Admin/Control/control.component'
 import { ProductosComponent } from './Componentes/Admin/Dar-alta/Productos/productos.component';
 import { CategoriaComponent } from './Componentes/Admin/Dar-alta/Categoria/categoria.component';
 import { TipoComponent } from './Componentes/Admin/Dar-alta/Tipo/tipo.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -46,21 +47,19 @@ import { HttpClientModule } from '@angular/common/http';
     ControlComponent,
     ProductosComponent,
     CategoriaComponent,
-    TipoComponent
-
-
+    TipoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     UserService,
     PersonaTipoService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

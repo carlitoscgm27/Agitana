@@ -20,28 +20,17 @@ export class NavbarComponent {
   ) {}
 
   ngOnInit() {
-    if(this.rol==""){
-      this.rol=""
-    }else
-    this.rol = this.authService.getAuthRol();
+    if (this.rol == '') {
+      this.rol = '';
+    } else this.rol = this.authService.getAuthRol();
   }
- 
+
   logout() {
-    this.authService.logoutS().subscribe(
-      (response) => {
-        console.log("llamada",response);
-        this.authService.removeAuthToken();
-        this.authService.removeAuthRol();
-        this.router.navigate(['../']).then(() => {
-          window.location.href = '../';
-        });
-      },
-        (error) => {
-          console.log(error);
-        }
-    )
-   
-    
+    this.authService.removeAuthToken();
+    this.authService.removeAuthRol();
+    this.router.navigate(['../']).then(() => {
+      window.location.href = '../';
+    });
   }
 
   @HostListener('window:scroll', [])

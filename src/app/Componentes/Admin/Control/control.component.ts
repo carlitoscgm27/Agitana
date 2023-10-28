@@ -7,14 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent {
+  responseData: any[] = []; // Declaración de un array para almacenar datos
 
   constructor(private userService: UserService) {}
 
-
   ngOnInit(): void {
-   // this.userService.getData().subscribe((data) => {
-  //    console.log(data);
- //   });
+    this.userService.getWithBearerToken().subscribe(
+      (response) => {
+        console.log('response', response);
+        this.responseData = response; // Almacena los datos en el array
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
   }
-
 }
