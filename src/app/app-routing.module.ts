@@ -74,8 +74,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: InicioDonanteComponent,
   },
-  // { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
-  // { path: 'User/Recibir',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
+  { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component:  },
 
   //Recibidor
@@ -93,7 +92,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: InicioRecibidorComponent,
   },
-  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: DonarComponent },
+  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: RecibirComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
 
   { path: '**', component: ErrorPageComponent },

@@ -6,15 +6,27 @@
   
     margin-left: 2em;
     box-shadow: 4px 8px 8px 8px #2f4858;
-    width: 50vw;
-    height: 80vh;
+    width: 90vw;
+    height: auto;
   }
   .DivRegister {
-    width: 40vw;
+    width: 80vw;
     background-color: #7FFFD4;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    
+    justify-items: center;
     margin: 1em;
+  }
+  .DivOrg{
+    display:grid;
+    border: solid 0.3em gold;
+    /* grid-template-rows: 2fr 1fr 2fr;
+    width:15vw;
+   
+    justify-items: center; */
+    margin:0.5em
+  }
+  .Uno{
+    width:15vw;
   }

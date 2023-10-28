@@ -1,6 +1,20 @@
 <br />
 <div class="Div">
   <div class="DivRegister">
-    <p>control works!</p>
+    <h1>Elementos del Array</h1>
+    <div class="DivOrg" *ngFor="let item of responseData">
+      
+      <div class="Uno">
+      <label><u><strong>Nombre: {{ item.nombre }}</strong></u></label>
+      <br>
+      <label>Categoría: {{ item.categoriaDTO.nombre }}</label>
+      <br>
+      <label>Descripción: {{ item.categoriaDTO.descripcion }}</label>
+      <br>
+      <label>Tipo: {{ item.tipoDTO.nombre }}</label>
+      <br>
+    </div>
+  
+    </div>
   </div>
 </div>

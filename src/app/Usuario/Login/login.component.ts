@@ -21,7 +21,12 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(
       (response) => {
-        console.log('Username', this.username);
+        if(response.token==null){
+          console.log("entro en null")
+          window.alert(response.message);
+        }else
+        {
+          console.log('Username', this.username);
         console.log('password', this.password);
         this.rol='Admin';
         console.log('response', response.token);
@@ -44,7 +49,8 @@ export class LoginComponent {
           }
         }
         
-    return console.log('Falso perrrrrrrrrrrrrrrrrrrrro');;
+    return console.log('Falso perrrrrrrrrrrrrrrrrrrrro');
+  }
       },
       (error) => {
         console.log('Username', this.username);
