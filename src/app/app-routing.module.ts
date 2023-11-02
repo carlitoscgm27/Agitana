@@ -14,11 +14,13 @@ import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.c
 import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitudes.component';
 import { ControlComponent } from './Componentes/Admin/Control/control.component';
 import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
+import { Error403PageComponent } from './Error403-page/error403-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
   { path: 'OngSafa/Inicio', component: InicioComponent },
   { path: 'OngSafa/Donar', component: DonarComponent },
+  { path: '403', component: Error403PageComponent },
   //{ path: 'contacto', component:  },
   { path: 'OngSafa/Login', component: LoginComponent },
   { path: 'OngSafa/Register', component: RegistroComponent },
