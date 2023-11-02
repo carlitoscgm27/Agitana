@@ -7,14 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent {
+  responseData: any[] = [];
 
   constructor(private userService: UserService) {}
 
-
   ngOnInit(): void {
-   // this.userService.getData().subscribe((data) => {
-  //    console.log(data);
- //   });
+    this.userService.getWithBearerToken().subscribe(
+      (response) => {
+        console.log('response', response);
+        this.responseData = response;
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
   }
-
 }

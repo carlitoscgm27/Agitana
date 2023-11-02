@@ -14,7 +14,6 @@ import { RegistroComponent } from './Usuario/Registro/registro.component';
 
 import { AuthService } from './Servicios/auth.service';
 import { UserService } from './Servicios/Service/user.service';
-import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
 import { PruebaComponent } from './prueba/prueba.component';
@@ -25,7 +24,9 @@ import { ControlComponent } from './Componentes/Admin/Control/control.component'
 import { ProductosComponent } from './Componentes/Admin/Dar-alta/Productos/productos.component';
 import { CategoriaComponent } from './Componentes/Admin/Dar-alta/Categoria/categoria.component';
 import { TipoComponent } from './Componentes/Admin/Dar-alta/Tipo/tipo.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
+import { Error403PageComponent } from './Error403-page/error403-page.component';
 
 @NgModule({
   declarations: [
@@ -46,21 +47,19 @@ import { HttpClientModule } from '@angular/common/http';
     ControlComponent,
     ProductosComponent,
     CategoriaComponent,
-    TipoComponent
-
-
+    TipoComponent,
+    Error403PageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     UserService,
-    PersonaTipoService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

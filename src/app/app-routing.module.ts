@@ -4,7 +4,6 @@ import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
 import { DonarComponent } from './Componentes/Funciones/Donar/donar.component';
 import { ErrorPageComponent } from './Error-page/error-page.component';
 import { UserService } from './Servicios/Service/user.service';
-import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
 import { LoginComponent } from './Usuario/Login/login.component';
 import { RegistroComponent } from './Usuario/Registro/registro.component';
 import { roleGuardGuard } from './Servicios/Guard/role-guard.guard';
@@ -25,7 +24,7 @@ const routes: Routes = [
   { path: 'OngSafa/Register', component: RegistroComponent },
 
   //Admin
-
+ 
   {
     path: '',
     data: { rol: 'Admin' },
@@ -74,8 +73,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: InicioDonanteComponent,
   },
-  // { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
-  // { path: 'User/Recibir',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
+  { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component:  },
 
   //Recibidor
@@ -93,7 +91,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: InicioRecibidorComponent,
   },
-  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: DonarComponent },
+  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: RecibirComponent },
   //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
 
   { path: '**', component: ErrorPageComponent },
@@ -107,6 +105,5 @@ export class AppRoutingModule {
   router: any;
   constructor(
     private userService: UserService,
-    public personaTipo: PersonaTipoService
   ) {}
 }

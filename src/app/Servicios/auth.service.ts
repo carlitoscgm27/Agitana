@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private authUrl = 'http://localhost:8080/auth';
   private authToken: string | null = null;
-  private rol: string | null = "";
+  private rol: string | null = '';
+  private userTipo: string | null = '';
+  private nombre:string | null = '';
   constructor(private http: HttpClient) {
     this.authToken = localStorage.getItem('authToken');
   }
@@ -18,13 +20,12 @@ export class AuthService {
       username: username,
       password: password,
     };
-console.log(credentials)
+    console.log(credentials);
     return this.http.post(`${this.authUrl}/login`, credentials);
   }
   logoutS(): Observable<any> {
     return this.http.get(`${this.authUrl}/logout`);
   }
-
 
   setAuthToken(token: string) {
     this.authToken = token;
@@ -34,7 +35,18 @@ console.log(credentials)
     this.rol = rol;
     localStorage.setItem('rol', rol);
   }
+  setAuthUserType(userTipo: string) {
+    this.userTipo = userTipo;
+    localStorage.setItem('UserTipo', userTipo);
+  }
+  setAuthNombre(nombre: string) {
+    this.nombre = nombre;
+    localStorage.setItem('Nombre', nombre);
+  }
 
+  get Token() {
+    return localStorage.getItem('authToken');
+  }
   getAuthToken(): string | null {
     if (!this.authToken) {
       this.authToken = localStorage.getItem('authToken');
@@ -47,6 +59,18 @@ console.log(credentials)
     }
     return this.rol;
   }
+  getAuthUserType(): string | null {
+    if (!this.userTipo) {
+      this.userTipo = localStorage.getItem('UserTipo');
+    }
+    return this.userTipo;
+  }
+  getAuthNombre(): string | null {
+    if (!this.nombre) {
+      this.nombre = localStorage.getItem('Nombre');
+    }
+    return this.nombre;
+  }
   removeAuthToken() {
     this.authToken = null;
     localStorage.removeItem('authToken');
@@ -56,30 +80,33 @@ console.log(credentials)
     this.rol = null;
     localStorage.removeItem('rol');
   }
+  removeAuthUserType() {
+    this.userTipo = null;
+    localStorage.removeItem('UserTipo');
+  }
+  removeAuthNombre() {
+    this.nombre = null;
+    localStorage.removeItem('Nombre');
+  }
 
   checkCurrentRol(): boolean {
-    console.log("entraaaaaa")
+    console.log('entraaaaaa');
     if (!this.rol) {
       this.rol = localStorage.getItem('rol');
     }
     this.rol;
-    console.log(this.rol)
+    console.log(this.rol);
     if (this.rol) {
-      if (this.rol == 'Admin') {
+      if (this.rol == 'ADMIN') {
         console.log('Usuario Admin');
         return true;
-      } else if (
-        this.rol == 'User') {
+      } else if (this.rol == 'USER') {
         console.log('Usuario User con tipo Recibidor o Donante');
         return true;
-      }else
-    
-
-    console.log('Usuario no autorizado 1');
+      } else console.log('Usuario no autorizado 1');
+      return false;
+    }
+    console.log('Usuario no autorizado 2');
     return false;
   }
-  console.log('Usuario no autorizado 2');
-    return false;
-  }
-
 }

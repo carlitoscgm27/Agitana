@@ -23,7 +23,7 @@
   </div>
   <!-- ------------------------------- -->
 
-  <div class="divController" *ngIf="this.rol === 'Admin'">
+  <div class="divController" *ngIf="this.rol === 'ADMIN'">
     <div class="left-section">
       <img src="assets/imagenes/logo.png" />
       <ul>
@@ -37,7 +37,7 @@
       <ul>
         <li>
           <a routerLink="Admin/Perfil"
-            >{{ personaTipo.nombrePersona
+            >{{ this.nombre
             }}<img class="login" src="assets/imagenes/persona.png"
           /></a>
         </li>
@@ -45,26 +45,26 @@
       </ul>
     </div>
   </div>
-  <div class="divController" *ngIf="this.rol === 'User'">
-    <div class="left-section" *ngIf="personaTipo.persona === 'Donante'">
+  <div class="divController" *ngIf="this.rol === 'USER'">
+    <div class="left-section" *ngIf="this.userTipo === 'DONANTE'">
       <img src="assets/imagenes/logo.png" />
       <ul>
         <li><a routerLink="User/InicioDonante">Inicio</a></li>
         <li><a routerLink="User/Donar">Donar</a></li>
       </ul>
     </div>
-    <div class="left-section" *ngIf="personaTipo.persona === 'Recibidor'">
+    <div class="left-section" *ngIf="this.userTipo === 'RECIBIDOR'">
       <img src="assets/imagenes/logo.png" />
       <ul>
         <li><a routerLink="User/InicioRecibidor">Inicio</a></li>
         <li><a routerLink="User/Recibir">Recibir</a></li>
       </ul>
     </div>
-    <div class="right-section" *ngIf="personaTipo.persona">
+    <div class="right-section" *ngIf="this.userTipo">
       <ul>
         <li>
           <a routerLink="User/Perfil"
-            >{{ personaTipo.nombrePersona
+            >{{ this.nombre
             }}<img class="login" src="assets/imagenes/persona.png"
           /></a>
         </li>

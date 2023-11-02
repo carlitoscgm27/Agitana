@@ -1,3 +1,4 @@
+import { UserService } from './../../../Servicios/Service/user.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class InicioRecibidorComponent {
 
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userService.comprobarUser().subscribe(
+      (response) => {
+        console.log('response', response);
+       
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
 }

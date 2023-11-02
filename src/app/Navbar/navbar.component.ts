@@ -1,6 +1,5 @@
 import { UserService } from '../Servicios/Service/user.service';
 import { Component, HostListener } from '@angular/core';
-import { PersonaTipoService } from '../Servicios/Service/persona-tipo.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../Servicios/auth.service';
 
@@ -12,36 +11,34 @@ import { AuthService } from '../Servicios/auth.service';
 export class NavbarComponent {
   isScrolled = false;
   rol: any;
+  userTipo: any;
+  nombre: any;
   constructor(
     public userService: UserService,
-    public personaTipo: PersonaTipoService,
     private authService: AuthService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    if(this.rol==""){
-      this.rol=""
-    }else
-    this.rol = this.authService.getAuthRol();
+    if (this.rol == '') {
+      this.rol = '';
+    } else this.rol = this.authService.getAuthRol();
+    if (this.userTipo == '') {
+      this.userTipo = '';
+    } else this.userTipo = this.authService.getAuthUserType();
+    if (this.nombre == '') {
+      this.nombre = '';
+    } else this.nombre = this.authService.getAuthNombre();
   }
- 
+
   logout() {
-    this.authService.logoutS().subscribe(
-      (response) => {
-        console.log("llamada",response);
-        this.authService.removeAuthToken();
-        this.authService.removeAuthRol();
-        this.router.navigate(['../']).then(() => {
-          window.location.href = '../';
-        });
-      },
-        (error) => {
-          console.log(error);
-        }
-    )
-   
-    
+    this.authService.removeAuthToken();
+    this.authService.removeAuthRol();
+    this.authService.removeAuthUserType();
+    this.authService.removeAuthNombre();
+    this.router.navigate(['../']).then(() => {
+      window.location.href = '../';
+    });
   }
 
   @HostListener('window:scroll', [])
