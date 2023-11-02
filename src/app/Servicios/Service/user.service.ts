@@ -10,6 +10,8 @@ export class UserService {
   private apiUrl = 'Admin/Productos/listar';
   private authUrl = 'http://localhost:8080';
   private userUrl = 'User/Usuario/listar';
+  private adminUrl = 'Admin/Usuario/listar';
+  id:any;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -20,8 +22,22 @@ export class UserService {
   }
 
   comprobarUser(): Observable<any> {
-    return this.http.get(`${this.authUrl}/${this.userUrl}`, {
+    if (this.id == '') {
+      this.id = '';
+    } else this.id = this.authService.getAuthId();
+    console.log("pene",this.id)
+
+    return this.http.get(`${this.authUrl}/${this.userUrl}/${this.id}`, {
       withCredentials: true,
     });
   }
+  comprobarAdmin(): Observable<any> {
+    if (this.id == '') {
+      this.id = '';
+    } else this.id = this.authService.getAuthId();
+    console.log("pene",this.id)
+    return this.http.get(`${this.authUrl}/${this.adminUrl}/${this.id}`, {
+      withCredentials: true,
+    });
+}
 }

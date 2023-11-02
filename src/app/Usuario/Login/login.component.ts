@@ -35,6 +35,7 @@ export class LoginComponent {
         this.authService.setAuthToken(response.token);
         this.authService.setAuthRol(response.rol);
         this.authService.setAuthNombre(this.username);
+        this.authService.setAuthId(response.id);
         if (response.rol) {
           if (response.rol == 'ADMIN') {
             console.log('Usuario Admin');

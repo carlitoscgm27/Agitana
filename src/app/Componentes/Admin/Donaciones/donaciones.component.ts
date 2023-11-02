@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Donaciones } from 'src/app/Jsons/Donaciones';
 import { Persona } from 'src/app/Jsons/Persona';
 import { Productos } from 'src/app/Jsons/Productos';
 import { Tipo } from 'src/app/Jsons/Tipo';
+import { UserService } from 'src/app/Servicios/Service/user.service';
 
 @Component({
   selector: 'app-donaciones',
@@ -13,8 +15,25 @@ export class DonacionesComponent {
   donacion = Donaciones;
   tipo = Tipo;
   producto = Productos;
-personas=Persona;
+  personas=Persona;
 
+  constructor(private userService: UserService,  private router: Router) {}
+
+  ngOnInit(): void {
+    this.userService.comprobarAdmin().subscribe(
+      (response) => {
+        console.log('response', response);
+       
+      },
+      (error) => {
+        console.log('error', error);
+            this.router.navigate(['../../403']).then(() => {
+              window.location.href = '../../403';
+            });
+      }
+    );
+  }
+  
   buscarNombrePorTipo(tipoId: number): string | undefined {
     const tipo = this.tipo.find((t) => t.id === tipoId);
     return tipo ? tipo.Nombre : undefined;
@@ -43,4 +62,5 @@ personas=Persona;
   esperarSolicitud(id: number): void {
     window.alert('Has puesto en espera el numero: ' + id);
   }
+  
 }

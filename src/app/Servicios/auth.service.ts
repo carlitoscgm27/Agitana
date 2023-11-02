@@ -11,6 +11,8 @@ export class AuthService {
   private rol: string | null = '';
   private userTipo: string | null = '';
   private nombre:string | null = '';
+  private id:string | null = '';
+
   constructor(private http: HttpClient) {
     this.authToken = localStorage.getItem('authToken');
   }
@@ -43,6 +45,12 @@ export class AuthService {
     this.nombre = nombre;
     localStorage.setItem('Nombre', nombre);
   }
+  setAuthId(id: string) {
+    this.id = id;
+    localStorage.setItem('Id', id);
+  }
+
+//--------------------------------------------------------------------------------------
 
   get Token() {
     return localStorage.getItem('authToken');
@@ -71,6 +79,15 @@ export class AuthService {
     }
     return this.nombre;
   }
+  getAuthId(): string | null {
+    if (!this.id) {
+      this.id = localStorage.getItem('Id');
+    }
+    return this.id;
+  }
+
+  //---------------------------------------------------------------------------------------------------
+  
   removeAuthToken() {
     this.authToken = null;
     localStorage.removeItem('authToken');
@@ -88,6 +105,12 @@ export class AuthService {
     this.nombre = null;
     localStorage.removeItem('Nombre');
   }
+  removeAuthId() {
+    this.id = null;
+    localStorage.removeItem('Id');
+  }
+
+//---------------------------------------------------------------------------
 
   checkCurrentRol(): boolean {
     console.log('entraaaaaa');
