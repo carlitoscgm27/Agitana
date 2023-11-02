@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'OngSafa/Register', component: RegistroComponent },
 
   //Admin
-
+ 
   {
     path: '',
     data: { rol: 'Admin' },

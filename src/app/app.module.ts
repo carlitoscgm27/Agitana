@@ -26,6 +26,7 @@ import { CategoriaComponent } from './Componentes/Admin/Dar-alta/Categoria/categ
 import { TipoComponent } from './Componentes/Admin/Dar-alta/Tipo/tipo.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
+import { Error403PageComponent } from './Error403-page/error403-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { InterceptorService } from './Servicios/Interceptors/interceptor.service
     ProductosComponent,
     CategoriaComponent,
     TipoComponent,
+    Error403PageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
