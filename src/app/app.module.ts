@@ -14,7 +14,6 @@ import { RegistroComponent } from './Usuario/Registro/registro.component';
 
 import { AuthService } from './Servicios/auth.service';
 import { UserService } from './Servicios/Service/user.service';
-import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
 import { PruebaComponent } from './prueba/prueba.component';
@@ -52,7 +51,6 @@ import { InterceptorService } from './Servicios/Interceptors/interceptor.service
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     UserService,
-    PersonaTipoService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

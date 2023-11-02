@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent {
-  responseData: any[] = []; // Declaración de un array para almacenar datos
+  responseData: any[] = [];
 
   constructor(private userService: UserService) {}
 
@@ -15,7 +15,7 @@ export class ControlComponent {
     this.userService.getWithBearerToken().subscribe(
       (response) => {
         console.log('response', response);
-        this.responseData = response; // Almacena los datos en el array
+        this.responseData = response;
       },
       (error) => {
         console.log('error', error);

@@ -4,7 +4,6 @@ import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
 import { DonarComponent } from './Componentes/Funciones/Donar/donar.component';
 import { ErrorPageComponent } from './Error-page/error-page.component';
 import { UserService } from './Servicios/Service/user.service';
-import { PersonaTipoService } from './Servicios/Service/persona-tipo.service';
 import { LoginComponent } from './Usuario/Login/login.component';
 import { RegistroComponent } from './Usuario/Registro/registro.component';
 import { roleGuardGuard } from './Servicios/Guard/role-guard.guard';
@@ -106,6 +105,5 @@ export class AppRoutingModule {
   router: any;
   constructor(
     private userService: UserService,
-    public personaTipo: PersonaTipoService
   ) {}
 }
