@@ -25,6 +25,27 @@ export class AuthService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/login`, credentials);
   }
+
+  register(username: string, password: string, nombre: string, apellido1: string, apellido2: string, telefono: string, dni:string, tipo: BigInteger): Observable<any> {
+    const credentials = {
+      username:username,
+      password:password,
+      personaDTO:{
+          nombre:nombre,
+          apellido_Primero:apellido1,
+          apellido_Segundo:apellido2,
+          telefono:telefono,
+          dni:dni,
+          tipoPersona:tipo
+      },
+      tipoRol:1
+  }
+  
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/register`, credentials);
+  }
+
+
   logoutS(): Observable<any> {
     return this.http.get(`${this.authUrl}/logout`);
   }

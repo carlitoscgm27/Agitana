@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent {
-
+  nombre!: string;
+  categoriaDTO!: BigInteger;
+  tipoDTO!: BigInteger;
 }

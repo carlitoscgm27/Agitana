@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tipo.component.css']
 })
 export class TipoComponent {
-
+  nombre!: string;
 }
