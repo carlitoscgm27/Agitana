@@ -20,7 +20,7 @@ export class DonacionesComponent {
   constructor(private userService: UserService,  private router: Router) {}
 
   ngOnInit(): void {
-    this.userService.comprobarAdmin().subscribe(
+    this.userService.listarDonacion().subscribe(
       (response) => {
         console.log('response', response);
        
