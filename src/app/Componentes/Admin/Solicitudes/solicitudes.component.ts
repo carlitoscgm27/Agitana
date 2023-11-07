@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Solicitudes } from '../../../Jsons/Solicitudes'; // Asegúrate de que la ruta sea correcta
-import { Tipo } from 'src/app/Jsons/Tipo';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Servicios/Service/user.service';
 
@@ -10,16 +8,15 @@ import { UserService } from 'src/app/Servicios/Service/user.service';
   styleUrls: ['./solicitudes.component.css']
 })
 export class SolicitudesComponent {
-  solicitud= Solicitudes; 
-  tipo= Tipo;
+  responseData: any[] = [];
   
   constructor(private userService: UserService,  private router: Router) {}
 
   ngOnInit(): void {
-    this.userService.comprobarAdmin().subscribe(
+    this.userService.listarSolicitudes().subscribe(
       (response) => {
         console.log('response', response);
-       
+        this.responseData = response;
       },
       (error) => {
         console.log('error', error);
@@ -30,21 +27,12 @@ export class SolicitudesComponent {
     );
   }
 
-  buscarNombrePorTipo(tipoId: number): string | undefined {
-    const tipo = this.tipo.find(t => t.id === tipoId);
-    return tipo ? tipo.Nombre : undefined;
-  }
-
-  borrarSolicitud(id: number): void {
+  borrarSolicitud(id: string): void {
   window.alert("Has eliminado el numero: "+id)
   }
 
   aceptarSolicitud(id: number): void {
     window.alert("Has Aceptado el numero: "+id)
-  }
-
-  esperarSolicitud(id: number): void {
-    window.alert("Has puesto en espera el numero: "+id)
   }
 
 }
