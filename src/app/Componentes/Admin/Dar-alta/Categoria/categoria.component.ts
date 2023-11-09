@@ -16,7 +16,7 @@ crearCategoria(){
   this.userService.crearCategoria(this.nombre,this.descripcion).subscribe(
     (response) => {
       console.log('response', response);
-      
+      window.alert("Nueva Categoria Creada")
     },
     (error) => {
       console.log('error', error);

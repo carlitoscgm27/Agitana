@@ -17,7 +17,7 @@ crearProducto(){
   this.userService.crearProducto(this.nombre,this.categoriaDTO,this.tipoDTO).subscribe(
     (response) => {
       console.log('response', response);
-      
+      window.alert("Nuevo Producto Creado")
     },
     (error) => {
       console.log('error', error);
