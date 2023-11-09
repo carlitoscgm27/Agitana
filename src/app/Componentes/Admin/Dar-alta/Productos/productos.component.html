@@ -12,21 +12,21 @@
         <label for="categoria">Selecciona una categoria</label>
         <br>
         <select [(ngModel)]="categoriaDTO">
-          <option value="0">categoria1</option>
-          <option value="1">categoria2</option>
+          <option value="1">categoria1</option>
+          <option value="2">categoria2</option>
         </select>
       </div>
       <div class="Divs">
         <label for="tipo">Selecciona una opción</label>
         <br>
         <select [(ngModel)]="tipoDTO">
-          <option value="0">tipo1</option>
-          <option value="1">tipo2</option>
+          <option value="1">tipo1</option>
+          <option value="2">tipo2</option>
         </select>
       </div>
       <br>
       <div class="Divs">
-        <button type="button" class="btn btn-outline-dark">Crear</button>
+        <button type="button" class="btn btn-outline-dark" (click)="crearProducto()">Crear</button>
       </div>
     </div>
   </div>
