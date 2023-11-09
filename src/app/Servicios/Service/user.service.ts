@@ -13,6 +13,11 @@ export class UserService {
   private adminUrl = 'Admin/Usuario/listar';
   private donaUrl = 'Admin/Donaciones/listar';
   private solicitudUrl = 'Admin/Solicitudes/listar';
+
+
+  private productoUrl = 'Admin/Productos/crear';
+  private tipoUrl = 'Admin/Tipo/crear';
+  private categoriaUrl = 'Admin/Categoria/crear';
   id: any;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
@@ -50,5 +55,36 @@ export class UserService {
     return this.http.get(`${this.authUrl}/${this.solicitudUrl}`, {
       withCredentials: true,
     });
+  }
+  crearProducto(nombre: string, idcate: BigInteger, idtipo: BigInteger): Observable<any> {
+    const credentials = {
+      nombre: nombre,
+      categoriaDTO: {
+        id: idcate,
+      },
+      tipoDTO: {
+        id: idtipo,
+      },
+    };
+
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/${this.productoUrl}`, credentials);
+  }
+  crearTipo(nombre: string): Observable<any> {
+    const credentials = {
+      nombre: nombre,
+    };
+
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/${this.tipoUrl}`, credentials);
+  }
+  crearCategoria(nombre: string, descripcion: string,): Observable<any> {
+    const credentials = {
+      nombre: nombre,
+      descripcion: descripcion,
+    };
+
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/${this.categoriaUrl}`, credentials);
   }
 }
