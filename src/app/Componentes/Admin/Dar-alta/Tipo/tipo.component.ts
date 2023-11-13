@@ -15,7 +15,7 @@ crearTipo(){
   this.userService.crearTipo(this.nombre).subscribe(
     (response) => {
       console.log('response', response);
-      
+      window.alert("Nuevo Tipo Creado")
     },
     (error) => {
       console.log('error', error);
