@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   private authUrl = 'http://localhost:8080';
-  private apiUrl = 'Admin/Productos/listar';
+  private ProUrl = 'Admin/Productos/listar';
+  private cateUrl = 'Admin/Categoria/listar';
+  private tiUrl = 'Admin/Tipo/listar';
+  private stockUrl = 'Admin/Stock/listar';
   private userUrl = 'User/Usuario/listar';
   private adminUrl = 'Admin/Usuario/listar';
   private donaUrl = 'Admin/Donaciones/listar';
@@ -22,8 +25,23 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getWithBearerToken(): Observable<any> {
-    return this.http.get(`${this.authUrl}/${this.apiUrl}`, {
+  getProductos(): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.ProUrl}`, {
+      withCredentials: true,
+    });
+  }
+  getCategoria(): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.cateUrl}`, {
+      withCredentials: true,
+    });
+  }
+  getTipo(): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.tiUrl}`, {
+      withCredentials: true,
+    });
+  }
+  getStock(): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.stockUrl}`, {
       withCredentials: true,
     });
   }
