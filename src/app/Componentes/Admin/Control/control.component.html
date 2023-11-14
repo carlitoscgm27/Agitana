@@ -1,20 +1,123 @@
 <br />
 <div class="Div">
+  <div>
+    <h1>Control</h1>
+  </div>
+
+  <div class="DivFiltro">
+    <a><button (click)="loadData(0)">Stock</button></a>
+    <a><button (click)="loadData(1)">Productos</button></a>
+    <a><button (click)="loadData(2)">Tipos</button></a>
+    <a><button (click)="loadData(3)">Categorias</button></a>
+  </div>
+
   <div class="DivRegister">
-    <h1>Elementos del Array</h1>
-    <div class="DivOrg" *ngFor="let item of responseData">
+    <div class="Buscador" *ngIf="this.valor == 0">
+      <h2>Stock</h2>
       
-      <div class="Uno">
-      <label><u><strong>Nombre: {{ item.nombre }}</strong></u></label>
-      <br>
-      <label>Categoría: {{ item.categoriaDTO.nombre }}</label>
-      <br>
-      <label>Descripción: {{ item.categoriaDTO.descripcion }}</label>
-      <br>
-      <label>Tipo: {{ item.tipoDTO.nombre }}</label>
-      <br>
     </div>
-  
+    <div class="Buscador" *ngIf="this.valor == 1">
+      <h2>Productos</h2>
+      
+    </div>
+    <div class="Buscador" *ngIf="this.valor == 2">
+      <h2>Tipos</h2>
+      
+    </div>
+    <div class="Buscador" *ngIf="this.valor == 3">
+      <h2>Categoría</h2>
+    </div>
+    <div>
+      Buscador<input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Buscar"
+        (input)="filterData(valor)"
+      />
+    </div>
+    <!-- ------------------------------------------------------------- -->
+    <div class="DivOrg">
+      
+      <div class="Uno" *ngIf="this.valor == 0 && this.Buscador== false">
+        <div class="DivCard" *ngFor="let item of responseDataStock">
+          <label>
+            <u>
+              <strong>Id: {{ item.id }}</strong>
+            </u>
+          </label>
+
+          <br />
+
+          <label>Nombre: {{ item.nombre }}</label>
+
+          <br />
+        </div>
+      </div>
+      <div class="Uno" *ngIf="this.valor == 1 && this.Buscador== false">
+        <div class="DivCard" *ngFor="let item of responseDataProducto">
+          <label>
+            <u>
+              <strong>Nombre: {{ item.nombre }} </strong>
+            </u>
+          </label>
+          <br />
+          <label>Categoría: {{ item.categoriaDTO.nombre }}</label>
+          <br />
+          <label>Descripción: {{ item.categoriaDTO.descripcion }}</label>
+          <br />
+          <label>Tipo: {{ item.tipoDTO.nombre }}</label>
+          <br />
+        </div>
+      </div>
+      <div class="Uno" *ngIf="this.valor == 2 && this.Buscador== false">
+        <div class="DivCard" *ngFor="let item of responseDataTipo">
+          <label>
+            <u>
+              <strong>Id: {{ item.id }}</strong>
+            </u>
+          </label>
+
+          <br />
+
+          <label>Nombre: {{ item.nombre }}</label>
+
+          <br />
+        </div>
+      </div>
+      <div class="Uno" *ngIf="this.valor == 3 && this.Buscador== false">
+        <div class="DivCard" *ngFor="let item of responseDataCategoria">
+          <label>
+            <u>
+              <strong>Id: {{ item.id }}</strong>
+            </u>
+          </label>
+
+          <br />
+
+          <label>Nombre: {{ item.nombre }}</label>
+
+          <br />
+          <label>Descripción: {{ item.descripcion }}</label>
+
+          <br />
+        </div>
+      </div>
+
+      <div class="Uno" *ngIf="this.Buscador == true">
+        <div class="DivCard" *ngFor="let producto of filterData(valor)">
+          <label>
+            <u>
+              <strong>Id: {{ producto.id }}</strong>
+            </u>
+          </label>
+
+          <br />
+
+          <label>Nombre: {{ producto.nombre }}</label>
+
+          <br />
+        </div>
+      </div>
     </div>
   </div>
 </div>
