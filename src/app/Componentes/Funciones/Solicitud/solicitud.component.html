@@ -1,0 +1,19 @@
+<br />
+<div class="Div">
+  <form class="form">
+    <p class="title">Solicitud</p>
+    <p class="message">Introduzca sus datos para efectuar la solicitud</p>
+    <div class="flex"></div>
+    <label> Categoria </label>
+    <select [(ngModel)]="idCategoria" name="idCategoria">
+      
+        <option *ngFor="let item of categoria" [value]="item.id" >
+          {{item.nombre}}
+          </option>
+        
+      </select>
+    <button (click)="onSubmit()">Enviar</button>
+  </form>
+  <br />
+</div>
+
