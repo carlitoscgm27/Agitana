@@ -12,6 +12,7 @@ export class AuthService {
   private userTipo: string | null = '';
   private nombre:string | null = '';
   private id:string | null = '';
+  private idPersona:string | null = '';
 
   constructor(private http: HttpClient) {
     this.authToken = localStorage.getItem('authToken');
@@ -72,6 +73,11 @@ export class AuthService {
     this.id = id;
     localStorage.setItem('Id', id);
   }
+  setAuthIdPersona(idPersona: string) {
+    this.idPersona = idPersona;
+    localStorage.setItem('IdPersona', idPersona);
+  }
+  
 
 //--------------------------------------------------------------------------------------
 
@@ -108,6 +114,13 @@ export class AuthService {
     }
     return this.id;
   }
+  getAuthIdPersona(): string | null {
+    if (!this.idPersona) {
+      this.idPersona = localStorage.getItem('IdPersona');
+    }
+    return this.idPersona;
+  }
+ 
 
   //---------------------------------------------------------------------------------------------------
   
@@ -132,6 +145,11 @@ export class AuthService {
     this.id = null;
     localStorage.removeItem('Id');
   }
+  removeAuthIdPersona() {
+    this.idPersona = null;
+    localStorage.removeItem('IdPersona');
+  }
+  
 
 //---------------------------------------------------------------------------
 

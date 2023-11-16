@@ -1,3 +1,4 @@
+import { Tipo } from './Jsons/Tipo';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
@@ -15,6 +16,7 @@ import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitude
 import { ControlComponent } from './Componentes/Admin/Control/control.component';
 import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
 import { Error403PageComponent } from './Error403-page/error403-page.component';
+import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -26,35 +28,35 @@ const routes: Routes = [
   { path: 'OngSafa/Register', component: RegistroComponent },
 
   //Admin
- 
+
   {
     path: '',
-    data: { rol: 'Admin' },
+    data: { rol: 'ADMIN' },
     redirectTo: 'Admin/Alta',
     pathMatch: 'full',
   },
 
   {
     path: 'Admin/Alta',
-    data: { rol: 'Admin' },
+    data: { rol: 'ADMIN' },
     canActivate: [roleGuardGuard],
     component: DarAltaComponent,
   },
   {
     path: 'Admin/Control',
-    data: { rol: 'Admin' },
+    data: { rol: 'ADMIN' },
     canActivate: [roleGuardGuard],
     component: ControlComponent,
   },
   {
     path: 'Admin/Donaciones',
-    data: { rol: 'Admin' },
+    data: { rol: 'ADMIN' },
     canActivate: [roleGuardGuard],
     component: DonacionesComponent,
   },
   {
     path: 'Admin/Solicitudes',
-    data: { rol: 'Admin' },
+    data: { rol: 'ADMIN' },
     canActivate: [roleGuardGuard],
     component: SolicitudesComponent,
   },
@@ -64,36 +66,46 @@ const routes: Routes = [
 
   {
     path: '',
-    data: { rol: 'User', tipo: 'Donante' },
+    data: { rol: 'USER', tipo: 'DONANTE' },
     redirectTo: 'User/InicioDonante',
     pathMatch: 'full',
   },
 
   {
     path: 'User/InicioDonante',
-    data: { rol: 'User', tipo: 'Donante' },
+    data: { rol: 'USER', tipo: 'DONANTE' },
     canActivate: [roleGuardGuard],
     component: InicioDonanteComponent,
   },
-  { path: 'User/Donar',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component: DonarComponent },
+  {
+    path: 'User/Donar',
+    data: { rol: 'USER', tipo: 'DONANTE' },
+    canActivate: [roleGuardGuard],
+    component: DonarComponent,
+  },
   //{ path: 'User/Perfil/?id',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component:  },
 
   //Recibidor
 
   {
     path: '',
-    data: { rol: 'User', tipo: 'Recibidor' },
+    data: { rol: 'USER', tipo: 'RECIBIDOR' },
     redirectTo: 'User/InicioRecibidor',
     pathMatch: 'full',
   },
 
   {
     path: 'User/InicioRecibidor',
-    data: { rol: 'User', tipo: 'Recibidor' },
+    data: { rol: 'USER', tipo: 'RECIBIDOR' },
     canActivate: [roleGuardGuard],
     component: InicioRecibidorComponent,
   },
-  // { path: 'User/Recibir',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component: RecibirComponent },
+  {
+    path: 'User/Solicitud',
+    data: { rol: 'USER', tipo: 'RECIBIDOR' },
+    canActivate: [roleGuardGuard],
+    component: SolicitudComponent,
+  },
   //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
 
   { path: '**', component: ErrorPageComponent },
@@ -105,7 +117,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
   router: any;
-  constructor(
-    private userService: UserService,
-  ) {}
+  constructor(private userService: UserService) {}
 }

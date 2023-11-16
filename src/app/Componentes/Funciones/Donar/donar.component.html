@@ -1,30 +1,28 @@
-<br>
+<br />
 <div class="Div">
-<form class="form">
-  <p class="title">Donación </p>
-  <p class="message">Introduzca sus datos para efectuar la donación </p>
-      <div class="flex">
+  <form class="form">
+    <p class="title">Donación</p>
+    <p class="message">Introduzca sus datos para efectuar la donación</p>
+    <div class="flex"></div>
+    <label> Categoria </label>
+    <select [(ngModel)]="idCategoria" name="idCategoria">
       
-  </div>  
-          
-  <label>
-      <input class="input" type="select" placeholder="" required="">
-      <span>ID Producto</span>
-  </label> 
-  <label>
-      <input class="input" type="number" placeholder="" required="">
-      <span>Cantidad</span>
- </label>
- <label>
-    <input class="input" type="select" placeholder="" required="">
-    <span>ID tipo</span>
-</label>
-  <label>
-      <input class="input" type="text" placeholder="" required="">
-      <span>Mensaje</span>
-  </label>
-  <button class="submit">Enviar</button>
+      <option *ngFor="let item of categoria" [value]="item.id" >
+        {{item.nombre}}
+        </option>
+      
+    </select>
 
-</form>
-<br>
+    <label>
+      <textarea
+        class="input"
+        type="text"
+        name="descripcion_producto"
+        [(ngModel)]="descripcion_producto"
+      ></textarea>
+    </label>
+
+    <button class="submit" (click)="onSubmit()">Enviar</button>
+  </form>
+  <br />
 </div>
