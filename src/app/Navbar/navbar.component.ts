@@ -37,6 +37,7 @@ export class NavbarComponent {
     this.authService.removeAuthUserType();
     this.authService.removeAuthNombre();
     this.authService.removeAuthId();
+    this.authService.removeAuthIdPersona();
     this.router.navigate(['../']).then(() => {
       window.location.href = '../';
     });

@@ -31,11 +31,13 @@ export class LoginComponent {
         console.log('password', this.password);
         console.log('response', response.rol);
         console.log('response', response.token);
+        console.log('response', response.idPersona);
         window.alert(response.message);
         this.authService.setAuthToken(response.token);
         this.authService.setAuthRol(response.rol);
         this.authService.setAuthNombre(this.username);
         this.authService.setAuthId(response.id);
+        this.authService.setAuthIdPersona(response.idPersona);
         if (response.rol) {
           if (response.rol == 'ADMIN') {
             console.log('Usuario Admin');

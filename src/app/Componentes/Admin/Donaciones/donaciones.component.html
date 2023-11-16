@@ -8,10 +8,10 @@
         <tr>
           <th></th>
           <th>Número de Solicitud</th>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Tipo</th>
-          <th>Nombre</th>
+          <th>Nombre De la Persona</th>
+          <th>Descripcion del Producto</th>
+          <th>¿Qué Dona?</th>
+          <th>Estado</th>
           <th></th>
         </tr>
       </thead>
@@ -28,8 +28,8 @@
           </td>
           <td>{{ donacion.id }}</td>
           <td>{{ donacion.personaDTO.nombre }}</td>
-          <td>{{ donacion.cantidad }}</td>
-          <td>{{ donacion.tipoDTO.nombre}}</td>
+          <td>{{ donacion.descripcion_producto}}</td>
+          <td>{{ donacion.categoriaDTO.nombre}}</td>
           <td>{{ donacion.estado }}</td>
           
           <td>

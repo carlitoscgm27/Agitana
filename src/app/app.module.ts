@@ -27,6 +27,7 @@ import { TipoComponent } from './Componentes/Admin/Dar-alta/Tipo/tipo.component'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
 import { Error403PageComponent } from './Error403-page/error403-page.component';
+import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { Error403PageComponent } from './Error403-page/error403-page.component';
     CategoriaComponent,
     TipoComponent,
     Error403PageComponent,
+    SolicitudComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
