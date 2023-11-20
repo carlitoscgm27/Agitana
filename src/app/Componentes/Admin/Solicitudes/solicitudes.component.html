@@ -1,9 +1,9 @@
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 <div class="Div">
   <div class="DivRegister">
-    <table class="Table">
+    <table class="Table" *ngIf="isVisible == false">
       <thead>
         <tr>
           <th></th>
@@ -32,12 +32,87 @@
           <td>{{ solicitud.categoriaDTO.nombre }}</td>
           <td>{{ solicitud.estado }}</td>
           <td>
-            <button class="btn btn-primary" (click)="aceptarSolicitud(solicitud.id)">
+            <button class="btn btn-primary" (click)="administrar(solicitud.id)">
               Administrar Solicitud
             </button>
           </td>
         </tr>
       </tbody>
     </table>
+    <div *ngIf="isVisible == true">
+      <div class="grid">
+        <div class="div">
+          <label>Id</label>
+          <input type="text" [value]="Solicitudes.id" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Qué Almacén recibio la Solicitud?</label>
+          <input type="text" [value]="Solicitudes.almacenDTO.id" disabled />
+        </div>
+
+        <div class="div">
+          <label>Persona que envía la solicitud</label>
+          <input type="text" [value]="Solicitudes.personaDTO.nombre" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Que pide?</label>
+          <input
+            type="text"
+            [value]="Solicitudes.categoriaDTO.nombre"
+            disabled
+          />
+        </div>
+
+        <div class="div">
+          <label>Estado</label>
+          <input type="text" [value]="Solicitudes.estado" disabled />
+        </div>
+      </div>
+
+      <div class="crear">
+        <div class="div">
+          <label>Nombre del producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Categoria del Producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Tipo del Producto</label>
+          <input type="text" />
+        </div>
+      </div>
+
+      <br />
+
+      <div>
+        <table class="Table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre del Producto</th>
+              <th>Categoria del Producto</th>
+              <th>Tipo del Producto</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br />
+
+      <div class="buttons">
+        <button class="btn btn-primary" (click)="cerrar()">
+          Administrar Solicitud
+        </button>
+        <button class="btn btn-primary">Resolver</button>
+      </div>
+    </div>
   </div>
 </div>

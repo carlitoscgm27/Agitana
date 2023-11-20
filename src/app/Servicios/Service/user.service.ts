@@ -85,6 +85,16 @@ export class UserService {
       withCredentials: true,
     });
   }
+  listarSolicitudesId(id:Number): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.solicitudUrl}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  listarDonacionesId(id:Number): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.donaUrl}/${id}`, {
+      withCredentials: true,
+    });
+  }
   crearProducto(nombre: string, idcate: BigInteger, idtipo: BigInteger): Observable<any> {
     const credentials = {
       nombre: nombre,
