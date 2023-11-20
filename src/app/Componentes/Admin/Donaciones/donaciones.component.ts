@@ -9,6 +9,9 @@ import { UserService } from 'src/app/Servicios/Service/user.service';
 })
 export class DonacionesComponent {
   responseData: any[] = [];
+  isVisible: boolean = false;
+  donacion: any;
+  Donaciones: any;
 
   constructor(private userService: UserService,  private router: Router) {}
 
@@ -27,7 +30,31 @@ export class DonacionesComponent {
       }
     );
   }
-  
+  administrar(donacion: number) {
+    console.log(donacion);
+    this.userService.listarDonacionesId(donacion).subscribe(
+      (response) => {
+        console.log('donacion', response);
+        this.Donaciones = response;
+      },
+      (error) => {
+        console.log('error', error);
+       
+      }
+    );
+
+    this.isVisible = !this.isVisible;
+  }
+  cerrar() {
+    if (!this.isVisible) {
+      console.log('Mostrando el componente');
+    } else {
+      console.log('Ocultando el componente');
+    }
+
+    this.isVisible = !this.isVisible;
+  }
+
   borrarDonacion(id: number): void {
     window.alert('Has eliminado el numero: ' + id);
   }

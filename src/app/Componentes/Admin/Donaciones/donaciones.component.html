@@ -1,9 +1,9 @@
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 <div class="Div">
   <div class="DivRegister">
-    <table class="Table">
+    <table class="Table" *ngIf="isVisible == false">
       <thead>
         <tr>
           <th></th>
@@ -28,18 +28,99 @@
           </td>
           <td>{{ donacion.id }}</td>
           <td>{{ donacion.personaDTO.nombre }}</td>
-          <td>{{ donacion.descripcion_producto}}</td>
-          <td>{{ donacion.categoriaDTO.nombre}}</td>
+          <td>{{ donacion.descripcion_producto }}</td>
+          <td>{{ donacion.categoriaDTO.nombre }}</td>
           <td>{{ donacion.estado }}</td>
-          
+
           <td>
-            <button class="btn btn-primary" (click)="aceptarDonacion(donacion.Iid)">
+            <button class="btn btn-primary" (click)="administrar(donacion.id)">
               Administrar Donación
             </button>
-            
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div *ngIf="isVisible == true">
+      <div class="grid">
+        <div class="div">
+          <label>Id</label>
+          <input type="text" [value]="Donaciones.id" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Descripción?</label>
+          <input
+            type="text"
+            [value]="Donaciones.descripcion_producto"
+            disabled
+          />
+        </div>
+
+        <div class="div">
+          <label>Persona que envía la Donación</label>
+          <input type="text" [value]="Donaciones.personaDTO.nombre" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Que Da?</label>
+          <input
+            type="text"
+            [value]="Donaciones.categoriaDTO.nombre"
+            disabled
+          />
+        </div>
+        <div>
+          <div class="div">
+            <label>Estado</label>
+            <input type="text" [value]="Donaciones.estado" disabled />
+          </div>
+        </div>
+      </div>
+
+      <div class="crear">
+        <div class="div">
+          <label>Nombre del producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Categoria del Producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Tipo del Producto</label>
+          <input type="text" />
+        </div>
+      </div>
+
+      <br />
+
+      <div>
+        <table class="Table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre del Producto</th>
+              <th>Categoria del Producto</th>
+              <th>Tipo del Producto</th>
+              <th>Cantidad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br />
+
+      <div class="buttons">
+        <button class="btn btn-primary" (click)="cerrar()">
+          Administrar Solicitud
+        </button>
+        <button class="btn btn-primary">Resolver</button>
+      </div>
+    </div>
   </div>
 </div>
