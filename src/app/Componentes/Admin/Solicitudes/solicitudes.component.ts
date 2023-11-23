@@ -25,7 +25,7 @@ export class SolicitudesComponent {
   tabla: Tabla[] = [];
   cantidadfinal: any;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router,) {}
 
   ngOnInit(): void {
     this.userService.listarSolicitudes().subscribe(
