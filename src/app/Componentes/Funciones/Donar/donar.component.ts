@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/Servicios/Service/user.service';
-import { AuthService } from 'src/app/Servicios/auth.service';
+import { UserService } from '../../../Servicios/Service/user.service'; 
+import { AuthService } from '../../../Servicios/auth.service';
 
 @Component({
   selector: 'app-donar',

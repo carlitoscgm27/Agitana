@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/Servicios/Service/user.service';
+import { UserService } from '../../../Servicios/Service/user.service';
+import { PopUpComponent } from '../../Funciones/PopUp/pop-up.component';
 
+interface Tabla {
+  id: number;
+  nombre: string;
+  cantidad: any;
+  categorianombre: string;
+}
 @Component({
   selector: 'app-solicitudes',
   templateUrl: './solicitudes.component.html',
@@ -14,7 +21,9 @@ export class SolicitudesComponent {
   Solicitudes: any;
   idCategoria: any;
   categoria: any;
-  Stock:any;
+  Stock: any;
+  tabla: Tabla[] = [];
+  cantidadfinal: any;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -41,7 +50,6 @@ export class SolicitudesComponent {
       },
       (error) => {
         console.log('error', error);
-        
       }
     );
 
@@ -53,7 +61,6 @@ export class SolicitudesComponent {
       },
       (error) => {
         console.log('error', error);
-        
       }
     );
   }
@@ -66,7 +73,7 @@ export class SolicitudesComponent {
 
     this.isVisible = !this.isVisible;
   }
-  loadProductos(id:number){
+  loadProductos(id: number) {
     this.userService.listarStocksCategoria(id).subscribe(
       (response) => {
         console.log('response', response);
@@ -74,10 +81,43 @@ export class SolicitudesComponent {
       },
       (error) => {
         console.log('error', error);
-        
       }
-    ); 
-    }
+    );
+  }
+  quitar(
+    id: number,
+    cantidad: number,
+    nombre: string,
+    categorianombre: string
+  ): void {
+    var nuevacantidad = window.prompt(
+      'Tienes de ' +
+        nombre +
+        ' y son: ' +
+        cantidad +
+        '. ¿Cuantos quieres coger?'
+    );
+      if (nuevacantidad !== undefined) {
+        
+        if (this.cantidadfinal < 0) {
+          
+          console.log('No puedes coger más de lo que hay.');
+        } else {
+          const tablas: Tabla = {
+            id: id,
+            nombre: nombre,
+            cantidad: nuevacantidad,
+            categorianombre: categorianombre,
+          };
+  
+          this.tabla.push(tablas);
+        }
+      } else {
+        console.log('Operación cancelada por el usuario.');
+      }
+   
+  }
+
   borrarSolicitud(id: string): void {
     window.alert('Has eliminado el numero: ' + id);
   }
