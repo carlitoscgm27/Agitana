@@ -95,5 +95,10 @@ h1 {
 }
 .crear {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+.union{
+  display: flex;
+  flex-direction: row;
 }

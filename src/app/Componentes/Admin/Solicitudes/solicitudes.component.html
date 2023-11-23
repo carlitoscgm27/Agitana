@@ -73,40 +73,59 @@
 
       <div class="crear">
         <div class="div">
-          <label>Nombre del producto</label>
-          <input type="text" />
-        </div>
-        <div class="div">
-          <label>Categoria del Producto</label>
-          <input type="text" />
-        </div>
-        <div class="div">
-          <label>Tipo del Producto</label>
-          <input type="text" />
+          <label>Categoria del producto</label>
+          <select
+            [(ngModel)]="idCategoria"
+            (click)="loadProductos(idCategoria)"
+            name="idCategoria"
+          >
+            <option *ngFor="let item of categoria" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
         </div>
       </div>
 
       <br />
+      <div class="union">
+        <div>
+          <table class="Table">
+            <thead>
+              <tr>
+                <th>Nombre del Producto</th>
+                <th>Categoria del Producto</th>
+                <th>Cantidad del Producto</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let stock of Stock">
+                <td>{{ stock.productoDTO.nombre }}</td>
+                <td>{{ stock.categoriaDTO.nombre }}</td>
+                <td>{{ stock.cantidad }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <div>
-        <table class="Table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Nombre del Producto</th>
-              <th>Categoria del Producto</th>
-              <th>Tipo del Producto</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr></tr>
-          </tbody>
-        </table>
+        <div>
+          <table class="Table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Nombre del Producto</th>
+                <th>Categoria del Producto</th>
+                <th>Tipo del Producto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
       <br />
-
+      <br />
       <div class="buttons">
         <button class="btn btn-primary" (click)="cerrar()">
           Administrar Solicitud

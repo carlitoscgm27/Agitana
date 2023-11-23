@@ -14,15 +14,12 @@
   <div class="DivRegister">
     <div class="Buscador" *ngIf="this.valor == 0">
       <h2>Stock</h2>
-      
     </div>
     <div class="Buscador" *ngIf="this.valor == 1">
       <h2>Productos</h2>
-      
     </div>
     <div class="Buscador" *ngIf="this.valor == 2">
       <h2>Tipos</h2>
-      
     </div>
     <div class="Buscador" *ngIf="this.valor == 3">
       <h2>Categoría</h2>
@@ -37,23 +34,19 @@
     </div>
     <!-- ------------------------------------------------------------- -->
     <div class="DivOrg">
-      
-      <div class="Uno" *ngIf="this.valor == 0 && this.Buscador== false">
+      <div class="Uno" *ngIf="this.valor == 0 && this.Buscador == false">
         <div class="DivCard" *ngFor="let item of responseDataStock">
           <label>
-            <u>
-              <strong>Id: {{ item.id }}</strong>
-            </u>
+            <u> <strong>Cantidad:</strong></u> {{ item.cantidad }} 
           </label>
 
           <br />
-
-          <label>Nombre: {{ item.nombre }}</label>
-
+          <label>Categoria: {{ item.categoriaDTO.nombre }}</label>
           <br />
+          <label>Producto: {{ item.productoDTO.nombre }}</label>
         </div>
       </div>
-      <div class="Uno" *ngIf="this.valor == 1 && this.Buscador== false">
+      <div class="Uno" *ngIf="this.valor == 1 && this.Buscador == false">
         <div class="DivCard" *ngFor="let item of responseDataProducto">
           <label>
             <u>
@@ -69,7 +62,7 @@
           <br />
         </div>
       </div>
-      <div class="Uno" *ngIf="this.valor == 2 && this.Buscador== false">
+      <div class="Uno" *ngIf="this.valor == 2 && this.Buscador == false">
         <div class="DivCard" *ngFor="let item of responseDataTipo">
           <label>
             <u>
@@ -84,7 +77,7 @@
           <br />
         </div>
       </div>
-      <div class="Uno" *ngIf="this.valor == 3 && this.Buscador== false">
+      <div class="Uno" *ngIf="this.valor == 3 && this.Buscador == false">
         <div class="DivCard" *ngFor="let item of responseDataCategoria">
           <label>
             <u>
