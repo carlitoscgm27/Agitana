@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/Servicios/Service/user.service';
+import { UserService } from '../../../Servicios/Service/user.service';
 
 @Component({
   selector: 'app-inicio-donante',

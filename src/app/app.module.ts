@@ -28,6 +28,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
 import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
+import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +52,9 @@ import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.
     TipoComponent,
     Error403PageComponent,
     SolicitudComponent,
+    PopUpComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [FormsModule,BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     UserService,
     AuthService,
