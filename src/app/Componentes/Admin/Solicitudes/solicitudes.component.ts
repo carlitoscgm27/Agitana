@@ -12,6 +12,9 @@ export class SolicitudesComponent {
   isVisible: boolean = false;
   solicitud: any;
   Solicitudes: any;
+  idCategoria: any;
+  categoria: any;
+  Stock:any;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -38,13 +41,21 @@ export class SolicitudesComponent {
       },
       (error) => {
         console.log('error', error);
-        this.router.navigate(['../../403']).then(() => {
-          window.location.href = '../../403';
-        });
+        
       }
     );
 
     this.isVisible = !this.isVisible;
+    this.userService.getCategoria().subscribe(
+      (response) => {
+        console.log('response', response);
+        this.categoria = response;
+      },
+      (error) => {
+        console.log('error', error);
+        
+      }
+    );
   }
   cerrar() {
     if (!this.isVisible) {
@@ -55,6 +66,18 @@ export class SolicitudesComponent {
 
     this.isVisible = !this.isVisible;
   }
+  loadProductos(id:number){
+    this.userService.listarStocksCategoria(id).subscribe(
+      (response) => {
+        console.log('response', response);
+        this.Stock = response;
+      },
+      (error) => {
+        console.log('error', error);
+        
+      }
+    ); 
+    }
   borrarSolicitud(id: string): void {
     window.alert('Has eliminado el numero: ' + id);
   }
