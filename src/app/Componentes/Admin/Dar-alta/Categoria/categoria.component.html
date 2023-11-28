@@ -1,1 +1,24 @@
-<p>categoria works!</p>
+<br>
+<div class="Div">
+  <div class="DivRegister">
+    <div class="DivContainer">
+      <div class="Divs">
+        <label for="categoria">Nombre de la categoria</label>
+        <div>
+          <input type="text" name="categoria" [(ngModel)]="nombre" />
+        </div>
+      </div>
+      <div class="Divs">
+        <label for="descripcion">Nombre de la descripcion</label>
+        <div>
+          <input type="text" name="descripcion" [(ngModel)]="descripcion" />
+        </div>
+      </div>
+      <br>
+      <div class="Divs">
+        <button type="button" class="btn btn-outline-dark" (click)="crearCategoria()">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

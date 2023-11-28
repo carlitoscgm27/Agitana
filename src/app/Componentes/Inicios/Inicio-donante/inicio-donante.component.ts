@@ -19,9 +19,8 @@ export class InicioDonanteComponent {
       },
       (error) => {
         console.log('error', error);
-        console.log('Usuario Admin');
-            this.router.navigate(['../../Error-page']).then(() => {
-              window.location.href = '../../Error-page';
+            this.router.navigate(['../../403']).then(() => {
+              window.location.href = '../../403';
             });
       }
     );

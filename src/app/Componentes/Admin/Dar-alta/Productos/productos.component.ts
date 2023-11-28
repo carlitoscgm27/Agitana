@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/Servicios/Service/user.service';
 
 @Component({
   selector: 'app-productos',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent {
+  nombre!: string;
+  categoriaDTO!: BigInteger;
+  tipoDTO!: BigInteger;
+
+  constructor(private userService: UserService) {}
+
+crearProducto(){
+  this.userService.crearProducto(this.nombre,this.categoriaDTO,this.tipoDTO).subscribe(
+    (response) => {
+      console.log('response', response);
+      window.alert("Nuevo Producto Creado")
+    },
+    (error) => {
+      console.log('error', error);
+          
+    }
+  );
+}
 
 }

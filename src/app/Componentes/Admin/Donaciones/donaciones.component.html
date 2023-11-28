@@ -1,21 +1,24 @@
+<br />
+<br />
+<br />
 <div class="Div">
   <div class="DivRegister">
-    <table class="Table">
+    <table class="Table" *ngIf="isVisible == false">
       <thead>
         <tr>
           <th></th>
           <th>Número de Solicitud</th>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Tipo</th>
-          <th>Nombre</th>
+          <th>Nombre De la Persona</th>
+          <th>Descripcion del Producto</th>
+          <th>¿Qué Dona?</th>
+          <th>Estado</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let donacion of donacion">
+        <tr *ngFor="let donacion of responseData">
           <td>
-            <button class="button" (click)="borrarSolicitud(donacion.Id)">
+            <button class="button" (click)="borrarDonacion(donacion.id)">
               <svg viewBox="0 0 448 512" class="svgIcon">
                 <path
                   d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
@@ -23,20 +26,101 @@
               </svg>
             </button>
           </td>
-          <td>{{ donacion.Id }}</td>
-          <td>{{ buscarNombrePorProducto(donacion.Id_Producto) }}</td>
-          <td>{{ donacion.Cantidad }}</td>
-          <td>{{ buscarNombrePorTipo(donacion.Tipo) }}</td>
-          <td>{{ buscarApellidosPorPersona(donacion.Id_Persona) }}</td>
-          
+          <td>{{ donacion.id }}</td>
+          <td>{{ donacion.personaDTO.nombre }}</td>
+          <td>{{ donacion.descripcion_producto }}</td>
+          <td>{{ donacion.categoriaDTO.nombre }}</td>
+          <td>{{ donacion.estado }}</td>
+
           <td>
-            <button class="btn btn-primary" (click)="aceptarSolicitud(donacion.Id)">
-              Aceptar Donación
+            <button class="btn btn-primary" (click)="administrar(donacion.id)">
+              Administrar Donación
             </button>
-            
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div *ngIf="isVisible == true">
+      <div class="grid">
+        <div class="div">
+          <label>Id</label>
+          <input type="text" [value]="Donaciones.id" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Descripción?</label>
+          <input
+            type="text"
+            [value]="Donaciones.descripcion_producto"
+            disabled
+          />
+        </div>
+
+        <div class="div">
+          <label>Persona que envía la Donación</label>
+          <input type="text" [value]="Donaciones.personaDTO.nombre" disabled />
+        </div>
+
+        <div class="div">
+          <label>¿Que Da?</label>
+          <input
+            type="text"
+            [value]="Donaciones.categoriaDTO.nombre"
+            disabled
+          />
+        </div>
+        <div>
+          <div class="div">
+            <label>Estado</label>
+            <input type="text" [value]="Donaciones.estado" disabled />
+          </div>
+        </div>
+      </div>
+
+      <div class="crear">
+        <div class="div">
+          <label>Nombre del producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Categoria del Producto</label>
+          <input type="text" />
+        </div>
+        <div class="div">
+          <label>Tipo del Producto</label>
+          <input type="text" />
+        </div>
+      </div>
+
+      <br />
+
+      <div>
+        <table class="Table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre del Producto</th>
+              <th>Categoria del Producto</th>
+              <th>Tipo del Producto</th>
+              <th>Cantidad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br />
+
+      <div class="buttons">
+        <button class="btn btn-primary" (click)="cerrar()">
+          Administrar Solicitud
+        </button>
+        <button class="btn btn-primary">Resolver</button>
+      </div>
+    </div>
   </div>
 </div>

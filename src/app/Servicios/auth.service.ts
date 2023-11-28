@@ -11,6 +11,9 @@ export class AuthService {
   private rol: string | null = '';
   private userTipo: string | null = '';
   private nombre:string | null = '';
+  private id:string | null = '';
+  private idPersona:string | null = '';
+
   constructor(private http: HttpClient) {
     this.authToken = localStorage.getItem('authToken');
   }
@@ -23,9 +26,32 @@ export class AuthService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/login`, credentials);
   }
+
+  register(username: string, password: string, nombre: string, apellido1: string, apellido2: string, telefono: string, dni:string, tipo: BigInteger): Observable<any> {
+    const credentials = {
+      username:username,
+      password:password,
+      personaDTO:{
+          nombre:nombre,
+          apellido_Primero:apellido1,
+          apellido_Segundo:apellido2,
+          telefono:telefono,
+          dni:dni,
+          tipoPersona:tipo
+      },
+      tipoRol:1
+  }
+  
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/register`, credentials);
+  }
+
+
   logoutS(): Observable<any> {
     return this.http.get(`${this.authUrl}/logout`);
   }
+  
+//--------------------------------------------------------------------------------------
 
   setAuthToken(token: string) {
     this.authToken = token;
@@ -43,6 +69,17 @@ export class AuthService {
     this.nombre = nombre;
     localStorage.setItem('Nombre', nombre);
   }
+  setAuthId(id: string) {
+    this.id = id;
+    localStorage.setItem('Id', id);
+  }
+  setAuthIdPersona(idPersona: string) {
+    this.idPersona = idPersona;
+    localStorage.setItem('IdPersona', idPersona);
+  }
+  
+
+//--------------------------------------------------------------------------------------
 
   get Token() {
     return localStorage.getItem('authToken');
@@ -71,6 +108,22 @@ export class AuthService {
     }
     return this.nombre;
   }
+  getAuthId(): string | null {
+    if (!this.id) {
+      this.id = localStorage.getItem('Id');
+    }
+    return this.id;
+  }
+  getAuthIdPersona(): string | null {
+    if (!this.idPersona) {
+      this.idPersona = localStorage.getItem('IdPersona');
+    }
+    return this.idPersona;
+  }
+ 
+
+  //---------------------------------------------------------------------------------------------------
+  
   removeAuthToken() {
     this.authToken = null;
     localStorage.removeItem('authToken');
@@ -88,6 +141,17 @@ export class AuthService {
     this.nombre = null;
     localStorage.removeItem('Nombre');
   }
+  removeAuthId() {
+    this.id = null;
+    localStorage.removeItem('Id');
+  }
+  removeAuthIdPersona() {
+    this.idPersona = null;
+    localStorage.removeItem('IdPersona');
+  }
+  
+
+//---------------------------------------------------------------------------
 
   checkCurrentRol(): boolean {
     console.log('entraaaaaa');

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../../../Servicios/Service/user.service';
 import { Component } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class InicioRecibidorComponent {
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,  private router: Router) {}
 
   ngOnInit(): void {
     this.userService.comprobarUser().subscribe(
@@ -18,6 +19,9 @@ export class InicioRecibidorComponent {
       },
       (error) => {
         console.log('error', error);
+            this.router.navigate(['../../403']).then(() => {
+              window.location.href = '../../403';
+            });
       }
     );
   }

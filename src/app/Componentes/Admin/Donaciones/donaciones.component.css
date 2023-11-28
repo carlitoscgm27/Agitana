@@ -78,3 +78,22 @@ h1{
   .svgIcon path {
     fill: white;
   }
+  .div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+  }
+  .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .crear{
+    display: flex;
+    justify-content: space-between;  
+  }

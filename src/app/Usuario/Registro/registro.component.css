@@ -8,8 +8,21 @@
   border-radius: 50%;
 }
 
+.Div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #54d9c9b0;
+
+  margin-left: 2em;
+  box-shadow: 4px 8px 8px 8px #2f4858;
+  width: 50vw;
+  height: auto;
+}
+
 .DivRegister {
   width: 40vw;
+  height: auto;
   background-color: #7FFFD4;
   display: flex;
   justify-content: center;
@@ -52,15 +65,4 @@ input {
 .Divs {
   margin-top: 3em;
   margin-left: 2em;
-}
-.Div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #54d9c9b0;
-
-  margin-left: 2em;
-  box-shadow: 4px 8px 8px 8px #2f4858;
-  width: 50vw;
-  height: 80vh;
 }
