@@ -29,6 +29,7 @@ import { InterceptorService } from './Servicios/Interceptors/interceptor.service
 import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
 import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
+import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
     Error403PageComponent,
     SolicitudComponent,
     PopUpComponent,
+    PerfilComponent
   ],
   imports: [FormsModule,BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [

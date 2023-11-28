@@ -16,7 +16,9 @@ export class UserService {
   private userUrl = 'User/Usuario/listar';
   private adminUrl = 'Admin/Usuario/listar';
   private donaUrl = 'Admin/Donaciones/listar';
+  private donaUrlPersona = 'User/Donaciones/listarDonacion';
   private solicitudUrl = 'Admin/Solicitudes/listar';
+  private solicitudUrlPersona = 'User/Solicitudes/listarSolicitudes';
   private stockCate = 'Admin/Stock/listarCategoria';
 
 
@@ -97,6 +99,21 @@ export class UserService {
   }
   listarStocksCategoria(id:Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.stockCate}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  listaDonacionPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  
+  listaSolicitudPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
       withCredentials: true,
     });
   }
