@@ -82,6 +82,22 @@ export class UserService {
       withCredentials: true,
     });
   }
+
+  listaDonacionPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  
+  listaSolicitudPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
   listarSolicitudes(): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrl}`, {
       withCredentials: true,
@@ -131,6 +147,7 @@ export class UserService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.productoUrl}`, credentials);
   }
+
   crearTipo(nombre: string): Observable<any> {
     const credentials = {
       nombre: nombre,
