@@ -1,4 +1,4 @@
-import { AuthService } from 'src/app/Servicios/auth.service';
+import { AuthService } from '../auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -19,6 +19,7 @@ export class UserService {
   private donaUrlPersona = 'User/Donaciones/listarDonacion';
   private solicitudUrl = 'Admin/Solicitudes/listar';
   private solicitudUrlPersona = 'User/Solicitudes/listarSolicitudes';
+  private stockCate = 'Admin/Stock/listarCategoria';
 
 
 
@@ -109,6 +110,26 @@ export class UserService {
   }
   listarDonacionesId(id:Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.donaUrl}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  listarStocksCategoria(id:Number): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.stockCate}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  listaDonacionPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  
+  listaSolicitudPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
       withCredentials: true,
     });
   }
