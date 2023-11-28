@@ -16,7 +16,9 @@ export class UserService {
   private userUrl = 'User/Usuario/listar';
   private adminUrl = 'Admin/Usuario/listar';
   private donaUrl = 'Admin/Donaciones/listar';
+  private donaUrlPersona = 'User/Donaciones/listarDonacion';
   private solicitudUrl = 'Admin/Solicitudes/listar';
+  private solicitudUrlPersona = 'User/Solicitudes/listarSolicitudes';
   private stockCate = 'Admin/Stock/listarCategoria';
 
 
@@ -80,6 +82,22 @@ export class UserService {
       withCredentials: true,
     });
   }
+
+  listaDonacionPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  
+  listaSolicitudPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
   listarSolicitudes(): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrl}`, {
       withCredentials: true,
@@ -100,6 +118,21 @@ export class UserService {
       withCredentials: true,
     });
   }
+  listaDonacionPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  
+  listaSolicitudPersona(id:Number): Observable<any> {
+   
+
+    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
   crearProducto(nombre: string, idcate: BigInteger, idtipo: BigInteger): Observable<any> {
     const credentials = {
       nombre: nombre,
@@ -114,6 +147,7 @@ export class UserService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.productoUrl}`, credentials);
   }
+
   crearTipo(nombre: string): Observable<any> {
     const credentials = {
       nombre: nombre,

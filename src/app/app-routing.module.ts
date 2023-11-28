@@ -17,6 +17,7 @@ import { ControlComponent } from './Componentes/Admin/Control/control.component'
 import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
 import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
+import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -60,9 +61,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: SolicitudesComponent,
   },
-  //{ path: 'Admin/Perfil/?id',data:{rol:'Admin'},canActivate:[roleGuardGuard], component:  },
-
-  //Doanante
+  { path: 'Admin/Perfil',data:{rol:'ADMIN'},canActivate:[roleGuardGuard], component:  PerfilComponent},
 
   {
     path: '',
@@ -83,8 +82,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: DonarComponent,
   },
-  //{ path: 'User/Perfil/?id',data:{rol:'User',tipo:'Donante'},canActivate:[roleGuardGuard], component:  },
-
+  { path: 'User/Perfil',data:{rol:'USER',tipo:'DONANTE'},canActivate:[roleGuardGuard], component:  PerfilComponent},
   //Recibidor
 
   {
@@ -106,8 +104,8 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: SolicitudComponent,
   },
-  //{ path: 'User/Perfil/?id',data:{rol:'User',rol:'Recibidor'},canActivate:[roleGuardGuard], component:  },
-
+  { path: 'User/Perfil',data:{rol:'USER',tipo:'RECIBIDOR'},canActivate:[roleGuardGuard], component: PerfilComponent },
+  
   { path: '**', component: ErrorPageComponent },
 ];
 
