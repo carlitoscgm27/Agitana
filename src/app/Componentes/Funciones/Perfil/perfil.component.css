@@ -1,0 +1,121 @@
+.Div{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-left: 2em;
+width: 90vw;
+height: auto;
+}
+.DivRegister {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+  height: auto;
+}
+
+.user {
+  --main-color: #000;
+  --submain-color: #3aa3f3;
+  --bg-color: #55d6be;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 75vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1vw;
+  background: rgb(0,157,167);
+  background: radial-gradient(circle, rgba(0,157,167,1) 0%, rgba(102,240,194,1) 50%, rgba(2,19,92,1) 100%);
+}
+
+.admin {
+  --main-color: #000;
+  --submain-color: #3aa3f3;
+  --bg-color: #55d6be;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 75vw;
+  height: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1vw;
+  background: rgb(1, 115, 122);
+  background: radial-gradient(circle, rgba(1, 115, 122, 1) 0%, rgba(102, 240, 194, 1) 48%, rgba(7, 2, 92, 1) 100%);
+}
+
+
+.card__avatar {
+  position: absolute;
+  width: 14vw;
+  height: 14vw;
+  background: var(--bg-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 57px);
+}
+
+.card__title {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  font-size: 2.5em;
+  color: var(--main-color);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card__subtitle {
+  margin-top: 0.25em;
+  font-size: 2em;
+  color: var(#2a2e45);
+  font-family: 'Courier New', monospace;
+}
+
+h2 {
+  Font-family: Baskerville;
+  text-decoration: underline;
+  text-align: center;
+
+}
+
+#hola {
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  margin-top: 5em;
+  margin-bottom: 1.5em;
+  ;
+}
+
+.categoria {
+  font-family: 'Courier New', monospace;
+  font-size: 1.65em;
+  text-align: center;
+  border: #58A4B0 0.35em inset;
+  background-color: #2C666E;
+  color: white;
+  width: 30vw;
+  height: 40vh;
+  margin: 1em;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70vw;
+
+}
+
+img{
+  border-radius: 1em;
+}
+
+
+
+
