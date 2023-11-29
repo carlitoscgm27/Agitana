@@ -30,6 +30,9 @@ export class UserService {
   private SoliUrlCrear = 'User/Solicitudes/crear';
   id: any;
 
+  private stockModi = 'Admin/Stock/modificar';
+  private SolicitudModi = 'Admin/Solicitudes/modificar';
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getProductos(): Observable<any> {
@@ -58,7 +61,6 @@ export class UserService {
     });
   }
 
-
   comprobarUser(): Observable<any> {
     if (this.id == '') {
       this.id = '';
@@ -82,38 +84,22 @@ export class UserService {
       withCredentials: true,
     });
   }
-
-  listaDonacionPersona(id:Number): Observable<any> {
-   
-
-    return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
-      withCredentials: true,
-    });
-  }
-  
-  listaSolicitudPersona(id:Number): Observable<any> {
-   
-
-    return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
-      withCredentials: true,
-    });
-  }
   listarSolicitudes(): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrl}`, {
       withCredentials: true,
     });
   }
-  listarSolicitudesId(id:Number): Observable<any> {
+  listarSolicitudesId(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrl}/${id}`, {
       withCredentials: true,
     });
   }
-  listarDonacionesId(id:Number): Observable<any> {
+  listarDonacionesId(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.donaUrl}/${id}`, {
       withCredentials: true,
     });
   }
-  listarStocksCategoria(id:Number): Observable<any> {
+  listarStocksCategoria(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.stockCate}/${id}`, {
       withCredentials: true,
     });
@@ -133,7 +119,11 @@ export class UserService {
       withCredentials: true,
     });
   }
-  crearProducto(nombre: string, idcate: BigInteger, idtipo: BigInteger): Observable<any> {
+  crearProducto(
+    nombre: string,
+    idcate: BigInteger,
+    idtipo: BigInteger
+  ): Observable<any> {
     const credentials = {
       nombre: nombre,
       categoriaDTO: {
@@ -147,7 +137,6 @@ export class UserService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.productoUrl}`, credentials);
   }
-
   crearTipo(nombre: string): Observable<any> {
     const credentials = {
       nombre: nombre,
@@ -155,8 +144,8 @@ export class UserService {
 
     console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.tipoUrl}`, credentials);
-  } 
-  crearCategoria(nombre: string, descripcion: string,): Observable<any> {
+  }
+  crearCategoria(nombre: string, descripcion: string): Observable<any> {
     const credentials = {
       nombre: nombre,
       descripcion: descripcion,
@@ -166,34 +155,71 @@ export class UserService {
     return this.http.post(`${this.authUrl}/${this.categoriaUrl}`, credentials);
   }
 
-  crearDonacion(idcategoria: BigInteger, descripcion_producto:string,idPersona:BigInteger): Observable<any> {
+  crearDonacion(
+    idcategoria: BigInteger,
+    descripcion_producto: string,
+    idPersona: BigInteger
+  ): Observable<any> {
     const credentials = {
-      categoriaDTO:{
-        id: idcategoria
+      categoriaDTO: {
+        id: idcategoria,
       },
       descripcion_producto: descripcion_producto,
-      personaDTO:{
-        id:idPersona
+      personaDTO: {
+        id: idPersona,
       },
-      estado:0,
+      estado: 0,
     };
-    console.log(credentials)
+    console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.DonaUrlCREAR}`, credentials);
   }
-  crearSolicitud(idcategoria: BigInteger,idPersona:BigInteger): Observable<any> {
+  crearSolicitud(
+    idcategoria: BigInteger,
+    idPersona: BigInteger
+  ): Observable<any> {
     const credentials = {
-      categoriaDTO:{
-        id: idcategoria
+      categoriaDTO: {
+        id: idcategoria,
       },
-      almacenDTO:{
-        id:1
-      }, 
-      personaDTO:{
-        id:idPersona
+      almacenDTO: {
+        id: 1,
       },
-      estado:0,
+      personaDTO: {
+        id: idPersona,
+      },
+      estado: 0,
     };
-    console.log(credentials)
+    console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.SoliUrlCrear}`, credentials);
+  }
+  modificarStock(
+    id: any,
+    cantidadFinal: BigInteger,
+    productoNombre: any,
+    idCategoria: any
+  ): Observable<any> {
+    const credentials = {
+      id: id,
+      cantidad: cantidadFinal,
+      productoDTO: {
+        id: productoNombre,
+      },
+      almacenDTO: {
+        id: 1,
+      },
+      categoriaDTO: {
+        id: idCategoria,
+      },
+    };
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/${this.stockModi}`, credentials);
+  }
+  modificarSoli(id: any, estado: any): Observable<any> {
+    const credentials = {
+      id: id,
+      estado: estado,
+    };
+    console.log(credentials);
+    return this.http.post(`${this.authUrl}/${this.SolicitudModi}`, credentials);
   }
 }
