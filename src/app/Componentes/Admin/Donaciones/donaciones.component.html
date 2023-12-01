@@ -46,11 +46,7 @@
 
         <div class="div">
           <label>¿Descripción?</label>
-          <textarea
-            type="text"
-            [value]="Donaciones.descripcion_producto"
-            disabled
-          >
+          <textarea type="text" [value]="Donaciones.descripcion_producto" disabled>
           </textarea>
         </div>
 
@@ -61,11 +57,7 @@
 
         <div class="div">
           <label>¿Qué Da?</label>
-          <input
-            type="text"
-            [value]="Donaciones.categoriaDTO.nombre"
-            disabled
-          />
+          <input type="text" [value]="Donaciones.categoriaDTO.nombre" disabled />
         </div>
         <div>
           <div class="div">
@@ -78,16 +70,39 @@
       <div class="crear">
         <div class="div">
           <label>Nombre del producto</label>
-          <input type="text" />
+          <select [(ngModel)]="idProducto" name="idCategoria">
+            <option *ngFor="let item of nombreProducto" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
         </div>
         <div class="div">
           <label>Categoria del Producto</label>
-          <input type="text" />
+          <select [(ngModel)]="idCategoria" name="idCategoria">
+            <option *ngFor="let item of categoriaProducto" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
         </div>
         <div class="div">
           <label>Tipo del Producto</label>
-          <input type="text" />
+          <select [(ngModel)]="idTipo" name="idCategoria">
+            <option *ngFor="let item of tipoProducto" [value]="item.id">
+              {{ item.nombre }}
+            </option>
+          </select>
         </div>
+        <div class="div">
+          <label>Cantidad</label>
+          <input [(ngModel)]="cantidad" type="number" />
+        </div>
+
+      </div>
+
+      <br/>
+
+      <div class="boton">
+        <button class="btn btn-primary" (click)="subir()">Subir</button>
       </div>
 
       <br />
@@ -96,7 +111,6 @@
         <table class="Table">
           <thead>
             <tr>
-              <th></th>
               <th>Nombre del Producto</th>
               <th>Categoria del Producto</th>
               <th>Tipo del Producto</th>
@@ -105,7 +119,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr></tr>
+            <tr *ngFor="let tabla of tabla">
+              <td>{{ tabla.nombreProducto }}</td>
+              <td>{{ tabla.categoriaProducto }}</td>
+              <td>{{ tabla.tipo }}</td>
+              <td>{{ tabla.cantidad }}</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -1,4 +1,3 @@
-import { Tipo } from './Jsons/Tipo';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './Componentes/Inicios/Inicio/inicio.component';
@@ -8,7 +7,6 @@ import { UserService } from './Servicios/Service/user.service';
 import { LoginComponent } from './Usuario/Login/login.component';
 import { RegistroComponent } from './Usuario/Registro/registro.component';
 import { roleGuardGuard } from './Servicios/Guard/role-guard.guard';
-import { PruebaComponent } from './prueba/prueba.component';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
 import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.component';
