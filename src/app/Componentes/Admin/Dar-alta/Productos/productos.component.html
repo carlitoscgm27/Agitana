@@ -1,4 +1,4 @@
-<br>
+<br />
 <div class="Div">
   <div class="DivRegister">
     <div class="DivContainer">
@@ -8,27 +8,37 @@
           <input type="text" name="nombre" [(ngModel)]="nombre" />
         </div>
       </div>
+      <br />
       <div class="Divs">
-        <label for="categoria">Selecciona una categoria</label>
-        <br>
-        <select [(ngModel)]="categoriaDTO">
-          <option value="1">categoria1</option>
-          <option value="2">categoria2</option>
+        <label>Categoria del producto</label>
+        <br />
+        <select [(ngModel)]="idCategoria" name="idCategoria">
+          <option *ngFor="let item of categoria" [value]="item.id">
+            {{ item.nombre }}
+          </option>
         </select>
       </div>
+      <br />
       <div class="Divs">
-        <label for="tipo">Selecciona una opción</label>
-        <br>
-        <select [(ngModel)]="tipoDTO">
-          <option value="1">tipo1</option>
-          <option value="2">tipo2</option>
+        <label>Tipo del producto</label>
+        <br />
+        <select [(ngModel)]="idTipo" name="idTipo">
+          <option *ngFor="let item of tipo" [value]="item.id">
+            {{ item.nombre }}
+          </option>
         </select>
       </div>
-      <br>
+      <br />
       <div class="Divs">
-        <button type="button" class="btn btn-outline-dark" (click)="crearProducto()">Crear</button>
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="crearProducto()"
+        >
+          Crear
+        </button>
       </div>
     </div>
   </div>
 </div>
-<br>
+<br />
