@@ -7,7 +7,10 @@ interface Tabla {
   id: number;
   nombre: string;
   cantidad: any;
+  cantidadFinal: any;
   categorianombre: string;
+  idnombre: number;
+  idcategoria: number;
 }
 @Component({
   selector: 'app-solicitudes',
@@ -24,8 +27,9 @@ export class SolicitudesComponent {
   Stock: any;
   tabla: Tabla[] = [];
   cantidadfinal: any;
+  visiblepop: boolean = false;
 
-  constructor(private userService: UserService, private router: Router,) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.listarSolicitudes().subscribe(
@@ -88,7 +92,9 @@ export class SolicitudesComponent {
     id: number,
     cantidad: number,
     nombre: string,
-    categorianombre: string
+    categorianombre: string,
+    idnombre: number,
+    idcategoria: number
   ): void {
     var nuevacantidad = window.prompt(
       'Tienes de ' +
@@ -97,25 +103,70 @@ export class SolicitudesComponent {
         cantidad +
         '. ¿Cuantos quieres coger?'
     );
-      if (nuevacantidad !== undefined) {
-        
-        if (this.cantidadfinal < 0) {
-          
-          console.log('No puedes coger más de lo que hay.');
-        } else {
-          const tablas: Tabla = {
-            id: id,
-            nombre: nombre,
-            cantidad: nuevacantidad,
-            categorianombre: categorianombre,
-          };
-  
-          this.tabla.push(tablas);
-        }
+
+    if (nuevacantidad !== null) {
+      this.cantidadfinal = cantidad - +nuevacantidad;
+
+      if (this.cantidadfinal < 0) {
+        window.alert('No puedes coger más de lo que hay.');
       } else {
-        console.log('Operación cancelada por el usuario.');
+        const tablas: Tabla = {
+          id: id,
+          nombre: nombre,
+          cantidad: nuevacantidad,
+          cantidadFinal: this.cantidadfinal,
+          categorianombre: categorianombre,
+          idnombre: idnombre,
+          idcategoria: idcategoria,
+        };
+
+        this.tabla.push(tablas);
       }
-   
+    } else {
+      console.log('Operación cancelada por el usuario.');
+    }
+  }
+
+  modificar() {
+    console.log("this tablaaaaa",this.tabla);
+    for (var i = 0; i < this.tabla.length; i += 1) {
+      this.userService
+        .modificarStock(this.tabla[i].id, this.tabla[i].cantidadFinal)
+        .subscribe(
+          (response) => {
+            console.log('response', response);
+          },
+          (error) => {
+            console.log('error', error);
+          }
+        );
+
+       this.userService
+        .crearMovimiento(this.Solicitudes.id, 0, this.tabla[i].cantidad,this.tabla[i].id)
+        .subscribe(
+          (response) => {
+            console.log('response', response);
+          },
+          (error) => {
+            console.log('error', error);
+          }
+        );
+    }
+
+    window.alert('Termino la subida');
+
+    this.userService.modificarSoli(this.Solicitudes.id, '4').subscribe(
+      (response) => {
+        console.log('response', response);
+        window.alert('Se updateo a Aceptada la Solicitud: ' + this.Solicitudes.id);
+
+     window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+    
   }
 
   borrarSolicitud(id: string): void {

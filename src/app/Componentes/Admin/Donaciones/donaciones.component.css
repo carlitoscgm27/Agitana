@@ -12,14 +12,14 @@
 .DivRegister {
   width: 80vw;
   height: auto;
-  background-color: #7FFFD4;
+  background-color: #7fffd4;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   margin: 1em;
 }
-h1{
+h1 {
   text-decoration: underline;
 }
 .Table {
@@ -27,7 +27,8 @@ h1{
   border-collapse: collapse;
 }
 
-.Table th, .Table td {
+.Table th,
+.Table td {
   border: 1px solid #ccc;
   padding: 15px;
   text-align: center;
@@ -36,7 +37,7 @@ h1{
 }
 
 .Table th {
-  background-color: #7FFFD4;
+  background-color: #7fffd4;
 }
 
 .Table tr:nth-child(even) {
@@ -44,56 +45,62 @@ h1{
 }
 
 .Table td .button {
-  display: none; 
+  display: none;
 }
 
-.Table tr:hover td  .button {
-  display: block; }
+.Table tr:hover td .button {
+  display: block;
+}
 
+.button {
+  width: 80px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
 
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
 
+.svgIcon path {
+  fill: white;
+}
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.crear {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-    transition-duration: .3s;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .svgIcon {
-    width: 12px;
-    transition-duration: .3s;
-  }
-  
-  .svgIcon path {
-    fill: white;
-  }
-  .div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-  }
-  .buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .crear{
-    display: flex;
-    justify-content: space-between;  
-  }
+.boton{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

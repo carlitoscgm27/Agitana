@@ -16,7 +16,6 @@ import { AuthService } from './Servicios/auth.service';
 import { UserService } from './Servicios/Service/user.service';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
-import { PruebaComponent } from './prueba/prueba.component';
 import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
 import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.component';
 import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitudes.component';
@@ -28,13 +27,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './Servicios/Interceptors/interceptor.service';
 import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
-<<<<<<< HEAD
 import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
 import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
-=======
-import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
 
->>>>>>> 95eb993bd037289290cd614c8bdff2848e307ba3
 
 @NgModule({
   declarations: [
@@ -48,7 +43,6 @@ import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component
     RegistroComponent,
     InicioDonanteComponent,
     InicioRecibidorComponent,
-    PruebaComponent,
     DarAltaComponent,
     DonacionesComponent,
     SolicitudesComponent,
