@@ -7,10 +7,10 @@ interface Tabla {
   id: number;
   nombre: string;
   cantidad: any;
-  cantidadFinal:any;
+  cantidadFinal: any;
   categorianombre: string;
-  idnombre:number;
-  idcategoria:number;
+  idnombre: number;
+  idcategoria: number;
 }
 @Component({
   selector: 'app-solicitudes',
@@ -93,8 +93,8 @@ export class SolicitudesComponent {
     cantidad: number,
     nombre: string,
     categorianombre: string,
-    idnombre:number,
-    idcategoria:number
+    idnombre: number,
+    idcategoria: number
   ): void {
     var nuevacantidad = window.prompt(
       'Tienes de ' +
@@ -103,7 +103,6 @@ export class SolicitudesComponent {
         cantidad +
         '. ¿Cuantos quieres coger?'
     );
-
 
     if (nuevacantidad !== null) {
       this.cantidadfinal = cantidad - +nuevacantidad;
@@ -117,9 +116,8 @@ export class SolicitudesComponent {
           cantidad: nuevacantidad,
           cantidadFinal: this.cantidadfinal,
           categorianombre: categorianombre,
-          idnombre:idnombre,
-          idcategoria:idcategoria
-
+          idnombre: idnombre,
+          idcategoria: idcategoria,
         };
 
         this.tabla.push(tablas);
@@ -129,37 +127,47 @@ export class SolicitudesComponent {
     }
   }
 
-modificar(){
+  modificar() {
+    console.log("this tablaaaaa",this.tabla);
+    for (var i = 0; i < this.tabla.length; i += 1) {
+      this.userService
+        .modificarStock(this.tabla[i].id, this.tabla[i].cantidadFinal)
+        .subscribe(
+          (response) => {
+            console.log('response', response);
+          },
+          (error) => {
+            console.log('error', error);
+          }
+        );
 
-console.log(this.tabla)
-for (var i = 0; i < this.tabla.length; i+=1) {
-  this.userService.modificarStock(this.tabla[i].id,this.tabla[i].cantidadFinal,this.tabla[i].idnombre,this.tabla[i].idcategoria).subscribe(
-    (response) => {
-      console.log('response', response);
-      this.Stock = response;
-    },
-    (error) => {
-      console.log('error', error);
+       this.userService
+        .crearMovimiento(this.Solicitudes.id, 0, this.tabla[i].cantidad,this.tabla[i].id)
+        .subscribe(
+          (response) => {
+            console.log('response', response);
+          },
+          (error) => {
+            console.log('error', error);
+          }
+        );
     }
-  );
-}
-window.alert("Termino la subida")
 
+    window.alert('Termino la subida');
 
-this.userService.modificarSoli(this.Solicitudes.id,"4").subscribe(
-  (response) => {
-    console.log('response', response);
-  },
-  (error) => {
-    console.log('error', error);
+    this.userService.modificarSoli(this.Solicitudes.id, '4').subscribe(
+      (response) => {
+        console.log('response', response);
+        window.alert('Se updateo a Aceptada la Solicitud: ' + this.Solicitudes.id);
+
+     window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+    
   }
-);
-window.alert("Se updateo a Aceptada la Solicitud: "+this.Solicitudes.id)
-
-// this.router.navigate(['../../403']).then(() => {
-//   window.location.href = '../../403';
-// });
-}
 
   borrarSolicitud(id: string): void {
     window.alert('Has eliminado el numero: ' + id);

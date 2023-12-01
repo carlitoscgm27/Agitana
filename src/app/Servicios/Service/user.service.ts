@@ -21,13 +21,12 @@ export class UserService {
   private solicitudUrlPersona = 'User/Solicitudes/listarSolicitudes';
   private stockCate = 'Admin/Stock/listarCategoria';
 
-
-
   private productoUrl = 'Admin/Productos/crear';
   private tipoUrl = 'Admin/Tipo/crear';
   private categoriaUrl = 'Admin/Categoria/crear';
   private DonaUrlCREAR = 'User/Donaciones/crear';
   private SoliUrlCrear = 'User/Solicitudes/crear';
+  private MovStockcreate = 'Admin/Mov_Stock/crear';
   id: any;
 
   private stockModi = 'Admin/Stock/modificar';
@@ -104,17 +103,13 @@ export class UserService {
       withCredentials: true,
     });
   }
-  listaDonacionPersona(id:Number): Observable<any> {
-   
-
+  listaDonacionPersona(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.donaUrlPersona}/${id}`, {
       withCredentials: true,
     });
   }
-  
-  listaSolicitudPersona(id:Number): Observable<any> {
-   
 
+  listaSolicitudPersona(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
       withCredentials: true,
     });
@@ -192,27 +187,39 @@ export class UserService {
     console.log(credentials);
     return this.http.post(`${this.authUrl}/${this.SoliUrlCrear}`, credentials);
   }
-  modificarStock(
-    id: any,
-    cantidadFinal: BigInteger,
-    productoNombre: any,
-    idCategoria: any
+
+ crearMovimiento(
+    idSolicitud: any,
+    idDonacion: any,
+    cantidad: BigInteger,
+    idStock:any
   ): Observable<any> {
+    const credentials = {
+      solicitudesDTO: {
+        id: idSolicitud,
+      },
+      stockDTO: {
+        id: idStock,
+      },
+      donacionDTO: {
+        id: idDonacion,
+      },
+      cantidad: cantidad,
+    };
+    console.log("credentialsssssssssss",credentials);
+    return this.http.post(
+      `${this.authUrl}/${this.MovStockcreate}`,
+      credentials
+    );
+  }
+
+  modificarStock(id: any, cantidadFinal: BigInteger): Observable<any> {
     const credentials = {
       id: id,
       cantidad: cantidadFinal,
-      productoDTO: {
-        id: productoNombre,
-      },
-      almacenDTO: {
-        id: 1,
-      },
-      categoriaDTO: {
-        id: idCategoria,
-      },
     };
     console.log(credentials);
-    return this.http.post(`${this.authUrl}/${this.stockModi}`, credentials);
+    return this.http.put(`${this.authUrl}/${this.stockModi}`, credentials);
   }
   modificarSoli(id: any, estado: any): Observable<any> {
     const credentials = {
@@ -220,6 +227,6 @@ export class UserService {
       estado: estado,
     };
     console.log(credentials);
-    return this.http.post(`${this.authUrl}/${this.SolicitudModi}`, credentials);
+    return this.http.put(`${this.authUrl}/${this.SolicitudModi}`, credentials);
   }
 }
