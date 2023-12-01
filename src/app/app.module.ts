@@ -16,7 +16,6 @@ import { AuthService } from './Servicios/auth.service';
 import { UserService } from './Servicios/Service/user.service';
 import { InicioDonanteComponent } from './Componentes/Inicios/Inicio-donante/inicio-donante.component';
 import { InicioRecibidorComponent } from './Componentes/Inicios/Inicio-recibidor/inicio-recibidor.component';
-import { PruebaComponent } from './prueba/prueba.component';
 import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.component';
 import { DonacionesComponent } from './Componentes/Admin/Donaciones/donaciones.component';
 import { SolicitudesComponent } from './Componentes/Admin/Solicitudes/solicitudes.component';
@@ -44,7 +43,6 @@ import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component
     RegistroComponent,
     InicioDonanteComponent,
     InicioRecibidorComponent,
-    PruebaComponent,
     DarAltaComponent,
     DonacionesComponent,
     SolicitudesComponent,
