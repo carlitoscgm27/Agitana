@@ -39,6 +39,11 @@ export class UserService {
       withCredentials: true,
     });
   }
+  getProductosId(id:number): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.ProUrl}/${id}`, {
+      withCredentials: true,
+    });
+  }
   getCategoria(): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.cateUrl}`, {
       withCredentials: true,
