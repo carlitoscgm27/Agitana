@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../Servicios/Service/user.service';
-
-
-interface Tabla {
-  nombreProducto: any;
-  categoriaProducto: any;
-  tipo: any;
-  cantidad: any;
-
-}
+import { Tabla } from 'src/app/Interfaces/Tabla';
 
 @Component({
   selector: 'app-donaciones',
@@ -29,7 +21,6 @@ export class DonacionesComponent {
   idProducto: any;
   idCategoria: any;
   idTipo: any;
-
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -109,14 +100,48 @@ export class DonacionesComponent {
 
  
   subir() {
-    const tablas: Tabla = {
-      nombreProducto: this.idProducto,
-      categoriaProducto: this.idCategoria,
-      tipo: this.idTipo,
-      cantidad: this.cantidad,
 
+    this.userService.getProductosId(this.idProducto).subscribe(
+      (response) => {
+        console.log('response', response);
+        
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+    this.userService.getCategoria().subscribe(
+      (response) => {
+        console.log('response', response);
+        
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+
+    this.userService.getTipo().subscribe(
+      (response) => {
+        console.log('response', response);
+        
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+
+    const tablas: Tabla = {
+      nombreProducto: this.nombreProducto[this.idProducto].nombre,
+      idcategoria: this.idCategoria,
+      idtipo: this.idTipo,
+      cantidad: this.cantidad,
+      id: 0,
+      nombre: '',
+      cantidadFinal: undefined,
+      categorianombre: '',
+      idnombre: 0
     };
-    console.log()
+    console.log(this.idProducto)
     this.tabla.push(tablas);
     this.idProducto = ""
     this.idCategoria = ""
