@@ -29,6 +29,7 @@ import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
 import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
 import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
+import { MovimientosComponent } from './Componentes/Admin/Movimientos/movimientos.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component
     Error403PageComponent,
     SolicitudComponent,
     PopUpComponent,
-    PerfilComponent
+    PerfilComponent,
+    MovimientosComponent
   ],
   imports: [FormsModule,BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
