@@ -20,6 +20,7 @@ export class UserService {
   private solicitudUrl = 'Admin/Solicitudes/listar';
   private solicitudUrlPersona = 'User/Solicitudes/listarSolicitudes';
   private stockCate = 'Admin/Stock/listarCategoria';
+  private MovStocklistar = 'Admin/Mov_Stock/listar';
 
   private productoUrl = 'Admin/Productos/crear';
   private tipoUrl = 'Admin/Tipo/crear';
@@ -116,6 +117,11 @@ export class UserService {
 
   listaSolicitudPersona(id: Number): Observable<any> {
     return this.http.get(`${this.authUrl}/${this.solicitudUrlPersona}/${id}`, {
+      withCredentials: true,
+    });
+  }
+  listarMov_Stock(): Observable<any> {
+    return this.http.get(`${this.authUrl}/${this.MovStocklistar}`, {
       withCredentials: true,
     });
   }
