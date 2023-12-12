@@ -1,104 +1,461 @@
-h1{
-  display: flex;
-  justify-content: center;
-  text-decoration: underline;
-  filter: drop-shadow(10px 8px 8px black);
-}
-div{
-  margin-top: 1.5em;
-}
-a{
-  font-size: 20px;
-}
-.pregunta{
-  font-size: 25px;
-  text-decoration: underline;
-}
-/* #col1{
-  margin-top: 4%;
-} */
-.foto3{
-  width: 70%;
-  margin-left: 18%;
-  margin-bottom: 5%;
-}
-.mapa{
-  width: 70%;
-  height: 120%;
-  margin-left: 20%;
-  border: 0.5px solid aquamarine;
-  border-radius: 15px;
-  margin-top: -5%;
+.body {
+  -webkit-text-size-adjust: 1000em;
+  box-sizing: border-box;
+  margin: 0;
+  min-height: 100%;
+  background-color: #fff;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  height: auto;
 }
 
-.boton {
-  padding: 0.8em 1.8em;
-  border: 2px solid green;
+
+.main-header {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  color: #333;
+  font-size: 17px;
+  line-height: 24px;
+  box-sizing: border-box;
+  overflow: visible;
+  will-change: background;
+  background-color: rgb(0, 0, 0);
+}
+
+.image-header {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
   position: relative;
-  overflow: hidden;
-  background-color: transparent;
+  display: inline-block;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  transition: .3s;
-  z-index: 1;
-  font-family: inherit;
-  color: green;
-  margin-left: 43%;
-  margin-bottom: 5%;
- }
- 
- .boton::before {
-  content: '';
-  width: 0;
-  height: 300%;
+  color: #fff;
+  box-sizing: border-box;
+  border: 0;
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  object-fit: cover;
+  will-change: transform;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+
+
+.header-text-block {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  color: #fff;
+  box-sizing: border-box;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: green;
-  transition: .5s ease;
+  top: 13%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  height: 120vh;
+  max-width: 1000px;
+  min-height: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-bottom: 20vh;
+  padding-left: 30px;
+  will-change: opacity, filter, transform;
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate3d(0px, 0vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  will-change: opacity, filter, transform;
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate3d(0px, 0vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+.header-titles-wrapper {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  color: #fff;
+  box-sizing: border-box;
+  position: sticky;
+  top: 30vh;
+}
+
+.large-title-block-1 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.homepage-title {
+  -webkit-text-size-adjust: 100%;
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  margin: .67em 0;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 120px;
+  line-height: 90px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+
+}
+
+.UNO {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 10px;
+  box-sizing: border-box;
+  background: #dddddd;
+  position: relative;
+  width: 940px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 900;
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 16px;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto auto;
+  background-color: transparent;
+}
+
+.nav {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 10px;
+  box-sizing: border-box;
+  position: relative;
+  float: right;
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.header-section {
+  -webkit-text-size-adjust: 1000em;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400em;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+  padding-right: 10em;
+  padding-left: 10em;
+}
+
+.header-image {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  box-sizing: border-box;
+  display: flex;
+  max-width: 1440px;
+  min-height: 530px;
+  min-width: 880px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  background-color: #050827;
+}
+
+.header-content {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  line-height: 10em;
+  font-weight: 400;
+  box-sizing: border-box;
+  display: flex;
+  width: 100em;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-align: center;
+  align-items: center;
+  background-image: linear-gradient(180deg, rgba(5, 8, 39, 0.4), rgba(5, 8, 39, 0.4)), url("https://blog.oxfamintermon.org/wp-content/uploads/2018/02/ejemplos-de-solidaridad-2.jpg");
+  background-position: 0px 0px, 100% 100%;
+  width: 100em;
+  background-size: auto, cover;
+  color: #fff;
+}
+
+.header-text {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #fff;
+  box-sizing: border-box;
   display: block;
-  z-index: -1;
- }
- 
- .boton:hover::before {
-  width: 105%;
- }
- 
- .boton:hover {
-  color: #111;
- }
- .botones{
-  color: black;
- }
- .container{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.content-wrap {
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  box-sizing: border-box;
+  display: block;
+  width: 70%;
+  margin-right: auto;
+  margin-bottom: 100px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.parrafo {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: rgba(29, 31, 46, 0.7);
+}
+
+.content {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
   
-  background-color: #7FFFD4;
-  margin-top: -1em;
- }
- .toy{
-  margin-left: 18%; 
-  width: 70%; 
-  margin-top: 2%
- }
- .col{
-  margin-top: 1em;
- }
- .left-line{
-  border-left: 2px solid #006343;
- }
- .with-line {
-  border-bottom: 2px solid #006343;
-  border-top: 2px solid #006343;
-  box-shadow: 1px 2px 2px 3px #2F4858;
+  overflow: hidden;
+  background-color: #dddddd;
 }
-.grande{
-  background-color: #54d9c9b0;
-  width: 95vw;
-  margin-left: 2em;
-  box-shadow: 4px 8px 8px 8px #2F4858;
+
+.wrap2 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 940px;
+  margin-right: auto;
+  margin-left: auto;
 }
-.fotos{
-  width: 65%;
+
+.header-wrap {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+.h1 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  position: static;
+  display: block;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.h2 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.h3 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  align-self: start;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.enlace1 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  box-sizing: border-box;
+  border-bottom: 1px none rgba(162, 95, 75, 0.3);
+  max-width: 100%;
+  position: relative;
+  z-index: 50;
+  display: inline-block;
+  padding: 18px 24px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-bottom-style: none;
+  border-radius: 0px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgba(29, 31, 46, 0.1);
+  transition: background-color 400ms ease, opacity 400ms ease, box-shadow 400ms ease;
+  color: #1d1f2e;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.h4 {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+
+a {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border-bottom: 1px none rgba(162, 95, 75, 0.3);
+  color: #a25f4b;
+  max-width: 100%;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: opacity 400ms ease;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  height: 300px;
+  /* Should be removed. Only for demonstration */
+}
+
+.column1 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  height: 300px;
+  
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.parallax-section {
+  -webkit-text-size-adjust: 100%;
+  font-family: Karla, sans-serif;
+  color: #1d1f2e;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  box-sizing: border-box;
+  height: 340px;
+  margin-bottom: 100px;
+  background-image: url("https://theobjective.com/wp-content/uploads/2017/07/por-que-no-donar-ropa-comida-y-trastos-a-paises-en-desarrollo-2.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
 }
