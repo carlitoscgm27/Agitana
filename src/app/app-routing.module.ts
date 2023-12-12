@@ -16,6 +16,7 @@ import { DarAltaComponent } from './Componentes/Admin/Dar-alta/dar-alta.componen
 import { Error403PageComponent } from './Error403-page/error403-page.component';
 import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.component';
 import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
+import { MovimientosComponent } from './Componentes/Admin/Movimientos/movimientos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'OngSafa/Inicio', pathMatch: 'full' },
@@ -41,6 +42,7 @@ const routes: Routes = [
     canActivate: [roleGuardGuard],
     component: DarAltaComponent,
   },
+  
   {
     path: 'Admin/Control',
     data: { rol: 'ADMIN' },
@@ -58,6 +60,13 @@ const routes: Routes = [
     data: { rol: 'ADMIN' },
     canActivate: [roleGuardGuard],
     component: SolicitudesComponent,
+  },
+
+  {
+    path: 'Admin/Movimientos',
+    data: { rol: 'ADMIN' },
+    canActivate: [roleGuardGuard],
+    component: MovimientosComponent,
   },
   { path: 'Admin/Perfil',data:{rol:'ADMIN'},canActivate:[roleGuardGuard], component:  PerfilComponent},
 

@@ -2,16 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../Servicios/Service/user.service';
 import { PopUpComponent } from '../../Funciones/PopUp/pop-up.component';
+import {Tabla} from '../../../Interfaces/Tabla'
 
-interface Tabla {
-  id: number;
-  nombre: string;
-  cantidad: any;
-  cantidadFinal: any;
-  categorianombre: string;
-  idnombre: number;
-  idcategoria: number;
-}
 @Component({
   selector: 'app-solicitudes',
   templateUrl: './solicitudes.component.html',
@@ -118,6 +110,8 @@ export class SolicitudesComponent {
           categorianombre: categorianombre,
           idnombre: idnombre,
           idcategoria: idcategoria,
+          nombreProducto: '',
+          idtipo: ''
         };
 
         this.tabla.push(tablas);

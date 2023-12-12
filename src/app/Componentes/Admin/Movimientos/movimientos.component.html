@@ -1,0 +1,43 @@
+
+
+<br>
+<br>
+
+<div class="Div">
+   <div class="DivRegister">
+    <table class="Table"  *ngIf="isVisible == true">
+      <thead>
+        <tr>
+          
+          <th>Número de Movimientos</th>
+          <th>Solicitud</th>
+          <th>Donacion</th>
+          <th>Cantidad</th>
+          <th>Nombre Persona</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr *ngFor="let movimientos of responseData" >
+            <td>{{ movimientos.id }}</td>
+            <td *ngIf="movimientos.solicitudesDTO !== null; else valorNulo">{{ movimientos.solicitudesDTO.id }}</td>
+            <td *ngIf="movimientos.donacionDTO !== null; else valorNulo">{{ movimientos.donacionDTO.id }}</td>
+            <td>{{ movimientos.stockDTO.cantidad }}</td>
+            <td *ngIf="movimientos.donacionDTO == null">{{ movimientos.solicitudesDTO.personaDTO.nombre }}</td>
+            <td *ngIf="movimientos.solicitudesDTO == null">{{ movimientos.donacionDTO.personaDTO.nombre }}</td>
+          </tr>
+          
+        
+        
+        
+      </tbody>
+    </table>
+   </div>  
+
+    
+
+</div>    
+<ng-template #valorNulo>
+  <td></td>
+</ng-template>
