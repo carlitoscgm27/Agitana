@@ -1,4 +1,4 @@
-<br />
+<!-- <br />
 <div class="Div">
   <form class="form">
     <p class="title">Solicitud</p>
@@ -15,5 +15,28 @@
     <button (click)="onSubmit()">Enviar</button>
   </form>
   <br />
+</div> -->
+<div class="body">
+  <img id="imagen" src="../../../../assets/imagenes/foto_recibirdor_2.jpg" alt="">
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <form>
+      <header>Solicitud</header>
+      <p class="message">Introduzca sus datos para efectuar la solicitud</p>
+      <label id="label"> Solicitud </label>
+      <br>   
+      <select id="select" [(ngModel)]="idCategoria" name="idCategoria">
+
+        <option *ngFor="let item of categoria" [value]="item.id">
+          {{item.nombre}}
+        </option>
+      </select>
+
+      <br>
+      <button class="submit" (click)="onSubmit()">Enviar</button>
+    </form>
+    </div>
+  </div>
 </div>
 

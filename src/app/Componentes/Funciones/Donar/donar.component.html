@@ -1,4 +1,4 @@
-<br />
+<!-- <br />
 <div class="Div">
   <form class="form">
     <p class="title">Donación</p>
@@ -25,4 +25,33 @@
     <button class="submit" (click)="onSubmit()">Enviar</button>
   </form>
   <br />
+</div> -->
+
+<div class="body">
+  <img id="imagen" src="../../../../assets/imagenes/foto_donador_3.jpg" alt="">
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <form>
+      <header>Donación</header>
+      <p class="message">Introduzca sus datos para efectuar la donación</p>
+      <label id="label"> Categoria </label>
+      <br>   
+      <select id="select" [(ngModel)]="idCategoria" name="idCategoria">
+
+        <option *ngFor="let item of categoria" [value]="item.id">
+          {{item.nombre}}
+        </option>
+
+      </select>
+      <br>
+      <label>
+        <p>Describe lo que va a donar:</p>
+        <textarea id="texto" class="input" type="text" name="descripcion_producto" [(ngModel)]="descripcion_producto"></textarea>
+      </label>
+      <br>
+      <button class="submit" (click)="onSubmit()">Enviar</button>
+    </form>
+    </div>
+  </div>
 </div>
