@@ -2,21 +2,37 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../Servicios/auth.service';
 import { Router } from '@angular/router';
 import { DatosService } from '../../Servicios/Datos/datos.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
 export class LoginComponent {
   username!: string;
   password!: string;
   rol!: string;
+  loginForm!: FormGroup;
+  touched = {
+   username: false,
+   password: false
+ };
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
+ 
+  ngOnInit(){
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+ 
 
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(

@@ -125,3 +125,12 @@
 .login form{
   width: 80vw;
 }
+p{
+  color: red;
+  margin-bottom: 1em;
+  font-size: 15px;
+}
+.form input.button:disabled{
+  background-color: #009579;
+  opacity: 50%;
+}

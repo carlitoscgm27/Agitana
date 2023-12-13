@@ -1,52 +1,187 @@
 <div class="body" src="assets/imagenes/2.jpg">
-  <img id="imagen" src="../../../assets/imagenes/2.jpg" alt="">
+  <img id="imagen" src="../../../assets/imagenes/2.jpg" alt="" />
   <div class="container">
-    <input type="checkbox" id="check">
+    <input type="checkbox" id="check" />
     <div class="login form">
       <header>Registro</header>
-      <form class="column">
+      <form class="column" [formGroup]="loginForm">
         <div class="divi">
           <label for="username">Username</label>
-          <input type="username" name="username" [(ngModel)]="username" placeholder="Ingresa el username">
+          <input
+            type="username"
+            name="username"
+            [(ngModel)]="username"
+            placeholder="Ingresa el username"
+            id="username"
+            formControlName="username"
+            (blur)="touched.username = true"
+          />
+          <div
+            *ngIf="
+              touched.username &&
+              loginForm.get('username')?.hasError('required')
+            "
+          >
+            <p>Nombre de usuario requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="password">Contraseña</label>
-          <input type="password" name="password" [(ngModel)]="password" placeholder="Ingresa la contraseña">
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Ingresa la contraseña"
+            id="password"
+            formControlName="password"
+            (blur)="touched.password = true"
+            minlength="5"
+            required
+          />
+          <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+            <p>La contraseña debe tener al menos 5 caracteres</p>
+          </div>
+          <div
+            *ngIf="
+              touched.password &&
+              loginForm.get('password')?.hasError('required')
+            "
+          >
+            <p>Contraseña requerida</p>
+          </div>
         </div>
         <div class="divi">
           <label for="username">Nombre de la persona</label>
-          <input type="username" name="nombre" [(ngModel)]="nombre" placeholder="Ingresa el nombre">
+          <input
+            type="username"
+            name="nombre"
+            [(ngModel)]="nombre"
+            placeholder="Ingresa el nombre"
+            id="nombre"
+            formControlName="nombre"
+            (blur)="touched.nombre = true"
+          />
+          <div *ngIf="loginForm.get('password')?.hasError('minLength')">
+            <p>La contraseña debe tener al menos 3 caracteres</p>
+          </div>
+          <div
+            *ngIf="
+              touched.nombre && loginForm.get('nombre')?.hasError('required')
+            "
+          >
+            <p>Nombre requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="username">Primer Apellido</label>
-          <input type="username" name="apellido1" [(ngModel)]="apellido1" placeholder="Ingresa el Primer Apellido">
+          <input
+            type="username"
+            name="apellido1"
+            [(ngModel)]="apellido1"
+            placeholder="Ingresa el Primer Apellido"
+            id="apellido1"
+            formControlName="apellido1"
+            (blur)="touched.apellido1 = true"
+          />
+          <div
+            *ngIf="
+              touched.apellido1 &&
+              loginForm.get('apellido1')?.hasError('required')
+            "
+          >
+            <p>Primer Apellido requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="username">Segundo Apellido</label>
-          <input type="username" name="apellido2" [(ngModel)]="apellido2" placeholder="Ingresa el Segundo Apellido">
+          <input
+            type="username"
+            name="apellido2"
+            [(ngModel)]="apellido2"
+            placeholder="Ingresa el Segundo Apellido"
+            id="apellido2"
+            formControlName="apellido2"
+            (blur)="touched.apellido2 = true"
+          />
+          <div
+            *ngIf="
+              touched.apellido2 &&
+              loginForm.get('apellido2')?.hasError('required')
+            "
+          >
+            <p>Segundo Apellido requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="Telefono">Teléfono</label>
-          <input type="username" name="telefono" [(ngModel)]="telefono" placeholder="Ingreso Teléfono">
+          <input
+            type="username"
+            name="telefono"
+            [(ngModel)]="telefono"
+            placeholder="Ingreso Teléfono"
+            id="telefono"
+            formControlName="telefono"
+            (blur)="touched.telefono = true"
+            maxlength="9"
+          />
+          <div
+            *ngIf="
+              touched.telefono &&
+              loginForm.get('telefono')?.hasError('required')
+            "
+          >
+            <p>Telefono requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="DNI">DNI</label>
-          <input type="username" name="dni" [(ngModel)]="dni" placeholder="Ingreso DNI">
+          <input
+            type="username"
+            name="dni"
+            [(ngModel)]="dni"
+            placeholder="Ingreso DNI"
+            id="dni"
+            formControlName="dni"
+            (blur)="touched.dni = true"
+            maxlength="9"
+          />
+          <div
+            *ngIf="touched.dni && loginForm.get('dni')?.hasError('required')"
+          >
+            <p>DNI requerido</p>
+          </div>
         </div>
         <div class="divi">
           <label for="DNI">Selecciona una opción</label>
-          <select class="select" [(ngModel)]="tipo" name="tipo">
+          <select
+            class="select"
+            [(ngModel)]="tipo"
+            name="tipo"
+            id="tipo"
+            formControlName="tipo"
+            (blur)="touched.tipo = true"
+          >
             <option value="0">Ser Donante</option>
             <option value="1">Ser Recibidor</option>
           </select>
+          <div
+            *ngIf="touched.tipo && loginForm.get('tipo')?.hasError('required')"
+          >
+            <p>Tipo requerido</p>
+          </div>
         </div>
       </form>
 
-
-
       <div class="signup">
-        <input type="button" class="button" value="Registrarse" (click)="onSubmit()">
-        <span class="signup">¿Tienes cuenta?
+        <input
+          type="button"
+          class="button"
+          value="Registrarse"
+          (click)="onSubmit()"
+          [disabled]="!loginForm.valid"
+        />
+        <span class="signup"
+          >¿Tienes cuenta?
           <a routerLink="../Login">Iniciar Sesión</a>
         </span>
       </div>
