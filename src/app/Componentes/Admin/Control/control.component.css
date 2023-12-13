@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #54d9c9b0;
+  background-color: grey;
   flex-direction: column;
   margin-left: 2em;
   box-shadow: 4px 8px 8px 8px #2f4858;
@@ -11,7 +11,7 @@
 }
 .DivRegister {
   width: 80vw;
-  background-color: #7fffd4;
+  background-color: lightgray;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -20,7 +20,6 @@
 }
 .DivOrg {
   display: flex;
-  border: solid 0.3em gold;
   width: 70vw;
   flex-direction: row;
   justify-content: center;
@@ -56,4 +55,15 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.bar {
+  position: relative;
+  height: 6vh;
+  margin-bottom: 10px;
+  background-color: #808080;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 4px 8px 8px 8px #2f4858;
+}
+h5{
+  text-decoration: underline;
 }

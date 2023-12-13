@@ -24,7 +24,7 @@
           <td>{{ solicitud.categoriaDTO.nombre }}</td>
           <td>{{ solicitud.estado }}</td>
           <td>
-            <button class="btn btn-primary" (click)="administrar(solicitud.id)">
+            <button class="btn btn-info" (click)="administrar(solicitud.id)">
               Administrar Solicitud
             </button>
           </td>
@@ -97,7 +97,7 @@
                 <td>{{ stock.cantidad }}</td>
                 <td>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-info"
                     (click)="
                       quitar(
                         stock.id,
@@ -147,9 +147,9 @@
       <br />
       <br />
       <div class="buttons">
-        <button class="btn btn-primary" (click)="cerrar()">Volver</button>
+        <button class="btn btn-info" (click)="cerrar()">Volver</button>
         <button
-          class="btn btn-primary"
+          class="btn btn-info"
           (click)="modificar()"
           *ngIf="this.Solicitudes.estado !== 'ACEPTADA'"
         >

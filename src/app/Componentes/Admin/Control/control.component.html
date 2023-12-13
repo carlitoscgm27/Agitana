@@ -34,16 +34,17 @@
     </div>
     <!-- ------------------------------------------------------------- -->
     <div class="DivOrg">
-      <div class="Uno" *ngIf="this.valor == 0 && this.Buscador == false">
-        <div class="DivCard" *ngFor="let item of responseDataStock">
-          <label>
-            <u> <strong>Cantidad:</strong></u> {{ item.cantidad }} 
-          </label>
-
+      <div *ngIf="this.valor == 0 && this.Buscador == false">
+        <div class="chart-container" *ngFor="let item of responseDataStock">
+          <h5>Producto: </h5>
+          <div
+            class="bar"
+            [style.width.vw]="item.cantidad"
+          >
+            {{ item.productoDTO.nombre }}
+          </div>
+          <h6>Cantidad: {{ item.cantidad }} unidades.</h6>
           <br />
-          <label>Categoria: {{ item.categoriaDTO.nombre }}</label>
-          <br />
-          <label>Producto: {{ item.productoDTO.nombre }}</label>
         </div>
       </div>
       <div class="Uno" *ngIf="this.valor == 1 && this.Buscador == false">

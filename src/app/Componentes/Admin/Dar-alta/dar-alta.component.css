@@ -2,7 +2,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: #54d9c9b0;
+  background-color: grey;
 
   margin-left: 2em;
   box-shadow: 4px 8px 8px 8px #2f4858;
@@ -11,7 +11,7 @@
 }
 .DivRegister {
   width: 95%;
-  background-color: #7fffd4;
+  background-color: lightgray;
   display: flex;
   justify-content: center;
   flex-direction: column;
