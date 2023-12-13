@@ -4,8 +4,12 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 margin-left: 2em;
-width: 90vw;
+width: auto;
 height: auto;
+background-image: url("../../../../assets/imagenes/foto_donador_1.jpg");
+background-repeat: no-repeat ;
+background-size: cover;
+background-position: left;
 }
 .DivRegister {
   width: 80vw;
@@ -23,7 +27,7 @@ height: auto;
   --bg-color: #55d6be;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   position: relative;
-  width: 75vw;
+  width: 65vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -31,8 +35,8 @@ height: auto;
   border-radius: 1vw;
   border-style: solid;
   border-color: #000;
-  background: rgb(117,250,204);
-  background: radial-gradient(circle, rgba(117,250,204,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
+  background: rgb(125,138,133);
+  background: radial-gradient(circle, rgba(125,138,133,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
 }
 
 .admin {
@@ -41,7 +45,7 @@ height: auto;
   --bg-color: #55d6be;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   position: relative;
-  width: 75vw;
+  width: 65vw;
   height: 60vw;
   display: flex;
   flex-direction: column;
@@ -49,8 +53,8 @@ height: auto;
   border-style: solid;
   border-color: #000;
   border-radius: 1vw;
-  background: rgb(117,250,204);
-  background: radial-gradient(circle, rgba(117,250,204,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
+  background: rgb(125,138,133);
+  background: radial-gradient(circle, rgba(125,138,133,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
 }
 
 
@@ -101,12 +105,12 @@ h2 {
   font-family: 'Courier New', monospace;
   font-size: 1.65em;
   text-align: center;
-  border: #58A4B0 0.35em inset;
-  background-color: #2C666E;
+  border: black 0.35em inset;
+  background-color: #454545;
   color: white;
-  width: 30vw;
-  height: 40vh;
-  margin: 1em;
+  width: 25vw;
+  height: 30vh;
+  margin: 2em;
 }
 
 .container{

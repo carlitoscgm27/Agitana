@@ -1,95 +1,165 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-  background-color: #28C199;
-  color: #fff;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-.title {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  position: relative;
-  display: flex;
+.body{
+  min-height: 100vh;
+  width: 100%;
+  background: #009579;
   align-items: center;
-  padding-left: 30px;
-  color: black;
-  text-decoration: underline;
-}
-
-.title::before {
-  width: 18px;
-  height: 18px;
-}
-
-.title::after {
-  width: 18px;
-  height: 18px;
-  animation: pulse 1s linear infinite;
-}
-
-.title::before,
-.title::after {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 0px;
-  background-color: black;
-}
-
-.message,
-.signin {
-  font-size: 14.5px;
-  color: black;
-}
-
-.signin {
   text-align: center;
 }
 
-.signin a:hover {
-  text-decoration: underline royalblue;
+#imagen{
+  width: 99vw;
+  height: auto;
 }
 
-.signin a {
-  color: #00bfff;
-}
-
-.flex {
-  display: flex;
+.container{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
   width: 100%;
-  gap: 6px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.container .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: black;
+
+
+}
+ .form input{
+   height: 60px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 1.3rem;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+ }
+ .form input:focus{
+   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+ }
+.form a{
+  font-size: 16px;
+  color: #009579;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #009579;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form input.button:hover{
+  background: #006653;
+}
+.signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signup label{
+  color: #009579;
+  cursor: pointer;
+}
+.signup label:hover{
+  text-decoration: underline;
 }
 
+::placeholder{
+  color: #009579;
+}
+
+
+ .message,
+.signin {
+  font-size: 1em;
+  color: black;
+  margin: 1em;
+} 
+
+#label{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.5em;
+  text-decoration: underline;
+
+}
+
+#select{
+  width: 50%  ;
+}
 .form label {
   position: relative;
+  margin: 1em;
 }
 
-.form label .input {
-  background-color: aquamarine;
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  background-color: black;
+  width: 100%;
+}
+
+.submit:hover {
+  background-color: #00bfff96;
+}
+
+#texto{
+  width: 20vw;
+  align-items: left;
+
+
+}
+
+ .form label .input {
+  background-color: grey;
   color: #fff;
   width: 100%;
   padding: 20px 05px 05px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
-}
+} 
 
-.input{
-  background-color: aquamarine;
-  color: black;
-  width: 100%;
-  padding: 10px 05px 05px 10px;
-  outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 10px;
-}
 
 .form label .input + span {
   color: black;
@@ -104,7 +174,7 @@
 .form label .input:placeholder-shown + span {
   top: 12.5px;
   font-size: 0.9em;
-}
+} 
 
 .form label .input:focus + span,
 .form label .input:valid + span {
@@ -114,53 +184,5 @@
   font-weight: 600;
 }
 
-.input {
-  font-size: medium;
-}
 
-.submit {
-  border: none;
-  outline: none;
-  padding: 10px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 16px;
-  transform: 0.3s ease;
-  background-color: black;
-}
-
-.submit:hover {
-  background-color: #00bfff96;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(0.9);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
-.Div {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #f9ffc3;
-	margin-left: 2em;
-	box-shadow: 4px 8px 8px 8px #2f4858;
-	width: 65vw;
-	height: 80vh;
-	margin-top: 8%;
-	border-radius: 5%;
-  }
   
