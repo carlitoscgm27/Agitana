@@ -17,11 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let solicitud of responseData">
-          <td>
-            <button class="button" (click)="borrarSolicitud(solicitud.id)">
-              Rechazar
-            </button>
-          </td>
+          <td></td>
           <td>{{ solicitud.id }}</td>
           <td>{{ solicitud.almacenDTO.id }}</td>
           <td>{{ solicitud.personaDTO.nombre }}</td>
@@ -36,7 +32,6 @@
       </tbody>
     </table>
     <div *ngIf="isVisible == true">
-      
       <div class="grid">
         <div class="div">
           <label>Id</label>
@@ -68,7 +63,7 @@
         </div>
       </div>
 
-      <div class="crear">
+      <div class="crear" *ngIf="this.Solicitudes.estado !== 'ACEPTADA'">
         <div class="div">
           <label>Categoria del producto</label>
           <select
@@ -84,7 +79,7 @@
       </div>
 
       <br />
-      <div class="union">
+      <div class="union" *ngIf="this.Solicitudes.estado !== 'ACEPTADA'">
         <div>
           <table class="Table">
             <thead>
@@ -95,12 +90,28 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody *ngIf="visiblepop== false">
+            <tbody *ngIf="visiblepop == false">
               <tr *ngFor="let stock of Stock">
                 <td>{{ stock.productoDTO.nombre }}</td>
                 <td>{{ stock.categoriaDTO.nombre }}</td>
                 <td>{{ stock.cantidad }}</td>
-                <td><button class="btn btn-primary" (click)="quitar(stock.id,stock.cantidad,stock.productoDTO.nombre,stock.categoriaDTO.nombre, stock.productoDTO.id,stock.categoriaDTO.id)">Añadir</button></td>
+                <td>
+                  <button
+                    class="btn btn-primary"
+                    (click)="
+                      quitar(
+                        stock.id,
+                        stock.cantidad,
+                        stock.productoDTO.nombre,
+                        stock.categoriaDTO.nombre,
+                        stock.productoDTO.id,
+                        stock.categoriaDTO.id
+                      )
+                    "
+                  >
+                    Añadir
+                  </button>
+                </td>
               </tr>
             </tbody>
             <!-- <div *ngIf="visiblepop== true">
@@ -130,13 +141,20 @@
           </table>
         </div>
       </div>
+      <div *ngIf="this.Solicitudes.estado == 'ACEPTADA'">
+        <h1>Esta Solicitud fue Aceptada</h1>
+      </div>
       <br />
       <br />
       <div class="buttons">
-        <button class="btn btn-primary" (click)="cerrar()">
-          Volver
+        <button class="btn btn-primary" (click)="cerrar()">Volver</button>
+        <button
+          class="btn btn-primary"
+          (click)="modificar()"
+          *ngIf="this.Solicitudes.estado !== 'ACEPTADA'"
+        >
+          Resolver
         </button>
-        <button class="btn btn-primary" (click)="modificar()">Resolver</button>
       </div>
     </div>
   </div>
