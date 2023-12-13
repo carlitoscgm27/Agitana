@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Servicios/auth.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -16,9 +18,49 @@ export class RegistroComponent {
   telefono!: string;
   dni!: string;
   tipo!: BigInteger;
+  touched = {
+    username: false,
+    password: false,
+    nombre:false,
+    apellido1:false,
+    apellido2:false,
+    telefono:false,
+    dni:false,
+    tipo:false,
+  };
+  loginForm!: FormGroup;
+ 
 
-  constructor(private authService: AuthService, private router: Router) {}
-
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {this.loginForm = new FormGroup({
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+  });}
+ 
+ 
+ 
+ 
+  ngOnInit(){
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido1: ['', Validators.required],
+      apellido2: ['', Validators.required],
+      telefono: ['', Validators.required],
+      dni: ['', Validators.required],
+      tipo: ['', Validators.required],
+    })
+  }
+ 
+  subida(){
+    console.log(this.tipo)
+  }
   onSubmit() {
     this.authService
       .register(

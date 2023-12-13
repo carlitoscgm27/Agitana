@@ -30,6 +30,7 @@ import { SolicitudComponent } from './Componentes/Funciones/Solicitud/solicitud.
 import { PopUpComponent } from './Componentes/Funciones/PopUp/pop-up.component';
 import { PerfilComponent } from './Componentes/Funciones/Perfil/perfil.component';
 import { MovimientosComponent } from './Componentes/Admin/Movimientos/movimientos.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { MovimientosComponent } from './Componentes/Admin/Movimientos/movimiento
     PerfilComponent,
     MovimientosComponent
   ],
-  imports: [FormsModule,BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [FormsModule,BrowserModule, AppRoutingModule, HttpClientModule,ReactiveFormsModule],
   providers: [
     UserService,
     AuthService,
