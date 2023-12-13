@@ -25,7 +25,7 @@
           <td>{{ donacion.estado }}</td>
 
           <td>
-            <button class="btn btn-primary" (click)="administrar(donacion.id)">
+            <button class="btn btn-info" (click)="administrar(donacion.id)">
               Administrar Donación
             </button>
           </td>
@@ -89,7 +89,7 @@
       <br />
 
       <div class="boton" *ngIf="this.Donaciones.estado !== 'ACEPTADA'">
-        <button class="btn btn-primary" (click)="subir(cantidad)">Subir</button>
+        <button class="btn btn-info" (click)="subir(cantidad)">Subir</button>
       </div>
 
       <br />
@@ -122,9 +122,9 @@
       <br />
 
       <div class="buttons">
-        <button class="btn btn-primary" (click)="cerrar()">Volver</button>
+        <button class="btn btn-info" (click)="cerrar()">Volver</button>
         <button
-          class="btn btn-primary"
+          class="btn btn-info"
           (click)="resolver()"
           *ngIf="this.Donaciones.estado !== 'ACEPTADA'"
         >
