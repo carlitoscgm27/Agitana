@@ -29,8 +29,10 @@ height: auto;
   flex-direction: column;
   align-items: center;
   border-radius: 1vw;
-  background: rgb(0,157,167);
-  background: radial-gradient(circle, rgba(0,157,167,1) 0%, rgba(102,240,194,1) 50%, rgba(2,19,92,1) 100%);
+  border-style: solid;
+  border-color: #000;
+  background: rgb(117,250,204);
+  background: radial-gradient(circle, rgba(117,250,204,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
 }
 
 .admin {
@@ -44,9 +46,11 @@ height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-style: solid;
+  border-color: #000;
   border-radius: 1vw;
-  background: rgb(1, 115, 122);
-  background: radial-gradient(circle, rgba(1, 115, 122, 1) 0%, rgba(102, 240, 194, 1) 48%, rgba(7, 2, 92, 1) 100%);
+  background: rgb(117,250,204);
+  background: radial-gradient(circle, rgba(117,250,204,1) 0%, rgba(247,247,247,1) 50%, rgba(110,112,111,1) 100%);
 }
 
 
