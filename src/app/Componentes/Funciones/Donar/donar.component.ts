@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../Servicios/Service/user.service'; 
 import { AuthService } from '../../../Servicios/auth.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-donar',
@@ -13,12 +14,25 @@ export class DonarComponent {
   descripcion_producto!: string;
   idPersona: any;
   idCategoria: any;
+  donaForm!: FormGroup;
+  touched = {
+   idCategoria: false,
+   descripcion_producto: false
+  };
+
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private fb: FormBuilder
+  ) {this.donaForm = new FormGroup({
+    descripcion_producto: new FormControl('', [
+      Validators.required,
+      Validators.minLength(15),
+    ]),
+  });}
+ 
 
   ngOnInit(): void {
     if (this.idPersona == '') {
@@ -48,6 +62,12 @@ export class DonarComponent {
         });
       }
     );
+
+    this.donaForm = this.fb.group({
+      idCategoria: ['', Validators.required],
+      descripcion_producto: ['', Validators.required],
+    })
+ 
   }
 
   onSubmit() {

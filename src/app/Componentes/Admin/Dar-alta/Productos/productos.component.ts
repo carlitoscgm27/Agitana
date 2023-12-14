@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../Servicios/Service/user.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-productos',
@@ -13,8 +14,21 @@ export class ProductosComponent {
   idTipo:any;
   categoria: any;
   tipo:any;
+  productoForm!: FormGroup;
+  touched = {
+    nombre: false,
+    idCategoria: false,
+    idTipo: false
+  };
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private fb: FormBuilder) {
+    this.productoForm = new FormGroup({
+      descripcion_producto: new FormControl('', [
+        Validators.required,
+        Validators.minLength(15),
+      ]),
+    });
+  }
 
   ngOnInit(): void {
     this.userService.getCategoria().subscribe(
@@ -36,6 +50,11 @@ export class ProductosComponent {
         console.log('error', error);
       }
     );
+    this.productoForm = this.fb.group({
+      nombre: ['', Validators.required],
+      idCategoria: ['', Validators.required],
+      idTipo: ['', Validators.required],
+    })
   }
 
 crearProducto(){

@@ -1,27 +1,46 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../Servicios/Service/user.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  styleUrls: ['./categoria.component.css'],
 })
 export class CategoriaComponent {
   nombre!: string;
   descripcion!: string;
+  cateForm!: FormGroup;
+  touched = {
+    nombre: false,
+    descripcion: false,
+  };
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private fb: FormBuilder) {
+    this.cateForm = new FormGroup({
+      descripcion_producto: new FormControl('', [
+        Validators.required,
+        Validators.minLength(15),
+      ]),
+    });
+  }
 
-crearCategoria(){
-  this.userService.crearCategoria(this.nombre,this.descripcion).subscribe(
-    (response) => {
-      console.log('response', response);
-      window.alert("Nueva Categoria Creada")
-    },
-    (error) => {
-      console.log('error', error);
-          
-    }
-  );
-}
+  ngOnInit(){
+    this.cateForm = this.fb.group({
+      nombre: ['', Validators.required],
+      descripcion: ['', Validators.required],
+    })
+  }
+
+  crearCategoria() {
+    this.userService.crearCategoria(this.nombre, this.descripcion).subscribe(
+      (response) => {
+        console.log('response', response);
+        window.alert('Nueva Categoria Creada');
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
 }
