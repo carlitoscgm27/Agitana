@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../Servicios/Service/user.service';
 import { PopUpComponent } from '../../Funciones/PopUp/pop-up.component';
-import {Tabla} from '../../../Interfaces/Tabla'
+import { Tabla } from '../../../Interfaces/Tabla';
 
 @Component({
   selector: 'app-solicitudes',
@@ -68,6 +68,36 @@ export class SolicitudesComponent {
     }
 
     this.isVisible = !this.isVisible;
+    this.Stock = '';
+    this.tabla = [];
+    this.idCategoria = '';
+  }
+  Rechazar() {
+    this.userService.modificarSoli(this.Solicitudes.id, '2').subscribe(
+      (response) => {
+        console.log('response', response);
+        
+        window.alert('Cambio la Solicitud a Rechazada');
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
+  Pendiente() {
+    this.userService.modificarSoli(this.Solicitudes.id, '1').subscribe(
+      (response) => {
+        console.log('response', response);
+        
+        window.alert('Cambio la Solicitud a Pendiente de Stock');
+
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
   }
   loadProductos(id: number) {
     this.userService.listarStocksCategoria(id).subscribe(
@@ -111,10 +141,16 @@ export class SolicitudesComponent {
           idnombre: idnombre,
           idcategoria: idcategoria,
           nombreProducto: '',
-          idtipo: ''
+          idtipo: '',
         };
 
         this.tabla.push(tablas);
+        const index = this.Stock.findIndex(
+          (item: { id: number }) => item.id === id
+        );
+        if (index !== -1) {
+          this.Stock.splice(index, 1);
+        }
       }
     } else {
       console.log('Operación cancelada por el usuario.');
@@ -122,7 +158,7 @@ export class SolicitudesComponent {
   }
 
   modificar() {
-    console.log("this tablaaaaa",this.tabla);
+    console.log('this tablaaaaa', this.tabla);
     for (var i = 0; i < this.tabla.length; i += 1) {
       this.userService
         .modificarStock(this.tabla[i].id, this.tabla[i].cantidadFinal)
@@ -135,8 +171,13 @@ export class SolicitudesComponent {
           }
         );
 
-       this.userService
-        .crearMovimiento(this.Solicitudes.id, 0, this.tabla[i].cantidad,this.tabla[i].id)
+      this.userService
+        .crearMovimiento(
+          this.Solicitudes.id,
+          0,
+          this.tabla[i].cantidad,
+          this.tabla[i].id
+        )
         .subscribe(
           (response) => {
             console.log('response', response);
@@ -149,18 +190,19 @@ export class SolicitudesComponent {
 
     window.alert('Termino la subida');
 
-    this.userService.modificarSoli(this.Solicitudes.id, '4').subscribe(
+    this.userService.modificarSoli(this.Solicitudes.id, '3').subscribe(
       (response) => {
         console.log('response', response);
-        window.alert('Se updateo a Aceptada la Solicitud: ' + this.Solicitudes.id);
+        window.alert(
+          'Se updateo a Aceptada la Solicitud: ' + this.Solicitudes.id
+        );
 
-     window.location.reload();
+        window.location.reload();
       },
       (error) => {
         console.log('error', error);
       }
     );
-    
   }
 
   borrarSolicitud(id: string): void {

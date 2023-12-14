@@ -23,7 +23,7 @@
             <td>{{ movimientos.id }}</td>
             <td *ngIf="movimientos.solicitudesDTO !== null; else valorNulo">{{ movimientos.solicitudesDTO.id }}</td>
             <td *ngIf="movimientos.donacionDTO !== null; else valorNulo">{{ movimientos.donacionDTO.id }}</td>
-            <td>{{ movimientos.stockDTO.cantidad }}</td>
+            <td>{{ movimientos.cantidad }}</td>
             <td *ngIf="movimientos.donacionDTO == null">{{ movimientos.solicitudesDTO.personaDTO.nombre }}</td>
             <td *ngIf="movimientos.solicitudesDTO == null">{{ movimientos.donacionDTO.personaDTO.nombre }}</td>
           </tr>
@@ -39,5 +39,5 @@
 
 </div>    
 <ng-template #valorNulo>
-  <td></td>
+  <td>-</td>
 </ng-template>

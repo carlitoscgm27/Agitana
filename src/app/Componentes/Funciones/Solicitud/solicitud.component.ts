@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../../../Servicios/Service/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../Servicios/auth.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-solicitud',
   templateUrl: './solicitud.component.html',
@@ -12,13 +13,25 @@ export class SolicitudComponent {
     idPersona: any;
     idCategoria: any;
     idAlmacen:any;
+    soliForm!: FormGroup;
+    touched = {
+    idCategoria: false,
+  };
+
     
   
-    constructor(
-      private userService: UserService,
-      private router: Router,
-      private authService: AuthService
-    ) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService,
+    private fb: FormBuilder
+  ) {this.soliForm = new FormGroup({
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(15),
+    ]),
+  });}
+ 
   
     ngOnInit(): void {
       if (this.idPersona == '') {
@@ -48,6 +61,10 @@ export class SolicitudComponent {
           });
         }
       );
+      this.soliForm = this.fb.group({
+        idCategoria: ['', Validators.required],
+      })
+ 
     }
   
     onSubmit() {

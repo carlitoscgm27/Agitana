@@ -17,11 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let donacion of responseData">
-          <td>
-            <button class="button" (click)="borrarDonacion(donacion.id)">
-              Rechazar
-            </button>
-          </td>
+          <td></td>
           <td>{{ donacion.id }}</td>
           <td>{{ donacion.personaDTO.nombre }}</td>
           <td>{{ donacion.descripcion_producto }}</td>
@@ -29,7 +25,7 @@
           <td>{{ donacion.estado }}</td>
 
           <td>
-            <button class="btn btn-primary" (click)="administrar(donacion.id)">
+            <button class="btn btn-info" (click)="administrar(donacion.id)">
               Administrar Donación
             </button>
           </td>
@@ -46,7 +42,11 @@
 
         <div class="div">
           <label>¿Descripción?</label>
-          <textarea type="text" [value]="Donaciones.descripcion_producto" disabled>
+          <textarea
+            type="text"
+            [value]="Donaciones.descripcion_producto"
+            disabled
+          >
           </textarea>
         </div>
 
@@ -57,7 +57,11 @@
 
         <div class="div">
           <label>¿Qué Da?</label>
-          <input type="text" [value]="Donaciones.categoriaDTO.nombre" disabled />
+          <input
+            type="text"
+            [value]="Donaciones.categoriaDTO.nombre"
+            disabled
+          />
         </div>
         <div>
           <div class="div">
@@ -67,27 +71,11 @@
         </div>
       </div>
 
-      <div class="crear">
+      <div class="crear" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
         <div class="div">
           <label>Nombre del producto</label>
           <select [(ngModel)]="idProducto" name="idCategoria">
-            <option *ngFor="let item of nombreProducto" [value]="item.id">
-              {{ item.nombre }}
-            </option>
-          </select>
-        </div>
-        <div class="div">
-          <label>Categoria del Producto</label>
-          <select [(ngModel)]="idCategoria" name="idCategoria">
-            <option *ngFor="let item of categoriaProducto" [value]="item.id">
-              {{ item.nombre }}
-            </option>
-          </select>
-        </div>
-        <div class="div">
-          <label>Tipo del Producto</label>
-          <select [(ngModel)]="idTipo" name="idCategoria">
-            <option *ngFor="let item of tipoProducto" [value]="item.id">
+            <option *ngFor="let item of productos" [value]="item.id">
               {{ item.nombre }}
             </option>
           </select>
@@ -96,32 +84,37 @@
           <label>Cantidad</label>
           <input [(ngModel)]="cantidad" type="number" />
         </div>
-
       </div>
 
-      <br/>
+      <br />
 
-      <div class="boton">
-        <button class="btn btn-primary" (click)="subir()">Subir</button>
+      <div class="boton" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
+        <button class="btn btn-info" (click)="subir(cantidad)">Subir</button>
       </div>
 
       <br />
 
       <div>
-        <table class="Table">
+        <div *ngIf="this.Donaciones.estado == 'ACEPTADA'">
+          <h1>Esta Donación fue Aceptada</h1>
+        </div>
+        <div *ngIf="this.Donaciones.estado == 'RECHAZADA'">
+          <h1>Esta Donación fue Rechazada</h1>
+        </div>
+
+        <table class="Table" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
           <thead>
             <tr>
               <th>Nombre del Producto</th>
               <th>Categoria del Producto</th>
               <th>Tipo del Producto</th>
               <th>Cantidad</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let tabla of tabla">
               <td>{{ tabla.nombreProducto }}</td>
-              <td>{{ tabla.idcategoria }}</td>
+              <td>{{ tabla.categorianombre }}</td>
               <td>{{ tabla.idtipo }}</td>
               <td>{{ tabla.cantidad }}</td>
             </tr>
@@ -132,10 +125,16 @@
       <br />
 
       <div class="buttons">
-        <button class="btn btn-primary" (click)="cerrar()">
-          Volver
+        <button class="btn btn-info" (click)="cerrar()">Volver</button>
+        <button class="btn btn-info" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'" (click)="Rechazar()">Rechazar Solicitud</button>
+        <button class="btn btn-info" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'" (click)="Pendiente()">Poner en Pendiente de Stock</button>
+        <button
+          class="btn btn-info"
+          (click)="resolver()"
+          *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'"
+        >
+          Resolver
         </button>
-        <button class="btn btn-primary">Resolver</button>
       </div>
     </div>
   </div>

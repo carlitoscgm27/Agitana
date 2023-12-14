@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #54d9c9b0;
+    background-color: grey;
   
     margin-left: 2em;
     box-shadow: 4px 8px 8px 8px #2f4858;
@@ -13,7 +13,7 @@
   .DivRegister {
     width: 80vw;
     height: auto;
-    background-color: #7fffd4;
+    background-color: lightgray;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -36,7 +36,7 @@
   }
   
   .Table th {
-    background-color: #7fffd4;
+    background-color: white;
   }
   
   .Table tr:nth-child(even) {

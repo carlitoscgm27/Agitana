@@ -14,22 +14,23 @@ export class DonacionesComponent {
   donacion: any;
   Donaciones: any;
   tabla: Tabla[] = [];
+  productos: any;
   nombreProducto: any;
   categoriaProducto: any;
   tipoProducto: any;
   cantidad: any;
   idProducto: any;
-  idCategoria: any;
-  idTipo: any;
+  suma: any;
+  Stock: any;
+  CreateStock: any;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.listarDonacion().subscribe(
       (response) => {
         console.log('response', response);
         this.responseData = response;
-
       },
       (error) => {
         console.log('error', error);
@@ -42,32 +43,12 @@ export class DonacionesComponent {
     this.userService.getProductos().subscribe(
       (response) => {
         console.log('response', response);
-        this.nombreProducto = response;
+        this.productos = response;
       },
       (error) => {
         console.log('error', error);
       }
     );
-    this.userService.getCategoria().subscribe(
-      (response) => {
-        console.log('response', response);
-        this.categoriaProducto = response;
-      },
-      (error) => {
-        console.log('error', error);
-      }
-    );
-
-    this.userService.getTipo().subscribe(
-      (response) => {
-        console.log('response', response);
-        this.tipoProducto = response;
-      },
-      (error) => {
-        console.log('error', error);
-      }
-    );
-
   }
   administrar(donacion: number) {
     console.log(donacion);
@@ -78,7 +59,6 @@ export class DonacionesComponent {
       },
       (error) => {
         console.log('error', error);
-
       }
     );
 
@@ -92,62 +72,199 @@ export class DonacionesComponent {
     }
 
     this.isVisible = !this.isVisible;
+    this.tabla = [];
+    this.idProducto = '';
+    this.cantidad = '';
   }
 
   borrarDonacion(id: number): void {
     window.alert('Has eliminado el numero: ' + id);
   }
 
- 
-  subir() {
-
+  subir(cantidad: any) {
     this.userService.getProductosId(this.idProducto).subscribe(
       (response) => {
         console.log('response', response);
-        
-      },
-      (error) => {
-        console.log('error', error);
-      }
-    );
-    this.userService.getCategoria().subscribe(
-      (response) => {
-        console.log('response', response);
-        
+        this.nombreProducto = response;
+
+        const tablas: Tabla = {
+          nombreProducto: this.nombreProducto.nombre,
+          idcategoria: this.nombreProducto.categoriaDTO.id,
+          idtipo: this.nombreProducto.tipoDTO.nombre,
+          cantidad: cantidad,
+          id: this.nombreProducto.id,
+          nombre: '',
+          cantidadFinal: undefined,
+          categorianombre: this.nombreProducto.categoriaDTO.nombre,
+          idnombre: 0,
+        };
+
+        this.tabla.push(tablas);
       },
       (error) => {
         console.log('error', error);
       }
     );
 
-    this.userService.getTipo().subscribe(
-      (response) => {
-        console.log('response', response);
-        
-      },
-      (error) => {
-        console.log('error', error);
-      }
-    );
+    this.idProducto = '';
+    this.cantidad = '';
+  }
+  Rechazar() {
+    this.userService
+      .modificarDona(
+        this.Donaciones.id,
+        this.Donaciones.descripcion_producto,
+        '2'
+      )
+      .subscribe(
+        (response) => {
+          console.log('response', response);
 
-    const tablas: Tabla = {
-      nombreProducto: this.nombreProducto[this.idProducto].nombre,
-      idcategoria: this.idCategoria,
-      idtipo: this.idTipo,
-      cantidad: this.cantidad,
-      id: 0,
-      nombre: '',
-      cantidadFinal: undefined,
-      categorianombre: '',
-      idnombre: 0
-    };
-    console.log(this.idProducto)
-    this.tabla.push(tablas);
-    this.idProducto = ""
-    this.idCategoria = ""
-    this.idTipo = ""
-    this.cantidad = ""
+          window.alert('Cambio la Donación a Rechazada');
+          window.location.reload();
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
+  }
+  Pendiente() {
+    this.userService
+      .modificarDona(
+        this.Donaciones.id,
+        this.Donaciones.descripcion_producto,
+        '1'
+      )
+      .subscribe(
+        (response) => {
+          console.log('response', response);
 
+          window.alert('Cambio la Donación a Pendiente de Stock');
+
+          window.location.reload();
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
+  }
+  resolver() {
+    console.log(this.tabla);
+    for (var i = 0; i < this.tabla.length; i += 1) {
+      this.userService.listarStocksProductos(this.tabla[i].id).subscribe(
+        (response) => {
+          console.log('response', response);
+          this.Stock = response;
+          if (this.Stock.length === 0) {
+            console.log('entro dentro del if');
+            i = i - 1;
+            this.userService
+              .crearStock(
+                this.tabla[i].cantidad,
+                this.tabla[i].id,
+                this.tabla[i].idcategoria
+              )
+              .subscribe(
+                (response) => {
+                  console.log('response', response);
+                  this.userService.listarStocksProductos(response.id).subscribe(
+                    (response) => {
+                      console.log('response', response);
+                      this.CreateStock = response;
+                      this.userService
+                        .modificarStock(
+                          this.CreateStock[0].id,
+                          this.tabla[i].cantidad
+                        )
+                        .subscribe(
+                          (response) => {
+                            console.log('response', response);
+                          },
+                          (error) => {
+                            console.log('error', error);
+                          }
+                        );
+                      this.userService
+                        .crearMovimiento(
+                          0,
+                          this.Donaciones.id,
+                          this.tabla[i].cantidad,
+                          this.Stock[0].id
+                        )
+                        .subscribe(
+                          (response) => {
+                            console.log('response', response);
+                          },
+                          (error) => {
+                            console.log('error', error);
+                          }
+                        );
+                    },
+                    (error) => {
+                      console.log('error', error);
+                    }
+                  );
+                },
+                (error) => {
+                  console.log('error', error);
+                }
+              );
+          } else {
+            i = i - 1;
+            this.suma = this.tabla[i].cantidad + this.Stock[0].cantidad;
+            console.log('sumaaaaaaaaaaaa2', this.Stock[0].cantidad);
+            console.log('sumaaaaaaaaaaaa3', this.tabla[i].cantidad);
+            console.log('sumaaaaaaaaaaaa4', this.suma);
+            this.userService
+              .modificarStock(this.Stock[0].id, this.suma)
+              .subscribe(
+                (response) => {
+                  console.log('response', response);
+                },
+                (error) => {
+                  console.log('error', error);
+                }
+              );
+            this.userService
+              .crearMovimiento(
+                0,
+                this.Donaciones.id,
+                this.tabla[i].cantidad,
+                this.Stock[0].id
+              )
+              .subscribe(
+                (response) => {
+                  console.log('response', response);
+                },
+                (error) => {
+                  console.log('error', error);
+                }
+              );
+          }
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
+    }
+    this.userService
+      .modificarDona(
+        this.Donaciones.id,
+        this.Donaciones.descripcion_producto,
+        '3'
+      )
+      .subscribe(
+        (response) => {
+          console.log('response', response);
+          window.alert(
+            'Se updateo a Aceptada la Donación: ' + this.Donaciones.id
+          );
+
+          window.location.reload();
+        },
+        (error) => {
+          console.log('error', error);
+        }
+      );
   }
 }
-
