@@ -105,11 +105,11 @@ h2 {
   font-family: 'Courier New', monospace;
   font-size: 1.65em;
   text-align: center;
-  border: black 0.35em inset;
+  border: 8px groove grey;
   background-color: #454545;
   color: white;
   width: 25vw;
-  height: 30vh;
+  height: auto;
   margin: 2em;
 }
 

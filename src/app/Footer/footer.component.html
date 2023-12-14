@@ -1,33 +1,61 @@
 <footer class="footer">
-    <div class="footer-column">
-      <img class="logo" src="assets/imagenes/logo.png">
-    </div>
-  
-    <div class="footer-column">
-      <h3>Enlaces</h3>
-      <ul>
-        <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/Donar">Donar</a></li>
-      <li><a routerLink="/contacto">Contacto</a></li>
-      </ul>
-    </div>
-  
-    <div class="footer-column">
-      <h3>Redes Sociales</h3>
-      <ul class="wrapper">
-        <li class="icon facebook">
-            <span class="tooltip">Facebook</span>
-            <span><i class="fab fa-facebook-f"><a href="https://www.instagram.com/cruzrojaesp/?hl=es" target="_blank"><img class="icon" src="assets/imagenes/facebook.png"></a></i></span>
-        </li>
-        <li class="icon twitter">
-            <span class="tooltip">Twitter</span>
-            <span><i class="fab fa-twitter"><a href="https://twitter.com/cruzrojaesp?lang=es" target="_blank"><img class="icon" src="assets/imagenes/twiter.png"></a></i></span>
-        </li>
-        <li class="icon instagram">
-            <span class="tooltip">Instagram</span>
-            <span><i class="fab fa-instagram"><a href="https://www.instagram.com/cruzrojaesp/?hl=es" target="_blank"><img class="icon" src="assets/imagenes/instagram.png"></a></i></span>
-        </li>
+  <div class="footer-column">
+    <img class="logo" src="assets/imagenes/logo.png" />
+  </div>
+
+  <div class="footer-column" *ngIf="this.rol === null">
+    <h3>Enlaces</h3>
+    <ul>
+      <li><a routerLink="/">Inicio</a></li>
     </ul>
-    </div>
-  </footer>
-  
+  </div>
+  <div class="footer-column" *ngIf="this.userTipo === 'DONANTE'">
+    <h3>Enlaces</h3>
+    <ul>
+      <li><a routerLink="User/InicioDonante">Inicio</a></li>
+    </ul>
+  </div>
+  <div class="footer-column" *ngIf="this.userTipo === 'RECIBIDOR'">
+    <h3>Enlaces</h3>
+    <ul>
+      <li><a routerLink="User/InicioRecibidor">Inicio</a></li>
+    </ul>
+  </div>
+  <div class="footer-column" *ngIf="this.rol === 'ADMIN'">
+    <h3>Enlaces</h3>
+  </div>
+
+  <div class="footer-column">
+    <h3>Redes Sociales</h3>
+    <ul class="wrapper">
+      <li class="icon facebook">
+        <span class="tooltip">Facebook</span>
+        <span
+          ><i class="fab fa-facebook-f"
+            ><a
+              href="https://www.instagram.com/cruzrojaesp/?hl=es"
+              target="_blank"
+              ><img class="icon" src="assets/imagenes/facebook.png" /></a></i
+        ></span>
+      </li>
+      <li class="icon twitter">
+        <span class="tooltip">Twitter</span>
+        <span
+          ><i class="fab fa-twitter"
+            ><a href="https://twitter.com/cruzrojaesp?lang=es" target="_blank"
+              ><img class="icon" src="assets/imagenes/twiter.png" /></a></i
+        ></span>
+      </li>
+      <li class="icon instagram">
+        <span class="tooltip">Instagram</span>
+        <span
+          ><i class="fab fa-instagram"
+            ><a
+              href="https://www.instagram.com/cruzrojaesp/?hl=es"
+              target="_blank"
+              ><img class="icon" src="assets/imagenes/instagram.png" /></a></i
+        ></span>
+      </li>
+    </ul>
+  </div>
+</footer>

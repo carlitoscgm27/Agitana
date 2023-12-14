@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <div class="crear" *ngIf="this.Donaciones.estado !== 'ACEPTADA'">
+      <div class="crear" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
         <div class="div">
           <label>Nombre del producto</label>
           <select [(ngModel)]="idProducto" name="idCategoria">
@@ -88,7 +88,7 @@
 
       <br />
 
-      <div class="boton" *ngIf="this.Donaciones.estado !== 'ACEPTADA'">
+      <div class="boton" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
         <button class="btn btn-info" (click)="subir(cantidad)">Subir</button>
       </div>
 
@@ -98,8 +98,11 @@
         <div *ngIf="this.Donaciones.estado == 'ACEPTADA'">
           <h1>Esta Donación fue Aceptada</h1>
         </div>
+        <div *ngIf="this.Donaciones.estado == 'RECHAZADA'">
+          <h1>Esta Donación fue Rechazada</h1>
+        </div>
 
-        <table class="Table" *ngIf="this.Donaciones.estado !== 'ACEPTADA'">
+        <table class="Table" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'">
           <thead>
             <tr>
               <th>Nombre del Producto</th>
@@ -123,10 +126,12 @@
 
       <div class="buttons">
         <button class="btn btn-info" (click)="cerrar()">Volver</button>
+        <button class="btn btn-info" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'" (click)="Rechazar()">Rechazar Solicitud</button>
+        <button class="btn btn-info" *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'" (click)="Pendiente()">Poner en Pendiente de Stock</button>
         <button
           class="btn btn-info"
           (click)="resolver()"
-          *ngIf="this.Donaciones.estado !== 'ACEPTADA'"
+          *ngIf="this.Donaciones.estado !== 'ACEPTADA' && this.Donaciones.estado !== 'RECHAZADA'"
         >
           Resolver
         </button>

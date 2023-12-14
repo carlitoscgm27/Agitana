@@ -72,6 +72,33 @@ export class SolicitudesComponent {
     this.tabla = [];
     this.idCategoria = '';
   }
+  Rechazar() {
+    this.userService.modificarSoli(this.Solicitudes.id, '2').subscribe(
+      (response) => {
+        console.log('response', response);
+        
+        window.alert('Cambio la Solicitud a Rechazada');
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
+  Pendiente() {
+    this.userService.modificarSoli(this.Solicitudes.id, '1').subscribe(
+      (response) => {
+        console.log('response', response);
+        
+        window.alert('Cambio la Solicitud a Pendiente de Stock');
+
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    );
+  }
   loadProductos(id: number) {
     this.userService.listarStocksCategoria(id).subscribe(
       (response) => {
@@ -163,7 +190,7 @@ export class SolicitudesComponent {
 
     window.alert('Termino la subida');
 
-    this.userService.modificarSoli(this.Solicitudes.id, '4').subscribe(
+    this.userService.modificarSoli(this.Solicitudes.id, '3').subscribe(
       (response) => {
         console.log('response', response);
         window.alert(
