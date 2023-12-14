@@ -1,32 +1,74 @@
 <br />
 <div class="Div">
   <div class="DivRegister">
-    <div class="DivContainer">
+    <div class="DivContainer" [formGroup]="productoForm">
       <div class="Divs">
         <label for="nombre">Nombre de Producto</label>
         <div>
-          <input type="text" name="nombre" [(ngModel)]="nombre" />
+          <input
+            type="text"
+            name="nombre"
+            [(ngModel)]="nombre"
+            id="nombre"
+            formControlName="nombre"
+            (blur)="touched.nombre = true"
+          />
+          <div
+            *ngIf="
+              touched.nombre && productoForm.get('nombre')?.hasError('required')
+            "
+          >
+            <p class="error">Nombre del producto requerido</p>
+          </div>
         </div>
       </div>
       <br />
       <div class="Divs">
         <label>Categoria del producto</label>
         <br />
-        <select [(ngModel)]="idCategoria" name="idCategoria">
+        <select
+          [(ngModel)]="idCategoria"
+          name="idCategoria"
+          id="idCategoria"
+          formControlName="idCategoria"
+          (blur)="touched.idCategoria = true"
+        >
           <option *ngFor="let item of categoria" [value]="item.id">
             {{ item.nombre }}
           </option>
         </select>
+        <div
+          *ngIf="
+            touched.idCategoria &&
+            productoForm.get('idCategoria')?.hasError('required')
+          "
+        >
+          <p class="error">Caregoria requerido</p>
+        </div>
       </div>
       <br />
       <div class="Divs">
         <label>Tipo del producto</label>
         <br />
-        <select [(ngModel)]="idTipo" name="idTipo">
+        <select
+          [(ngModel)]="idTipo"
+          name="idTipo"
+          id="idTipo"
+          formControlName="idTipo"
+          (blur)="touched.idTipo = true"
+        >
           <option *ngFor="let item of tipo" [value]="item.id">
             {{ item.nombre }}
           </option>
         </select>
+        <div
+          *ngIf="
+            touched.idTipo &&
+            productoForm.get('idTipo')?.hasError('required')
+          "
+        >
+          <p class="error">Caregoria requerido</p>
+        </div>
       </div>
       <br />
       <div class="Divs">
@@ -34,6 +76,7 @@
           type="button"
           class="btn btn-outline-dark"
           (click)="crearProducto()"
+          [disabled]="!productoForm.valid"
         >
           Crear
         </button>

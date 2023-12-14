@@ -27,31 +27,76 @@
   <br />
 </div> -->
 
-<div class="body">
-  <img id="imagen" src="../../../../assets/imagenes/foto_donador_3.jpg" alt="">
-  <div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <form>
-      <header>Donación</header>
-      <p class="message">Introduzca sus datos para efectuar la donación</p>
-      <label id="label"> Categoria </label>
-      <br>   
-      <select id="select" [(ngModel)]="idCategoria" name="idCategoria">
-
-        <option *ngFor="let item of categoria" [value]="item.id">
-          {{item.nombre}}
-        </option>
-
-      </select>
-      <br>
-      <label>
-        <p>Describe lo que va a donar:</p>
-        <textarea id="texto" class="input" type="text" name="descripcion_producto" [(ngModel)]="descripcion_producto"></textarea>
-      </label>
-      <br>
-      <button class="submit" (click)="onSubmit()">Enviar</button>
-    </form>
+<div class="body" >
+  <img
+    id="imagen"
+    src="../../../../assets/imagenes/foto_donador_3.jpg"
+    alt=""
+  />
+  <div class="container" >
+    <input type="checkbox" id="check" />
+    <div class="login form"  >
+      <form action="#" [formGroup]="donaForm">
+        <header>Donación</header>
+        <p class="message">Introduzca sus datos para efectuar la donación</p>
+        <label id="label"> Categoria </label>
+        <br />
+        <select
+          id="select"
+          [(ngModel)]="idCategoria"
+          name="idCategoria"
+          id="idCategoria"
+          formControlName="idCategoria"
+          (blur)="touched.idCategoria = true"
+        >
+          <option *ngFor="let item of categoria" [value]="item.id">
+            {{ item.nombre }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            touched.idCategoria &&
+            donaForm.get('idCategoria')?.hasError('required')
+          "
+        >
+          <p class="error">Categoria requerida</p>
+        </div>
+        <br />
+        <label>
+          <p>Describe lo que va a donar:</p>
+          <textarea
+            id="texto"
+            class="input"
+            type="text"
+            name="descripcion_producto"
+            [(ngModel)]="descripcion_producto"
+            id="descripcion_producto"
+            formControlName="descripcion_producto"
+            (blur)="touched.descripcion_producto = true"
+            minlength="15"
+            required
+          ></textarea>
+          <div *ngIf="donaForm.get('descripcion_producto')?.hasError('minlength')">
+            <p class="error">La contraseña debe tener al menos 15 caracteres</p>
+          </div>
+          <div
+            *ngIf="
+              touched.descripcion_producto &&
+              donaForm.get('descripcion_producto')?.hasError('required')
+            "
+          >
+            <p class="error">Texto requerido requerido</p>
+          </div>
+        </label>
+        <br />
+        <button
+          class="submit"
+          (click)="onSubmit()"
+          [disabled]="!donaForm.valid"
+        >
+          Enviar
+        </button>
+      </form>
     </div>
   </div>
 </div>

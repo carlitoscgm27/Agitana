@@ -1,24 +1,59 @@
-<br>
+<br />
 <div class="Div">
   <div class="DivRegister">
-    <div class="DivContainer">
+    <div class="DivContainer" [formGroup]="cateForm">
       <div class="Divs">
         <label for="categoria">Nombre de la categoria</label>
         <div>
-          <input type="text" name="categoria" [(ngModel)]="nombre" />
+          <input
+            type="text"
+            name="categoria"
+            [(ngModel)]="nombre"
+            id="nombre"
+            formControlName="nombre"
+            (blur)="touched.nombre = true"
+          />
+          <div
+            *ngIf="
+              touched.nombre && cateForm.get('nombre')?.hasError('required')
+            "
+          >
+            <p class="error">Nombre de la categoria requerido</p>
+          </div>
         </div>
       </div>
       <div class="Divs">
         <label for="descripcion">Nombre de la descripcion</label>
         <div>
-          <input type="text" name="descripcion" [(ngModel)]="descripcion" />
+          <input
+            type="text"
+            name="descripcion"
+            [(ngModel)]="descripcion"
+            id="descripcion"
+            formControlName="descripcion"
+            (blur)="touched.descripcion = true"
+          />
+          <div
+            *ngIf="
+              touched.descripcion && cateForm.get('descripcion')?.hasError('required')
+            "
+          >
+            <p class="error">Nombre de la categoria requerido</p>
+          </div>
         </div>
       </div>
-      <br>
+      <br />
       <div class="Divs">
-        <button type="button" class="btn btn-outline-dark" (click)="crearCategoria()">Crear</button>
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="crearCategoria()"
+          [disabled]="!cateForm.valid"
+        >
+          Crear
+        </button>
       </div>
     </div>
   </div>
 </div>
-<br>
+<br />

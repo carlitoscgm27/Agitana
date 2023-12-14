@@ -183,6 +183,16 @@
   font-size: 0.7em;
   font-weight: 600;
 }
+.error{
+  color: red;
+  margin-bottom: 1em;
+  font-size: 15px;
+}
+.form button:disabled{
+  background-color: #009579;
+  opacity: 50%;
+}
+
 
 
   
