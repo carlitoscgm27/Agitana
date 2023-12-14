@@ -269,9 +269,14 @@ export class UserService {
     console.log(credentials);
     return this.http.put(`${this.authUrl}/${this.SolicitudModi}`, credentials);
   }
-  modificarDona(id: any, estado: any): Observable<any> {
+  modificarDona(
+    id: any,
+    descripcion_producto: any,
+    estado: any
+  ): Observable<any> {
     const credentials = {
       id: id,
+      descripcion_producto: descripcion_producto,
       estado: estado,
     };
     console.log(credentials);
